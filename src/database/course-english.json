@@ -1,0 +1,52 @@
+{
+  "id": "english",
+  "name": "English",
+  "icon": "fa-solid fa-book-open",
+  "color": "#f59e0b",
+  "units": [
+    {
+      "id": "english-u1",
+      "title": "Parts of Speech",
+      "icon": "fa-solid fa-font",
+      "lessons": [
+        { "id": "english-u1-l1", "title": "Nouns", "description": "Learn about words that name people, places, and things." },
+        { "id": "english-u1-l2", "title": "Verbs", "description": "Discover action words — run, jump, think, and more." },
+        { "id": "english-u1-l3", "title": "Adjectives", "description": "Add describing words to make sentences more colorful." },
+        { "id": "english-u1-l4", "title": "Adverbs", "description": "Learn words that tell how, when, or where something happens." }
+      ]
+    },
+    {
+      "id": "english-u2",
+      "title": "Reading Comprehension",
+      "icon": "fa-solid fa-glasses",
+      "lessons": [
+        { "id": "english-u2-l1", "title": "Finding the Main Idea", "description": "Figure out what a story or passage is mostly about." },
+        { "id": "english-u2-l2", "title": "Story Characters", "description": "Get to know who the characters are and what they do." },
+        { "id": "english-u2-l3", "title": "Setting", "description": "Learn to identify where and when a story takes place." },
+        { "id": "english-u2-l4", "title": "Beginning, Middle, End", "description": "Every story has three parts — find them!" }
+      ]
+    },
+    {
+      "id": "english-u3",
+      "title": "Writing Sentences",
+      "icon": "fa-solid fa-pencil",
+      "lessons": [
+        { "id": "english-u3-l1", "title": "What Makes a Sentence?", "description": "Every sentence needs a subject and a verb." },
+        { "id": "english-u3-l2", "title": "Statements", "description": "Write sentences that tell something and end with a period." },
+        { "id": "english-u3-l3", "title": "Questions", "description": "Write sentences that ask something and end with a question mark." },
+        { "id": "english-u3-l4", "title": "Exclamations", "description": "Write exciting sentences that end with an exclamation point!" }
+      ]
+    },
+    {
+      "id": "english-u4",
+      "title": "Spelling & Vocabulary",
+      "icon": "fa-solid fa-spell-check",
+      "lessons": [
+        { "id": "english-u4-l1", "title": "Short Vowel Words", "description": "Practice words like cat, bed, pig, hot, and bug." },
+        { "id": "english-u4-l2", "title": "Long Vowel Words", "description": "Learn words with silent e — like cake, bike, and home." },
+        { "id": "english-u4-l3", "title": "Blends and Digraphs", "description": "Master sounds like bl, tr, sh, ch, and th." },
+        { "id": "english-u4-l4", "title": "Compound Words", "description": "Put two words together — sun + flower = sunflower!" }
+      ]
+    }
+  ]
+}

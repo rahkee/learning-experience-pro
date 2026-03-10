@@ -1,0 +1,52 @@
+{
+  "id": "science",
+  "name": "Science",
+  "icon": "fa-solid fa-flask",
+  "color": "#10b981",
+  "units": [
+    {
+      "id": "science-u1",
+      "title": "Plants & How They Grow",
+      "icon": "fa-solid fa-seedling",
+      "lessons": [
+        { "id": "science-u1-l1", "title": "Parts of a Plant", "description": "Learn about roots, stems, leaves, and flowers." },
+        { "id": "science-u1-l2", "title": "What Plants Need", "description": "Discover that plants need sunlight, water, air, and soil." },
+        { "id": "science-u1-l3", "title": "Seeds and Germination", "description": "Watch how a tiny seed sprouts into a plant." },
+        { "id": "science-u1-l4", "title": "Photosynthesis for Kids", "description": "Learn how plants make their own food using sunlight." }
+      ]
+    },
+    {
+      "id": "science-u2",
+      "title": "Animals & Habitats",
+      "icon": "fa-solid fa-paw",
+      "lessons": [
+        { "id": "science-u2-l1", "title": "Animal Groups", "description": "Meet mammals, birds, reptiles, fish, and amphibians." },
+        { "id": "science-u2-l2", "title": "What Is a Habitat?", "description": "Learn that a habitat is the place where an animal lives." },
+        { "id": "science-u2-l3", "title": "Forest Habitats", "description": "Explore the animals that live among the trees." },
+        { "id": "science-u2-l4", "title": "Ocean Habitats", "description": "Dive into the sea and meet ocean creatures." }
+      ]
+    },
+    {
+      "id": "science-u3",
+      "title": "Weather & Seasons",
+      "icon": "fa-solid fa-cloud-sun",
+      "lessons": [
+        { "id": "science-u3-l1", "title": "Types of Weather", "description": "Sunny, rainy, snowy, windy — learn them all." },
+        { "id": "science-u3-l2", "title": "The Water Cycle", "description": "Follow water as it moves from clouds to ground and back." },
+        { "id": "science-u3-l3", "title": "Clouds and Rain", "description": "Find out what clouds are made of and why it rains." },
+        { "id": "science-u3-l4", "title": "The Four Seasons", "description": "Explore spring, summer, fall, and winter." }
+      ]
+    },
+    {
+      "id": "science-u4",
+      "title": "Matter & Materials",
+      "icon": "fa-solid fa-atom",
+      "lessons": [
+        { "id": "science-u4-l1", "title": "Solids, Liquids, and Gases", "description": "Learn the three states of matter with everyday examples." },
+        { "id": "science-u4-l2", "title": "Properties of Matter", "description": "Describe objects by color, size, shape, and texture." },
+        { "id": "science-u4-l3", "title": "Heating and Cooling", "description": "See what happens when you heat or cool matter." },
+        { "id": "science-u4-l4", "title": "Mixing Materials", "description": "Explore what happens when you mix things together." }
+      ]
+    }
+  ]
+}

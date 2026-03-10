@@ -1,0 +1,52 @@
+{
+  "id": "social-studies",
+  "name": "Social Studies",
+  "icon": "fa-solid fa-globe",
+  "color": "#ef4444",
+  "units": [
+    {
+      "id": "social-u1",
+      "title": "My Community",
+      "icon": "fa-solid fa-people-group",
+      "lessons": [
+        { "id": "social-u1-l1", "title": "What Is a Community?", "description": "Learn that a community is a place where people live, work, and play together." },
+        { "id": "social-u1-l2", "title": "Community Helpers", "description": "Meet firefighters, doctors, teachers, and other helpers." },
+        { "id": "social-u1-l3", "title": "Rules and Laws", "description": "Understand why communities need rules to stay safe." },
+        { "id": "social-u1-l4", "title": "Urban, Suburban, and Rural", "description": "Compare life in a city, suburb, and the countryside." }
+      ]
+    },
+    {
+      "id": "social-u2",
+      "title": "Maps & Geography",
+      "icon": "fa-solid fa-map",
+      "lessons": [
+        { "id": "social-u2-l1", "title": "What Is a Map?", "description": "Learn that maps show us places from above." },
+        { "id": "social-u2-l2", "title": "Map Symbols and Keys", "description": "Read a map legend to understand what the symbols mean." },
+        { "id": "social-u2-l3", "title": "Continents and Oceans", "description": "Name the 7 continents and 5 oceans of the world." },
+        { "id": "social-u2-l4", "title": "Cardinal Directions", "description": "Learn north, south, east, and west with a compass rose." }
+      ]
+    },
+    {
+      "id": "social-u3",
+      "title": "American History Basics",
+      "icon": "fa-solid fa-flag-usa",
+      "lessons": [
+        { "id": "social-u3-l1", "title": "The First Americans", "description": "Learn about Native American peoples and their way of life." },
+        { "id": "social-u3-l2", "title": "Explorers", "description": "Discover the explorers who traveled to the Americas." },
+        { "id": "social-u3-l3", "title": "The 13 Colonies", "description": "Learn how the first 13 colonies were formed." },
+        { "id": "social-u3-l4", "title": "The American Revolution", "description": "Find out how America became its own country." }
+      ]
+    },
+    {
+      "id": "social-u4",
+      "title": "Government & Citizens",
+      "icon": "fa-solid fa-landmark",
+      "lessons": [
+        { "id": "social-u4-l1", "title": "What Is Government?", "description": "Learn why we need leaders to make decisions for everyone." },
+        { "id": "social-u4-l2", "title": "The President", "description": "Find out what the President does and where they live." },
+        { "id": "social-u4-l3", "title": "Making Laws", "description": "See how an idea becomes a law that everyone follows." },
+        { "id": "social-u4-l4", "title": "Voting", "description": "Understand how people choose their leaders by voting." }
+      ]
+    }
+  ]
+}

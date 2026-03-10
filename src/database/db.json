@@ -1,0 +1,50 @@
+{
+  "student": {
+    "id": "student-001",
+    "firstName": "Alex",
+    "lastName": "Morgan",
+    "grade": "3rd",
+    "avatar": "fa-solid fa-graduation-cap",
+    "firstSignOn": "2025-09-02",
+    "lastSignIn": "2026-03-10",
+    "graduationDate": "2026-09-02"
+  },
+  "courses": [
+    {
+      "courseId": "math",
+      "enrolled": true,
+      "progress": 0,
+      "currentLessonId": "math-u1-l1",
+      "currentPage": 0,
+      "completedLessons": [],
+      "quizScores": {}
+    },
+    {
+      "courseId": "science",
+      "enrolled": true,
+      "progress": 0,
+      "currentLessonId": "science-u1-l1",
+      "currentPage": 0,
+      "completedLessons": [],
+      "quizScores": {}
+    },
+    {
+      "courseId": "english",
+      "enrolled": true,
+      "progress": 0,
+      "currentLessonId": "english-u1-l1",
+      "currentPage": 0,
+      "completedLessons": [],
+      "quizScores": {}
+    },
+    {
+      "courseId": "social-studies",
+      "enrolled": true,
+      "progress": 0,
+      "currentLessonId": "social-u1-l1",
+      "currentPage": 0,
+      "completedLessons": [],
+      "quizScores": {}
+    }
+  ]
+}
