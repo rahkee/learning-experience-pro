@@ -13,6 +13,8 @@
       "id": "social-u1",
       "title": "My Community",
       "icon": "fa-solid fa-people-group",
+      "description": "What makes a community? Meet helpers, learn about rules and laws, and compare city, suburb, and country.",
+      "image": "/unit-social-u1.png",
       "lessons": [
         {
           "id": "social-u1-l1",
@@ -344,6 +346,8 @@
       "id": "social-u2",
       "title": "Maps & Geography",
       "icon": "fa-solid fa-map",
+      "description": "Read maps and keys, find the continents and oceans, and learn north, south, east, and west!",
+      "image": "/unit-social-u2.png",
       "lessons": [
         {
           "id": "social-u2-l1",
@@ -675,6 +679,8 @@
       "id": "social-u3",
       "title": "American History Basics",
       "icon": "fa-solid fa-flag-usa",
+      "description": "The first Americans, explorers, the 13 colonies, and the American Revolution—the story of how America began.",
+      "image": "/unit-social-u3.png",
       "lessons": [
         {
           "id": "social-u3-l1",
@@ -1006,6 +1012,8 @@
       "id": "social-u4",
       "title": "Government & Citizens",
       "icon": "fa-solid fa-landmark",
+      "description": "What is government? Learn about the President, how laws are made, and why voting matters.",
+      "image": "/unit-social-u4.png",
       "lessons": [
         {
           "id": "social-u4-l1",

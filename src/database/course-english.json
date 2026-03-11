@@ -13,6 +13,8 @@
       "id": "english-u1",
       "title": "Parts of Speech",
       "icon": "fa-solid fa-font",
+      "description": "Nouns, verbs, adjectives, and adverbs—meet the building blocks of every sentence!",
+      "image": "/unit-english-u1.png",
       "lessons": [
         {
           "id": "english-u1-l1",
@@ -344,6 +346,8 @@
       "id": "english-u2",
       "title": "Reading Comprehension",
       "icon": "fa-solid fa-glasses",
+      "description": "Find the main idea, get to know characters and setting, and see how stories have a beginning, middle, and end.",
+      "image": "/unit-english-u2.png",
       "lessons": [
         {
           "id": "english-u2-l1",
@@ -675,6 +679,8 @@
       "id": "english-u3",
       "title": "Writing Sentences",
       "icon": "fa-solid fa-pencil",
+      "description": "What makes a sentence? Write statements, questions, and exclamations that shine!",
+      "image": "/unit-english-u3.png",
       "lessons": [
         {
           "id": "english-u3-l1",
@@ -1006,6 +1012,8 @@
       "id": "english-u4",
       "title": "Spelling & Vocabulary",
       "icon": "fa-solid fa-spell-check",
+      "description": "Short vowels, long vowels, blends, digraphs, and compound words—build your word power!",
+      "image": "/unit-english-u4.png",
       "lessons": [
         {
           "id": "english-u4-l1",

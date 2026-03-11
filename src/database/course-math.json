@@ -13,6 +13,8 @@
       "id": "math-u1",
       "title": "Addition & Subtraction",
       "icon": "fa-solid fa-plus-minus",
+      "description": "Add and subtract with confidence! Master counting on, number bonds, and fact families so you can solve problems quickly.",
+      "image": "/unit-math-u1.png",
       "lessons": [
         {
           "id": "math-u1-l1",
@@ -344,6 +346,8 @@
       "id": "math-u2",
       "title": "Multiplication Basics",
       "icon": "fa-solid fa-xmark",
+      "description": "Discover how multiplication is like adding groups together. Learn the times tables from 1 to 9 with fun tricks and patterns.",
+      "image": "/unit-math-u2.png",
       "lessons": [
         {
           "id": "math-u2-l1",
@@ -675,6 +679,8 @@
       "id": "math-u3",
       "title": "Division Basics",
       "icon": "fa-solid fa-divide",
+      "description": "Split things fairly! Learn how division works, practice dividing by 2 through 5, and see how it connects to multiplication.",
+      "image": "/unit-math-u3.png",
       "lessons": [
         {
           "id": "math-u3-l1",
@@ -1006,6 +1012,8 @@
       "id": "math-u4",
       "title": "Fractions",
       "icon": "fa-solid fa-pie-chart",
+      "description": "Parts of a whole! Explore halves, quarters, thirds, and sixths—and learn how to compare fractions like a pro.",
+      "image": "/unit-math-u4.png",
       "lessons": [
         {
           "id": "math-u4-l1",

@@ -13,6 +13,8 @@
       "id": "science-u1",
       "title": "Plants & How They Grow",
       "icon": "fa-solid fa-seedling",
+      "description": "Discover roots, stems, leaves, and flowers. Find out what plants need and how seeds sprout into life!",
+      "image": "/unit-science-u1.png",
       "lessons": [
         {
           "id": "science-u1-l1",
@@ -344,6 +346,8 @@
       "id": "science-u2",
       "title": "Animals & Habitats",
       "icon": "fa-solid fa-paw",
+      "description": "Meet mammals, birds, reptiles, and more! Explore where animals live—from forests to oceans.",
+      "image": "/unit-science-u2.png",
       "lessons": [
         {
           "id": "science-u2-l1",
@@ -675,6 +679,8 @@
       "id": "science-u3",
       "title": "Weather & Seasons",
       "icon": "fa-solid fa-cloud-sun",
+      "description": "Sun, rain, clouds, and snow! Follow the water cycle and discover the four seasons.",
+      "image": "/unit-science-u3.png",
       "lessons": [
         {
           "id": "science-u3-l1",
@@ -1006,6 +1012,8 @@
       "id": "science-u4",
       "title": "Matter & Materials",
       "icon": "fa-solid fa-atom",
+      "description": "Solids, liquids, and gases! Learn how heating and cooling change matter and what happens when you mix materials.",
+      "image": "/unit-science-u4.png",
       "lessons": [
         {
           "id": "science-u4-l1",

@@ -67,6 +67,38 @@ export default function CourseDetails() {
             {course.progress > 0 ? 'Continue' : 'Start'} course
           </button>
         </div>
+
+        {/* Units in this course */}
+        {course.units?.length > 0 && (
+          <section className="mt-12 pt-10 border-t border-gray-800">
+            <h2 className="text-xl font-bold mb-6">Units in this course</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {course.units.map((unit) => (
+                <article
+                  key={unit.id}
+                  style={{ '--unit-color': course.color ?? '#6366f1' }}
+                  className="group rounded-xl overflow-hidden bg-gray-900 border border-gray-800 hover:border-[var(--unit-color)] transition-colors"
+                >
+                  <div className="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+                    <img
+                      src={unit.image}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-[var(--unit-color)] transition-colors">
+                      {unit.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      {unit.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   )
