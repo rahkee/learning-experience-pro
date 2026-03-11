@@ -49,22 +49,19 @@ export default function NotificationPanel({ onClose }) {
   const mentionNotifs = getMentionNotifications(coursesWithSteps)
 
   const merged = useMemo(() => {
-    const seen = new Set()
-    const combined = []
+    const byElement = new Map()
     for (const t of allThreads) {
-      const key = `thread:${t.elementKey}`
-      if (!seen.has(key)) {
-        seen.add(key)
-        combined.push({ ...t, type: 'thread' })
-      }
+      byElement.set(t.elementKey, { ...t, type: 'thread' })
     }
     for (const m of mentionNotifs) {
-      const key = `mention:${m.elementKey}:${m.lastActivityTimestamp}`
-      if (!seen.has(key)) {
-        seen.add(key)
-        combined.push(m)
+      const existing = byElement.get(m.elementKey)
+      if (existing) {
+        existing.type = 'mention'
+      } else {
+        byElement.set(m.elementKey, m)
       }
     }
+    const combined = [...byElement.values()]
     combined.sort((a, b) => (b.lastActivityTimestamp ?? '').localeCompare(a.lastActivityTimestamp ?? ''))
     return combined
   }, [allThreads, mentionNotifs])
@@ -74,7 +71,7 @@ export default function NotificationPanel({ onClose }) {
     refresh()
     saveProgress(t.courseId, { currentLessonId: t.lessonId, currentPage: t.pageIndex })
     onClose()
-    navigate(`/play/${t.courseId}`)
+    navigate(`/play/${t.courseId}`, { state: { stepIndex: t.stepIndex, ts: Date.now() } })
   }
 
   const hasAny = merged.length > 0

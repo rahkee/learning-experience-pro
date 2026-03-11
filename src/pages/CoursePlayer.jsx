@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
 import { getStudentProgress, saveProgress } from '../data/progress.js'
 import LiveChat from '../components/LiveChat.jsx'
@@ -11,24 +11,34 @@ import { getUnreadCount } from '../data/discussions.js'
 export default function CoursePlayer() {
   const { courseId } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const course = getCourseWithProgress(courseId)
   const steps = course ? flattenCoursePages(course) : []
 
   const resolveStartIndex = useCallback(() => {
     if (steps.length === 0) return 0
+    const incoming = location.state?.stepIndex
+    if (typeof incoming === 'number' && incoming >= 0 && incoming < steps.length) return incoming
     const progress = getStudentProgress(courseId)
     if (!progress) return 0
     const idx = steps.findIndex(
       (s) => s.lessonId === progress.currentLessonId && s.pageIndex === (progress.currentPage ?? 0)
     )
     return idx >= 0 ? idx : 0
-  }, [courseId, steps])
+  }, [courseId, steps, location.state])
 
   const [currentIndex, setCurrentIndex] = useState(resolveStartIndex)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [answerLocked, setAnswerLocked] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  useEffect(() => {
+    const incoming = location.state?.stepIndex
+    if (typeof incoming === 'number' && incoming >= 0 && incoming < steps.length) {
+      setCurrentIndex(incoming)
+    }
+  }, [location.state, steps.length])
 
   useEffect(() => {
     window.scrollTo(0, 0)

@@ -5,8 +5,8 @@ const users = [
   { id: 'student-002', firstName: 'Jamie', lastName: 'Chen', role: 'student', color: '#f59e0b' },
   { id: 'student-003', firstName: 'Sam', lastName: 'Rivera', role: 'student', color: '#10b981' },
   { id: 'student-004', firstName: 'Mia', lastName: 'Thompson', role: 'student', color: '#ec4899' },
-  { id: 'teacher-001', firstName: 'Ms.', lastName: 'Taylor', role: 'teacher', color: '#ef4444' },
-  { id: 'mod-001', firstName: 'Mr.', lastName: 'Brooks', role: 'moderator', color: '#8b5cf6' },
+  { id: 'teacher-001', firstName: 'Sarah', lastName: 'Taylor', role: 'teacher', color: '#ef4444' },
+  { id: 'mod-001', firstName: 'Daniel', lastName: 'Brooks', role: 'moderator', color: '#8b5cf6' },
 ]
 
 const userMap = Object.fromEntries(users.map((u) => [u.id, u]))
@@ -28,7 +28,8 @@ export function getAllMentionableUsers() {
 
 export function getDisplayName(user) {
   if (!user) return 'Unknown'
-  return `${user.firstName} ${user.lastName}`
+  const prefix = user.role === 'teacher' ? 'Ms. ' : user.role === 'moderator' ? 'Mr. ' : ''
+  return `${prefix}${user.firstName} ${user.lastName}`
 }
 
 const teacherReplies = [
@@ -100,7 +101,8 @@ export function generateFakeReply(elementKey, commentText, parentCommentId) {
       ? mentioned[0]
       : pickRandom(users.filter((u) => u.id !== currentUserId))
 
-  const replyText = pickRandom(getRepliesForRole(responder.role))
+  const currentUser = userMap[currentUserId]
+  const replyText = `@${currentUser.firstName} ${pickRandom(getRepliesForRole(responder.role))}`
 
   return new Promise((resolve) => {
     setTimeout(() => {
