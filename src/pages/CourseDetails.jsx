@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
 import { saveProgress } from '../data/progress.js'
-import { seedCommunityChat } from '../data/discussions.js'
+import { seedChatroomChat } from '../data/discussions.js'
 import NotificationBell from '../components/NotificationBell.jsx'
-import CourseCommunity from '../components/CourseCommunity.jsx'
+import CourseChatroom from '../components/CourseChatroom.jsx'
 
 export default function CourseDetails() {
   const { courseId } = useParams()
@@ -17,7 +17,7 @@ export default function CourseDetails() {
   const steps = course ? flattenCoursePages(course) : []
 
   useEffect(() => {
-    if (course) seedCommunityChat(courseId, course.name)
+    if (course) seedChatroomChat(courseId, course.name, steps)
   }, [courseId, course?.name])
 
   if (!course) {
@@ -107,16 +107,16 @@ export default function CourseDetails() {
             </button>
             <button
               type="button"
-              onClick={() => setTab('community')}
+              onClick={() => setTab('chatroom')}
               className="px-5 py-2 rounded-full text-sm font-medium transition-colors"
               style={
-                tab === 'community'
+                tab === 'chatroom'
                   ? { backgroundColor: course.color, color: '#fff' }
                   : { backgroundColor: 'transparent', color: '#9ca3af', border: '1px solid #374151' }
               }
             >
-              <i className="fa-light fa-users mr-1.5" />
-              Community
+              <i className="fa-light fa-comments mr-1.5" />
+              Chatroom
             </button>
           </div>
 
@@ -197,8 +197,8 @@ export default function CourseDetails() {
             </div>
           )}
 
-          {tab === 'community' && (
-            <CourseCommunity
+          {tab === 'chatroom' && (
+            <CourseChatroom
               courseId={courseId}
               courseColor={course.color}
               steps={steps}

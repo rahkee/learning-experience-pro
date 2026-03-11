@@ -299,8 +299,8 @@ export function seedLiveChat(elementKey, lessonTitle) {
   saveReadTimestamps(timestamps)
 }
 
-const communityChatTemplates = [
-  { userId: 'teacher-001', text: (name) => `Welcome to the ${name} community! Feel free to ask questions or share what you're learning.` },
+const chatroomChatTemplates = [
+  { userId: 'teacher-001', text: (name) => `Welcome to the ${name} chatroom! Feel free to ask questions or share what you're learning.` },
   { userId: 'student-002', text: () => "Hey everyone! Super excited to be taking this course. Anyone else just getting started?" },
   { userId: 'student-003', text: () => "Yeah I just joined yesterday! The lessons look really interesting so far." },
   { userId: 'mod-001', text: () => "Welcome to all the new students! Don't forget to check out the lesson materials before each session." },
@@ -314,7 +314,56 @@ const communityChatTemplates = [
   { userId: 'student-002', text: () => "This is probably my favorite class right now. The content is really fun!" },
 ]
 
-export function seedCommunityChat(courseId, courseName) {
+const discussionSeedTemplates = [
+  {
+    userId: 'student-003',
+    text: "Wait, I don't understand this part. Can someone explain it differently?",
+    replies: [
+      { userId: 'teacher-001', text: "Sure Sam! Think of it like building blocks - each concept stacks on top of the previous one." },
+    ],
+  },
+  {
+    userId: 'student-004',
+    text: "This is such a cool concept! I never thought about it this way before.",
+    replies: [
+      { userId: 'student-002', text: "Right?! It totally clicked for me when I read this paragraph." },
+    ],
+  },
+  {
+    userId: 'teacher-001',
+    text: "Pay close attention to this section everyone, it'll come up again later in the course!",
+    replies: [],
+  },
+  {
+    userId: 'student-002',
+    text: "I have a question about this - does this also apply to the examples in the next lesson?",
+    replies: [
+      { userId: 'mod-001', text: "Great question Jamie! Yes, this concept carries through the whole unit." },
+      { userId: 'student-003', text: "I was wondering the same thing, thanks for asking!" },
+    ],
+  },
+]
+
+function getContentSnippetFromSteps(elementKey, steps, courseId) {
+  if (!steps || steps.length === 0) return ''
+  const parts = elementKey.split(':')
+  if (parts.length < 6) return ''
+  const lessonId = parts[1]
+  const pageIndex = parseInt(parts[2], 10)
+  const step = steps.find((s) => s.lessonId === lessonId && s.pageIndex === pageIndex)
+  if (!step?.page?.sections) return ''
+
+  const sectionIdx = parseInt(parts[4], 10)
+  const section = step.page.sections[sectionIdx]
+  if (!section?.body) return ''
+
+  const bodyIdx = parseInt(parts[6], 10)
+  const paragraph = Array.isArray(section.body) ? section.body[bodyIdx] : section.body
+  if (!paragraph) return ''
+  return paragraph.length > 120 ? paragraph.slice(0, 120) + '...' : paragraph
+}
+
+export function seedChatroomChat(courseId, courseName, steps) {
   const key = `${courseId}:community`
   const data = load()
   if (data[key] && data[key].comments.length > 0) return
@@ -323,7 +372,7 @@ export function seedCommunityChat(courseId, courseName) {
   data[key] = {
     seeded: true,
     community: true,
-    comments: communityChatTemplates.map((tpl, i) => ({
+    comments: chatroomChatTemplates.map((tpl, i) => ({
       id: makeId() + '-comm-' + i,
       userId: tpl.userId,
       text: typeof tpl.text === 'function' ? tpl.text(courseName) : tpl.text,
@@ -331,6 +380,38 @@ export function seedCommunityChat(courseId, courseName) {
       replies: [],
     })),
   }
+
+  if (steps && steps.length > 0) {
+    const pickedSteps = steps.filter((s) => s.pageIndex === 1 || s.pageIndex === 2).slice(0, 4)
+    for (let i = 0; i < Math.min(discussionSeedTemplates.length, pickedSteps.length); i++) {
+      const step = pickedSteps[i]
+      const tpl = discussionSeedTemplates[i]
+      const elKey = `${courseId}:${step.lessonId}:${step.pageIndex}:section:0:body:0`
+
+      if (!data[elKey]) {
+        const ts = new Date(baseTime + (i * 2 + 3) * 140000).toISOString()
+        data[elKey] = {
+          seeded: true,
+          comments: [{
+            id: makeId() + '-dseed-' + i,
+            userId: tpl.userId,
+            text: tpl.text,
+            timestamp: ts,
+            replies: tpl.replies.map((r, ri) => ({
+              id: makeId() + '-dseed-r-' + i + '-' + ri,
+              userId: r.userId,
+              text: r.text,
+              timestamp: new Date(new Date(ts).getTime() + (ri + 1) * 60000).toISOString(),
+            })),
+          }],
+        }
+        const timestamps = loadReadTimestamps()
+        timestamps[elKey] = new Date().toISOString()
+        saveReadTimestamps(timestamps)
+      }
+    }
+  }
+
   save(data)
 
   const timestamps = loadReadTimestamps()
@@ -338,25 +419,25 @@ export function seedCommunityChat(courseId, courseName) {
   saveReadTimestamps(timestamps)
 }
 
-export function addCommunityMessage(courseId, text, userId) {
+export function addChatroomMessage(courseId, text, userId) {
   return addComment(`${courseId}:community`, text, userId)
 }
 
-export function getCourseCommunityFeed(courseId, steps) {
+export function getCourseChatroomFeed(courseId, steps) {
   const data = load()
   const feed = []
-  const communityKey = `${courseId}:community`
+  const chatroomKey = `${courseId}:community`
 
-  const communityThread = data[communityKey]
-  if (communityThread) {
-    for (const c of communityThread.comments) {
+  const chatroomThread = data[chatroomKey]
+  if (chatroomThread) {
+    for (const c of chatroomThread.comments) {
       feed.push({
         type: 'chat',
         id: c.id,
         userId: c.userId,
         text: c.text,
         timestamp: c.timestamp,
-        elementKey: communityKey,
+        elementKey: chatroomKey,
         replies: c.replies ?? [],
         commentId: c.id,
       })
@@ -365,7 +446,7 @@ export function getCourseCommunityFeed(courseId, steps) {
 
   for (const [key, thread] of Object.entries(data)) {
     if (!key.startsWith(`${courseId}:`)) continue
-    if (key === communityKey) continue
+    if (key === chatroomKey) continue
     if (thread.comments.length === 0) continue
 
     let lessonTitle = ''
@@ -379,6 +460,8 @@ export function getCourseCommunityFeed(courseId, steps) {
       }
     }
 
+    const contentSnippet = getContentSnippetFromSteps(key, steps, courseId)
+
     for (const c of thread.comments) {
       feed.push({
         type: 'discussion',
@@ -388,6 +471,7 @@ export function getCourseCommunityFeed(courseId, steps) {
         timestamp: c.timestamp,
         elementKey: key,
         lessonTitle,
+        contentSnippet,
         replies: c.replies ?? [],
         commentId: c.id,
         commentCount: thread.comments.length + thread.comments.reduce((s, cm) => s + (cm.replies?.length ?? 0), 0),
