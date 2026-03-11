@@ -3,16 +3,341 @@
   "name": "English",
   "icon": "fa-solid fa-book-open",
   "color": "#f59e0b",
+  "image": "/course-english.png",
+  "description": [
+    "Words are your superpower—and this course helps you use them like a pro! You'll meet nouns, verbs, adjectives, and adverbs and see how they team up to make sentences pop. You'll become a reading detective, hunting for the main idea and getting to know story characters and settings. Then you'll write your own statements, questions, and exclamations and level up your spelling with short vowels, long vowels, blends, and compound words!",
+    "Every lesson is a chance to tell better stories, understand what you read, and spell with confidence. By the end, you'll have a whole toolkit of words and ideas—perfect for writing adventures, sharing your thoughts, and loving books even more."
+  ],
   "units": [
     {
       "id": "english-u1",
       "title": "Parts of Speech",
       "icon": "fa-solid fa-font",
       "lessons": [
-        { "id": "english-u1-l1", "title": "Nouns", "description": "Learn about words that name people, places, and things." },
-        { "id": "english-u1-l2", "title": "Verbs", "description": "Discover action words — run, jump, think, and more." },
-        { "id": "english-u1-l3", "title": "Adjectives", "description": "Add describing words to make sentences more colorful." },
-        { "id": "english-u1-l4", "title": "Adverbs", "description": "Learn words that tell how, when, or where something happens." }
+        {
+          "id": "english-u1-l1",
+          "title": "Nouns",
+          "description": "Learn about words that name people, places, and things.",
+          "pages": [
+            {
+              "title": "Welcome to Nouns",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/oY59wZdCDo0",
+                "title": "Kurzgesagt – The Solar System"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about nouns — the words we use to name people, places, and things. Nouns are everywhere! By the end of this lesson, you'll be able to spot nouns in any sentence and even tell the difference between common and proper nouns."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "People, Places, and Things",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Naming People and Places",
+                  "body": [
+                    "A noun can name a person, like teacher, brother, or doctor. It can also name a place, like school, park, or city. Whenever you talk about someone or somewhere, you are using a noun!"
+                  ]
+                },
+                {
+                  "heading": "Naming Things and Ideas",
+                  "body": [
+                    "Nouns also name things you can touch, like book, apple, or chair. Some nouns name things you can't touch, like happiness, love, or freedom. These are called abstract nouns, and they name feelings or ideas."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Common and Proper Nouns",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Common Nouns?",
+                  "body": [
+                    "Common nouns are general names for people, places, or things. Words like dog, river, and city are common nouns. They do not start with a capital letter unless they begin a sentence."
+                  ]
+                },
+                {
+                  "heading": "What Are Proper Nouns?",
+                  "body": [
+                    "Proper nouns name a specific person, place, or thing and always start with a capital letter. For example, Spot is a proper noun for a dog, the Mississippi is a proper noun for a river, and New York is a proper noun for a city. Remember: if it has a special name, capitalize it!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Noun Review",
+                  "body": [
+                    "Remember, nouns name people, places, things, and ideas. Common nouns are general and lowercase, while proper nouns are specific and capitalized. Look around you right now — everything you see has a noun to name it!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which of the following is a proper noun?",
+                "options": [
+                  "dog",
+                  "Texas",
+                  "river",
+                  "school"
+                ],
+                "answer": "Texas"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u1-l2",
+          "title": "Verbs",
+          "description": "Discover action words — run, jump, think, and more.",
+          "pages": [
+            {
+              "title": "Welcome to Verbs",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/sNhhvQGsMEc",
+                "title": "Kurzgesagt – How Cells Work"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will discover verbs — the action words that make sentences come alive! Verbs tell us what someone or something does. By the end, you'll be able to find verbs in sentences and use them to describe actions in the past, present, and future."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Action Verbs",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Action Verbs?",
+                  "body": [
+                    "Action verbs tell what someone or something does. Words like run, eat, sing, and write are all action verbs. If you can act it out with your body, it's probably an action verb!"
+                  ]
+                },
+                {
+                  "heading": "Helping Verbs",
+                  "body": [
+                    "Some verbs don't show action — they help the main verb instead. Words like is, am, are, was, were, has, and have are helping verbs. In the sentence \"She is running,\" the word is helps the verb running."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Verb Tenses",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Past, Present, and Future",
+                  "body": [
+                    "Verbs change form to show when something happens. Present tense means it is happening now: \"I walk.\" Past tense means it already happened: \"I walked.\" Future tense means it will happen later: \"I will walk.\""
+                  ]
+                },
+                {
+                  "heading": "Changing Verb Forms",
+                  "body": [
+                    "To make most verbs past tense, add -ed to the end: jump becomes jumped, and play becomes played. Some verbs are tricky and change in a different way: run becomes ran, and eat becomes ate. These are called irregular verbs."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Verb Review",
+                  "body": [
+                    "Verbs are words that show action or help other verbs. They can be in the past, present, or future tense. Every sentence needs at least one verb to be complete. Try clapping, jumping, or snapping — you just performed action verbs!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which word is a verb in this sentence: \"The cat jumped over the fence\"?",
+                "options": [
+                  "cat",
+                  "jumped",
+                  "over",
+                  "fence"
+                ],
+                "answer": "jumped"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u1-l3",
+          "title": "Adjectives",
+          "description": "Add describing words to make sentences more colorful.",
+          "pages": [
+            {
+              "title": "Welcome to Adjectives",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/MUWUHf-rzks",
+                "title": "Kurzgesagt – The Deep Ocean"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about adjectives — the words that describe nouns and make your writing more interesting. Adjectives tell us what something looks like, feels like, or how many there are. By the end, you'll be adding adjectives to your sentences like a pro!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Describing With Adjectives",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Adjectives?",
+                  "body": [
+                    "Adjectives are words that describe nouns. They answer questions like: What kind? How many? Which one? For example, in \"the big red ball,\" the words big and red are adjectives that describe the ball."
+                  ]
+                },
+                {
+                  "heading": "Size, Shape, and Color",
+                  "body": [
+                    "Some of the most common adjectives describe size, shape, and color. Think about a tiny round blueberry or a tall square building. These adjectives help the reader picture exactly what you're talking about."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Comparing With Adjectives",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Comparing Two Things",
+                  "body": [
+                    "You can use adjectives to compare two things by adding -er to the end. A cheetah is faster than a turtle. A giraffe is taller than a horse. When you compare two things, you usually add -er and the word than."
+                  ]
+                },
+                {
+                  "heading": "Comparing Three or More",
+                  "body": [
+                    "When you compare three or more things, add -est to the adjective. The cheetah is the fastest animal on land. Mount Everest is the tallest mountain in the world. The -est ending means something is the most of all!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Adjective Review",
+                  "body": [
+                    "Adjectives describe nouns and make your writing more colorful. They tell about size, shape, color, number, and feelings. You can compare things with -er and -est endings. Try describing your favorite toy using at least three adjectives!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which word is an adjective in this sentence: \"She wore a sparkly dress\"?",
+                "options": [
+                  "She",
+                  "wore",
+                  "sparkly",
+                  "dress"
+                ],
+                "answer": "sparkly"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u1-l4",
+          "title": "Adverbs",
+          "description": "Learn words that tell how, when, or where something happens.",
+          "pages": [
+            {
+              "title": "Welcome to Adverbs",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/UuGrBhK2c7U",
+                "title": "Kurzgesagt – Black Holes Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about adverbs — words that describe verbs, adjectives, or other adverbs. Adverbs tell us how, when, or where something happens. By the end of this lesson, you'll know how to spot adverbs and use them to add detail to your sentences."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "How, When, and Where",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Adverbs That Tell How",
+                  "body": [
+                    "Many adverbs tell how something is done. These often end in -ly. For example: The turtle walked slowly. The girl sang loudly. The boy wrote neatly. The -ly ending is a big clue that a word might be an adverb!"
+                  ]
+                },
+                {
+                  "heading": "Adverbs That Tell When and Where",
+                  "body": [
+                    "Some adverbs tell when something happens, like today, yesterday, soon, and later. Others tell where, like here, there, outside, and everywhere. In the sentence \"We played outside yesterday,\" both outside and yesterday are adverbs."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Adverbs vs. Adjectives",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "How Are They Different?",
+                  "body": [
+                    "Adjectives describe nouns, but adverbs describe verbs. Compare these: \"She is a quick runner\" (quick describes the noun runner) and \"She runs quickly\" (quickly describes the verb runs). The trick is to ask: is it describing a thing or an action?"
+                  ]
+                },
+                {
+                  "heading": "Using Adverbs in Your Writing",
+                  "body": [
+                    "Adverbs make your writing more interesting by adding details. Instead of \"The dog barked,\" try \"The dog barked loudly.\" Instead of \"She arrived,\" try \"She arrived early.\" Adding an adverb helps the reader imagine the scene better."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Adverb Review",
+                  "body": [
+                    "Adverbs describe verbs and tell how, when, or where something happens. Many adverbs end in -ly, but not all of them. Remember, adjectives describe nouns while adverbs describe verbs. Try adding an adverb to a sentence you say today!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which word is an adverb in this sentence: \"The rabbit hopped quickly across the yard\"?",
+                "options": [
+                  "rabbit",
+                  "hopped",
+                  "quickly",
+                  "yard"
+                ],
+                "answer": "quickly"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -20,10 +345,330 @@
       "title": "Reading Comprehension",
       "icon": "fa-solid fa-glasses",
       "lessons": [
-        { "id": "english-u2-l1", "title": "Finding the Main Idea", "description": "Figure out what a story or passage is mostly about." },
-        { "id": "english-u2-l2", "title": "Story Characters", "description": "Get to know who the characters are and what they do." },
-        { "id": "english-u2-l3", "title": "Setting", "description": "Learn to identify where and when a story takes place." },
-        { "id": "english-u2-l4", "title": "Beginning, Middle, End", "description": "Every story has three parts — find them!" }
+        {
+          "id": "english-u2-l1",
+          "title": "Finding the Main Idea",
+          "description": "Figure out what a story or passage is mostly about.",
+          "pages": [
+            {
+              "title": "Welcome to Finding the Main Idea",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/1-NxodiGPCU",
+                "title": "Kurzgesagt – The Immune System"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn how to find the main idea of a story or passage. The main idea is what the text is mostly about. By the end of this lesson, you'll be able to read a paragraph and quickly figure out its main idea."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Is the Main Idea?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Big Picture",
+                  "body": [
+                    "The main idea is the most important point the author wants you to understand. Think of it like the title of a movie — it tells you what the whole thing is about in just a few words. Every paragraph and every story has one main idea."
+                  ]
+                },
+                {
+                  "heading": "Main Idea vs. Details",
+                  "body": [
+                    "Details are the smaller pieces of information that support the main idea. If the main idea is \"Dogs make great pets,\" the details might be \"Dogs are loyal,\" \"Dogs love to play,\" and \"Dogs can learn tricks.\" The details help explain or prove the main idea."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Finding the Main Idea",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Look at the First and Last Sentences",
+                  "body": [
+                    "Authors often put the main idea near the beginning or end of a paragraph. Try reading the first sentence and the last sentence carefully. One of them usually tells you what the whole paragraph is about."
+                  ]
+                },
+                {
+                  "heading": "Ask Yourself a Question",
+                  "body": [
+                    "After you read, ask yourself: \"What is this mostly about?\" Try to answer in one short sentence. If your answer covers most of what you read, you found the main idea! If it only covers part, think bigger."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Main Idea Tips",
+                  "body": [
+                    "To find the main idea, look at the first and last sentences, pay attention to repeated words, and ask yourself what the text is mostly about. The main idea is the big picture, and the details are the smaller pieces that support it."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Read this passage: \"Bees are very important. They help flowers grow by spreading pollen. They also make honey that people enjoy.\" What is the main idea?",
+                "options": [
+                  "Honey is delicious.",
+                  "Bees are very important.",
+                  "Flowers need water.",
+                  "Pollen is yellow."
+                ],
+                "answer": "Bees are very important."
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u2-l2",
+          "title": "Story Characters",
+          "description": "Get to know who the characters are and what they do.",
+          "pages": [
+            {
+              "title": "Welcome to Story Characters",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/Da-2h2B4faU",
+                "title": "Kurzgesagt – Evolution Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about story characters — the people or animals in a story. You'll discover how to figure out what characters are like by paying attention to what they say, do, and feel. By the end, you'll be a character expert!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Who Are the Characters?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Finding the Characters",
+                  "body": [
+                    "Characters are the people, animals, or creatures in a story. The main character is the one the story is mostly about. There are often other characters too, like friends, family, or even villains. To find the characters, ask: \"Who is in this story?\""
+                  ]
+                },
+                {
+                  "heading": "What Characters Do and Say",
+                  "body": [
+                    "You can learn a lot about a character by watching what they do and listening to what they say. If a character shares their lunch, that shows they are kind. If a character tells a lie, that tells you something different. Actions and words are big clues!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Character Feelings and Changes",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Character Feelings",
+                  "body": [
+                    "Characters have feelings just like real people. They might feel happy, scared, angry, or excited. Sometimes the author tells you how a character feels, and sometimes you have to figure it out from what happens in the story."
+                  ]
+                },
+                {
+                  "heading": "How Characters Change",
+                  "body": [
+                    "In many stories, the main character changes from the beginning to the end. Maybe they start out scared and become brave, or they start out selfish and learn to share. Noticing how a character changes helps you understand the story's message."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Character Review",
+                  "body": [
+                    "Characters are the people or animals in a story. You can learn about them by noticing what they say, do, and feel. Good readers pay attention to how characters change throughout the story. Next time you read, think about what makes each character special!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "If a character in a story gives away their last cookie to a friend, what does that tell you about them?",
+                "options": [
+                  "They are hungry.",
+                  "They are generous.",
+                  "They don't like cookies.",
+                  "They are angry."
+                ],
+                "answer": "They are generous."
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u2-l3",
+          "title": "Setting",
+          "description": "Learn to identify where and when a story takes place.",
+          "pages": [
+            {
+              "title": "Welcome to Setting",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/_ArVh3Cj9rw",
+                "title": "Kurzgesagt – What Is Life?"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about the setting of a story — where and when it takes place. The setting helps you picture the story in your mind. By the end, you'll be able to identify the setting in any story you read!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Where and When",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Where the Story Happens",
+                  "body": [
+                    "The setting tells you where a story takes place. It could be a school, a forest, a castle, or even outer space! Authors use describing words to help you picture the place. Look for clues like names of places and descriptions of what things look like."
+                  ]
+                },
+                {
+                  "heading": "When the Story Happens",
+                  "body": [
+                    "The setting also tells you when a story happens. It might take place in the morning, at night, in the summer, or long ago. Words like yesterday, in the future, or once upon a time are clues about when the story is set."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Why the Setting Matters",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Setting Changes the Story",
+                  "body": [
+                    "The setting can change how a story feels. A story in a dark, spooky forest feels very different from a story at a sunny beach. The setting affects the mood, or feeling, of the story. It also affects what characters can do."
+                  ]
+                },
+                {
+                  "heading": "Multiple Settings",
+                  "body": [
+                    "Some stories have more than one setting. The characters might start at home, travel to school, and then go to the park. Each time the place or time changes, the setting changes too. Keep track of where and when the story moves!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Setting Review",
+                  "body": [
+                    "The setting is where and when a story takes place. It helps you picture the story and affects how it feels. Look for clue words about places and times. A story can have one setting or many settings as the characters move around."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "A story begins: \"The snow fell softly outside the cabin in the mountains.\" What is the setting?",
+                "options": [
+                  "A beach in summer",
+                  "A cabin in the mountains in winter",
+                  "A school in the morning",
+                  "A city at night"
+                ],
+                "answer": "A cabin in the mountains in winter"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u2-l4",
+          "title": "Beginning, Middle, End",
+          "description": "Every story has three parts — find them!",
+          "pages": [
+            {
+              "title": "Welcome to Beginning, Middle, End",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/VGlMbVbp2VU",
+                "title": "Kurzgesagt – The Immune System Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn that every story has three parts: a beginning, a middle, and an end. Knowing these parts helps you understand and retell stories. By the end of this lesson, you'll be able to identify all three parts in any story!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Beginning and the Middle",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Beginning",
+                  "body": [
+                    "The beginning of a story introduces the characters and the setting. It tells you who the story is about and where it takes place. The beginning also starts to show a problem or something interesting that gets the story going."
+                  ]
+                },
+                {
+                  "heading": "The Middle",
+                  "body": [
+                    "The middle is the longest part of the story. This is where the main events happen and the characters try to solve a problem. Things might get harder before they get better. The middle is full of action and keeps you wanting to read more!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The End and Retelling",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The End",
+                  "body": [
+                    "The end of the story is where the problem gets solved and things wrap up. You find out what happens to the characters. The ending might be happy, surprising, or funny. A good ending makes you feel satisfied, like finishing a puzzle."
+                  ]
+                },
+                {
+                  "heading": "Retelling a Story",
+                  "body": [
+                    "When you retell a story, use the beginning, middle, and end to keep things in order. Start by telling who the characters are and where the story happens. Then explain the main events. Finally, tell how it all ends. This helps others understand the story too!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Story Structure Review",
+                  "body": [
+                    "Every story has a beginning, middle, and end. The beginning introduces characters and the setting. The middle has the main events and the problem. The end shows how the problem is solved. Use these three parts when you retell any story!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which part of a story introduces the characters and setting?",
+                "options": [
+                  "The middle",
+                  "The end",
+                  "The beginning",
+                  "The title"
+                ],
+                "answer": "The beginning"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -31,10 +676,330 @@
       "title": "Writing Sentences",
       "icon": "fa-solid fa-pencil",
       "lessons": [
-        { "id": "english-u3-l1", "title": "What Makes a Sentence?", "description": "Every sentence needs a subject and a verb." },
-        { "id": "english-u3-l2", "title": "Statements", "description": "Write sentences that tell something and end with a period." },
-        { "id": "english-u3-l3", "title": "Questions", "description": "Write sentences that ask something and end with a question mark." },
-        { "id": "english-u3-l4", "title": "Exclamations", "description": "Write exciting sentences that end with an exclamation point!" }
+        {
+          "id": "english-u3-l1",
+          "title": "What Makes a Sentence?",
+          "description": "Every sentence needs a subject and a verb.",
+          "pages": [
+            {
+              "title": "Welcome to What Makes a Sentence?",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/JhHMJCUmq28",
+                "title": "Kurzgesagt – Atoms and Molecules"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn what every sentence needs to be complete. A sentence must have a subject and a verb and express a complete thought. By the end of this lesson, you'll know how to tell the difference between a complete sentence and an incomplete one."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Subjects and Predicates",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Subject",
+                  "body": [
+                    "The subject tells who or what the sentence is about. In the sentence \"The dog barked,\" the subject is the dog. Every sentence needs a subject. Without one, the reader won't know who is doing the action."
+                  ]
+                },
+                {
+                  "heading": "The Predicate",
+                  "body": [
+                    "The predicate tells what the subject does or is. It always includes a verb. In \"The dog barked loudly,\" the predicate is barked loudly. Together, the subject and predicate make a complete sentence."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Complete vs. Incomplete Sentences",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Complete Sentences",
+                  "body": [
+                    "A complete sentence has a subject, a predicate, and expresses a whole thought. \"The bird flew south\" is a complete sentence. You know who did something (the bird) and what happened (flew south). It makes sense all by itself."
+                  ]
+                },
+                {
+                  "heading": "Fixing Fragments",
+                  "body": [
+                    "A sentence fragment is a group of words that is missing a subject or a predicate. \"Ran to the store\" is a fragment because there is no subject. To fix it, add a subject: \"Mom ran to the store.\" Now it's a complete sentence!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Sentence Review",
+                  "body": [
+                    "Every complete sentence needs a subject and a predicate. The subject tells who or what, and the predicate tells what happens. If a group of words is missing one of these parts, it's a fragment and needs to be fixed."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which of these is a complete sentence?",
+                "options": [
+                  "Ran very fast.",
+                  "The tall tree.",
+                  "My sister loves music.",
+                  "Under the bridge."
+                ],
+                "answer": "My sister loves music."
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u3-l2",
+          "title": "Statements",
+          "description": "Write sentences that tell something and end with a period.",
+          "pages": [
+            {
+              "title": "Welcome to Statements",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/8nHBGFKLHZQ",
+                "title": "Kurzgesagt – The Water Cycle"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about statements — sentences that tell something. Statements share information and always end with a period. By the end of this lesson, you'll be writing clear, interesting statements of your own."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Is a Statement?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Telling Sentences",
+                  "body": [
+                    "A statement is a sentence that tells you something. It shares a fact, an idea, or information. For example: \"The Earth goes around the Sun.\" That sentence tells you a fact. Statements are the most common type of sentence you'll read and write."
+                  ]
+                },
+                {
+                  "heading": "Ending With a Period",
+                  "body": [
+                    "Statements always end with a period — that little dot at the end of a sentence. The period tells the reader that the thought is complete. If you forget the period, your reader won't know where one thought ends and the next one begins."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Writing Clear Statements",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Adding Details",
+                  "body": [
+                    "A good statement gives the reader useful details. Compare these: \"I have a pet\" and \"I have a fluffy orange cat named Whiskers.\" The second one paints a much better picture! Adding details like color, size, and names makes your statements more interesting."
+                  ]
+                },
+                {
+                  "heading": "Capitalization and Punctuation",
+                  "body": [
+                    "Every statement starts with a capital letter and ends with a period. Check your writing by asking: Does it start with a capital? Does it end with a period? Does it express a complete thought? If you can say yes to all three, you wrote a correct statement!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Statement Review",
+                  "body": [
+                    "Statements are telling sentences that share facts or information. They always begin with a capital letter and end with a period. Add details to make your statements more interesting. Practice by writing three statements about your favorite animal!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which sentence is a statement?",
+                "options": [
+                  "Is it raining outside?",
+                  "The library opens at nine o'clock.",
+                  "Wow, that's amazing!",
+                  "Please close the door."
+                ],
+                "answer": "The library opens at nine o'clock."
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u3-l3",
+          "title": "Questions",
+          "description": "Write sentences that ask something and end with a question mark.",
+          "pages": [
+            {
+              "title": "Welcome to Questions",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/udFxKZRyQt4",
+                "title": "Kurzgesagt – How Plants Grow"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about questions — sentences that ask for information. Questions always end with a question mark. By the end, you'll be able to write great questions and know the special words that start them."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Asking With Question Words",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Is a Question?",
+                  "body": [
+                    "A question is a sentence that asks something. It wants an answer! Questions end with a question mark (?), which looks like a little hook with a dot under it. When you read a question out loud, your voice usually goes up at the end."
+                  ]
+                },
+                {
+                  "heading": "Question Words",
+                  "body": [
+                    "Many questions start with special words: who, what, when, where, why, and how. These words help you ask about different things. Who asks about a person. What asks about a thing. When asks about time. Where asks about a place. Why asks for a reason. How asks about the way something happens."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Writing Good Questions",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Writing Your Own Questions",
+                  "body": [
+                    "To write a question, start with a question word or a helping verb like do, does, is, are, can, or will. Then add the rest of your thought and put a question mark at the end. For example: \"Can birds fly at night?\" or \"Where do bears sleep in winter?\""
+                  ]
+                },
+                {
+                  "heading": "Turning Statements Into Questions",
+                  "body": [
+                    "You can turn a statement into a question by rearranging the words. The statement \"She is going to the park\" becomes the question \"Is she going to the park?\" Notice how the helping verb moved to the front. Don't forget to change the period to a question mark!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Question Review",
+                  "body": [
+                    "Questions are sentences that ask for information and end with a question mark. Many start with who, what, when, where, why, or how. You can also turn statements into questions by moving the helping verb to the front. Try asking a friend three questions today!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which of these is a question?",
+                "options": [
+                  "The sky is blue.",
+                  "Where did you put my book?",
+                  "I love ice cream!",
+                  "Close the window."
+                ],
+                "answer": "Where did you put my book?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u3-l4",
+          "title": "Exclamations",
+          "description": "Write exciting sentences that end with an exclamation point!",
+          "pages": [
+            {
+              "title": "Welcome to Exclamations",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/i93Z7zljQ7I",
+                "title": "Kurzgesagt – Volcanoes Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about exclamations — sentences that show strong feelings like excitement, surprise, or fear. Exclamations end with an exclamation point! By the end, you'll know when and how to use them in your writing."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Showing Strong Feelings",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Is an Exclamation?",
+                  "body": [
+                    "An exclamation is a sentence that shows a strong feeling. It might show excitement, surprise, anger, or joy. Exclamations end with an exclamation point (!). When you read one out loud, your voice gets louder or more emotional."
+                  ]
+                },
+                {
+                  "heading": "When to Use Exclamations",
+                  "body": [
+                    "Use exclamations when something surprising, exciting, or important happens. \"That was the best game ever!\" shows excitement. \"Watch out!\" shows a warning. \"I can't believe it!\" shows surprise. Save exclamations for moments with real emotion — using too many can make them feel less special."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Writing Strong Exclamations",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Making Your Exclamations Pop",
+                  "body": [
+                    "Strong exclamations use powerful words that match the feeling. Instead of \"That's nice!\" try \"That's incredible!\" Instead of \"I'm happy!\" try \"I'm thrilled!\" Choosing the right words makes your exclamation really show how you feel."
+                  ]
+                },
+                {
+                  "heading": "Exclamations vs. Statements",
+                  "body": [
+                    "A statement and an exclamation can say almost the same thing, but the feeling is different. \"The roller coaster was fast\" is a calm statement. \"The roller coaster was so fast!\" is an exclamation that shows excitement. The exclamation point changes everything!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Exclamation Review",
+                  "body": [
+                    "Exclamations are sentences that show strong feelings and end with an exclamation point. Use them when something exciting, surprising, or important happens. Choose powerful words and don't overuse them. Practice by writing an exclamation about the best day you've ever had!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which sentence is an exclamation?",
+                "options": [
+                  "The sun is shining.",
+                  "Is it time for lunch?",
+                  "Please sit down.",
+                  "What a beautiful rainbow!"
+                ],
+                "answer": "What a beautiful rainbow!"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -42,10 +1007,330 @@
       "title": "Spelling & Vocabulary",
       "icon": "fa-solid fa-spell-check",
       "lessons": [
-        { "id": "english-u4-l1", "title": "Short Vowel Words", "description": "Practice words like cat, bed, pig, hot, and bug." },
-        { "id": "english-u4-l2", "title": "Long Vowel Words", "description": "Learn words with silent e — like cake, bike, and home." },
-        { "id": "english-u4-l3", "title": "Blends and Digraphs", "description": "Master sounds like bl, tr, sh, ch, and th." },
-        { "id": "english-u4-l4", "title": "Compound Words", "description": "Put two words together — sun + flower = sunflower!" }
+        {
+          "id": "english-u4-l1",
+          "title": "Short Vowel Words",
+          "description": "Practice words like cat, bed, pig, hot, and bug.",
+          "pages": [
+            {
+              "title": "Welcome to Short Vowel Words",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/dSu5sXmsur4",
+                "title": "Kurzgesagt – The Human Body"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about short vowel sounds. The vowels are a, e, i, o, and u, and each one has a short sound. By the end, you'll be able to read and spell lots of short vowel words like cat, bed, pig, hot, and bug."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Five Short Vowels",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Short Vowels?",
+                  "body": [
+                    "Every vowel has two sounds: a short sound and a long sound. The short a sounds like the a in cat. The short e sounds like the e in bed. The short i sounds like the i in pig. The short o sounds like the o in hot. The short u sounds like the u in bug."
+                  ]
+                },
+                {
+                  "heading": "CVC Words",
+                  "body": [
+                    "Many short vowel words follow a pattern called CVC — consonant, vowel, consonant. The word cat is C-V-C: c is a consonant, a is the vowel, and t is a consonant. Other CVC words include map, hen, sit, mop, and cup. Knowing this pattern helps you spell new words!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Practice and Rhyming",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Rhyming Short Vowel Words",
+                  "body": [
+                    "Rhyming words end with the same sound. Cat rhymes with bat, hat, and mat. Bed rhymes with red, fed, and led. Rhyming helps you learn new words faster because you only need to change the first letter to make a new word!"
+                  ]
+                },
+                {
+                  "heading": "Spelling Tips",
+                  "body": [
+                    "When you hear a short vowel word, stretch it out slowly: c-a-t. Say each sound and write the letter that matches. If a word has three sounds and the middle one is a short vowel, it's probably a CVC word. Practice by writing word families like -at, -en, -ig, -op, and -ug."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Short Vowel Review",
+                  "body": [
+                    "Short vowels make the sounds you hear in cat, bed, pig, hot, and bug. Many short vowel words follow the CVC pattern. Use rhyming to learn word families. The more you practice, the better you'll get at spelling short vowel words!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which word has a short vowel sound?",
+                "options": [
+                  "cake",
+                  "bike",
+                  "drum",
+                  "home"
+                ],
+                "answer": "drum"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u4-l2",
+          "title": "Long Vowel Words",
+          "description": "Learn words with silent e — like cake, bike, and home.",
+          "pages": [
+            {
+              "title": "Welcome to Long Vowel Words",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/NbuUW9i-mHs",
+                "title": "Kurzgesagt – Space Exploration"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about long vowel sounds. When a vowel says its own name, like the a in cake or the i in bike, that's a long vowel sound. By the end, you'll know the silent e rule and be able to read and spell lots of long vowel words."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Silent E Rule",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Long Vowels?",
+                  "body": [
+                    "A long vowel says its own name. The long a sounds like the a in cake. The long i sounds like the i in bike. The long o sounds like the o in home. When you hear a vowel saying its name in a word, you know it's a long vowel."
+                  ]
+                },
+                {
+                  "heading": "The Magic E",
+                  "body": [
+                    "One of the most common ways to make a long vowel is by adding a silent e at the end of a word. The e doesn't make a sound — it's silent — but it makes the vowel before it say its name. Watch: cap becomes cape, bit becomes bite, and hop becomes hope. The silent e is like magic!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Vowel Teams",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Two Vowels Working Together",
+                  "body": [
+                    "Sometimes two vowels sit next to each other, and the first one says its name while the second stays silent. This is called a vowel team. In the word rain, the a says its name and the i is silent. Other examples are boat, leaf, and play."
+                  ]
+                },
+                {
+                  "heading": "Spelling Long Vowel Words",
+                  "body": [
+                    "When spelling long vowel words, think about which pattern to use. Is it a silent e word like cake? Or a vowel team word like rain? Saying the word slowly and listening to the sounds will help you pick the right spelling. Practice makes perfect!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Long Vowel Review",
+                  "body": [
+                    "Long vowels say their own name. The silent e at the end of a word makes the vowel before it long. Vowel teams are two vowels together where the first one is long and the second is silent. Remember: when two vowels go walking, the first one does the talking!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What happens when you add a silent e to the word \"hop\"?",
+                "options": [
+                  "It becomes hopp.",
+                  "It becomes hope.",
+                  "It becomes hoop.",
+                  "It stays the same."
+                ],
+                "answer": "It becomes hope."
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u4-l3",
+          "title": "Blends and Digraphs",
+          "description": "Master sounds like bl, tr, sh, ch, and th.",
+          "pages": [
+            {
+              "title": "Welcome to Blends and Digraphs",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/WSKi8HfcxEk",
+                "title": "Kurzgesagt – Climate Change"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about consonant blends and digraphs. Blends are two or three consonants that work together but keep their own sounds. Digraphs are two letters that team up to make one brand-new sound. By the end, you'll master sounds like bl, tr, sh, ch, and th!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Consonant Blends",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Blends?",
+                  "body": [
+                    "A blend is two or three consonants that appear together in a word. You can hear each letter's sound when you say the blend. For example, in the word blue, you hear both the b and the l. In tree, you hear the t and the r."
+                  ]
+                },
+                {
+                  "heading": "Common Beginning Blends",
+                  "body": [
+                    "Some blends you'll see a lot are bl (black), cl (clap), fl (flag), gl (glad), br (bring), cr (crab), dr (drum), fr (frog), gr (green), tr (train), sl (slide), sm (smile), sn (snap), sp (spin), and st (star). Try saying each one and listening for both sounds!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Digraphs",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Digraphs?",
+                  "body": [
+                    "A digraph is two letters that join together to make one new sound. Unlike blends, you can't hear each letter separately. The letters sh make the sound you hear at the start of ship. The letters ch make the sound in chair. The letters th make the sound in think."
+                  ]
+                },
+                {
+                  "heading": "Digraphs at the Beginning and End",
+                  "body": [
+                    "Digraphs can appear at the beginning or end of a word. You hear sh at the start of shoe and at the end of fish. You hear ch at the start of cheese and at the end of much. You hear th at the start of this and at the end of bath. Look for them everywhere!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Blends and Digraphs Review",
+                  "body": [
+                    "Blends are consonants whose individual sounds you can still hear, like bl, tr, and st. Digraphs are two letters that make one new sound, like sh, ch, and th. Knowing these patterns helps you read and spell many new words. Listen carefully when you read — you'll hear blends and digraphs all around you!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which word begins with a digraph?",
+                "options": [
+                  "tree",
+                  "ship",
+                  "blue",
+                  "frog"
+                ],
+                "answer": "ship"
+              }
+            }
+          ]
+        },
+        {
+          "id": "english-u4-l4",
+          "title": "Compound Words",
+          "description": "Put two words together — sun + flower = sunflower!",
+          "pages": [
+            {
+              "title": "Welcome to Compound Words",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/RLykC1VN7NY",
+                "title": "Kurzgesagt – Dinosaurs Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about compound words — words that are made by putting two smaller words together. For example, sun + flower = sunflower! By the end, you'll be able to spot compound words, break them apart, and even make your own."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Are Compound Words?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Two Words Become One",
+                  "body": [
+                    "A compound word is a word made from two smaller words joined together. When you put the words cup and cake together, you get cupcake! The meaning of a compound word often comes from the two words inside it. A sunflower is a flower that faces the sun."
+                  ]
+                },
+                {
+                  "heading": "Compound Words Are Everywhere",
+                  "body": [
+                    "You use compound words every day! Think about words like bedroom (bed + room), football (foot + ball), rainbow (rain + bow), and toothbrush (tooth + brush). Once you start looking, you'll find compound words in books, signs, and conversations."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Breaking Apart and Building",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Breaking Compound Words Apart",
+                  "body": [
+                    "If you see a long word you don't know, check if it's a compound word. Try splitting it into two smaller words. The word starfish breaks into star and fish. The word notebook breaks into note and book. Breaking compound words apart can help you figure out what they mean."
+                  ]
+                },
+                {
+                  "heading": "Making New Compound Words",
+                  "body": [
+                    "You can make compound words by combining small words. Try it! What happens when you put snow and man together? Snowman! What about basket and ball? Basketball! Some word combinations work and some don't, so always check if the compound word sounds right and makes sense."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Compound Word Review",
+                  "body": [
+                    "Compound words are made by joining two smaller words together. You can break them apart to understand their meaning, and you can build new ones by combining words. Keep your eyes open for compound words — they're all around you in everyday life!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which of the following is a compound word?",
+                "options": [
+                  "butterfly",
+                  "running",
+                  "purple",
+                  "children"
+                ],
+                "answer": "butterfly"
+              }
+            }
+          ]
+        }
       ]
     }
   ]

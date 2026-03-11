@@ -3,16 +3,341 @@
   "name": "Social Studies",
   "icon": "fa-solid fa-globe",
   "color": "#ef4444",
+  "image": "/course-social-studies.png",
+  "description": [
+    "Your community and the whole wide world are waiting for you! In this course you'll discover what makes a community special and meet the helpers who keep us safe and healthy. You'll learn to read maps and keys, find the seven continents and five oceans, and never get lost with north, south, east, and west. Then you'll travel back in time to meet the first Americans, brave explorers, the 13 colonies, and the story of how America became its own country!",
+    "You'll also see how government and citizens work together—what leaders do, how laws are made, and why voting matters. Get ready to feel like part of something bigger and to understand the place you call home."
+  ],
   "units": [
     {
       "id": "social-u1",
       "title": "My Community",
       "icon": "fa-solid fa-people-group",
       "lessons": [
-        { "id": "social-u1-l1", "title": "What Is a Community?", "description": "Learn that a community is a place where people live, work, and play together." },
-        { "id": "social-u1-l2", "title": "Community Helpers", "description": "Meet firefighters, doctors, teachers, and other helpers." },
-        { "id": "social-u1-l3", "title": "Rules and Laws", "description": "Understand why communities need rules to stay safe." },
-        { "id": "social-u1-l4", "title": "Urban, Suburban, and Rural", "description": "Compare life in a city, suburb, and the countryside." }
+        {
+          "id": "social-u1-l1",
+          "title": "What Is a Community?",
+          "description": "Learn that a community is a place where people live, work, and play together.",
+          "pages": [
+            {
+              "title": "Welcome to What Is a Community?",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/Da-2h2B4faU",
+                "title": "Kurzgesagt – Communities Explained"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn what a community is and why it matters. A community is a place where people live, work, and play together. By the end of this lesson, you'll understand how communities are formed and what makes them special!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "People in a Community",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Who Lives in a Community?",
+                  "body": [
+                    "A community is made up of all kinds of people — families, neighbors, shop owners, and more. Everyone in a community has a role to play. Some people run businesses, some teach at schools, and others help keep the streets clean."
+                  ]
+                },
+                {
+                  "heading": "Working Together",
+                  "body": [
+                    "People in a community work together to make their neighborhood a great place to live. They share parks, libraries, and roads. When neighbors help each other, the whole community becomes stronger and happier."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Makes a Community Special",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Sharing and Caring",
+                  "body": [
+                    "Communities are special because people care about one another. Neighbors might bring food when someone is sick or wave hello on the street. Small acts of kindness make a community feel like home."
+                  ]
+                },
+                {
+                  "heading": "Celebrating Together",
+                  "body": [
+                    "Communities often celebrate holidays, festivals, and events together. These celebrations bring people closer and help everyone feel like they belong. Think about events you enjoy in your own community!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Remember This",
+                  "body": [
+                    "A community is a place where people live, work, and play together. People in a community share spaces and help each other. Communities are made stronger when everyone does their part!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What is a community?",
+                "options": [
+                  "A place where only animals live",
+                  "A place where people live, work, and play together",
+                  "A type of school building",
+                  "A game you play at recess"
+                ],
+                "answer": "A place where people live, work, and play together"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u1-l2",
+          "title": "Community Helpers",
+          "description": "Meet firefighters, doctors, teachers, and other helpers.",
+          "pages": [
+            {
+              "title": "Welcome to Community Helpers",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/MUWUHf-rzks",
+                "title": "Kurzgesagt – Everyday Heroes"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will meet the amazing people who help keep your community running. From firefighters to teachers, community helpers have important jobs that keep everyone safe, healthy, and happy. Let's find out what they do!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Helpers Who Keep Us Safe",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Firefighters and Police Officers",
+                  "body": [
+                    "Firefighters rush to put out fires and rescue people in emergencies. Police officers protect the community by making sure everyone follows the law. Both of these helpers are brave people who work hard to keep us safe every day."
+                  ]
+                },
+                {
+                  "heading": "Doctors and Nurses",
+                  "body": [
+                    "When you feel sick or get hurt, doctors and nurses are there to help you feel better. They work in hospitals and clinics. Doctors figure out what's wrong, and nurses take care of you while you heal."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Helpers Who Teach and Serve",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Teachers and Librarians",
+                  "body": [
+                    "Teachers help you learn new things every day at school. They plan lessons, answer your questions, and help you grow. Librarians help you find great books and learn how to research topics you're curious about."
+                  ]
+                },
+                {
+                  "heading": "Mail Carriers and Sanitation Workers",
+                  "body": [
+                    "Mail carriers deliver letters and packages to your home, rain or shine. Sanitation workers pick up trash and recycling so your community stays clean. Without these helpers, our neighborhoods would not run smoothly."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "So Many Helpers!",
+                  "body": [
+                    "Your community is full of people who help every day. Firefighters, doctors, teachers, mail carriers, and many more all work together. Next time you see a community helper, thank them for what they do!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Which community helper puts out fires?",
+                "options": [
+                  "Teacher",
+                  "Mail carrier",
+                  "Firefighter",
+                  "Librarian"
+                ],
+                "answer": "Firefighter"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u1-l3",
+          "title": "Rules and Laws",
+          "description": "Understand why communities need rules to stay safe.",
+          "pages": [
+            {
+              "title": "Welcome to Rules and Laws",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/sNhhvQGsMEc",
+                "title": "Kurzgesagt – Why Rules Matter"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will discover why communities need rules and laws. Rules help people get along, stay safe, and treat each other fairly. By the end, you'll understand the difference between rules and laws and why both are important."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Why We Need Rules",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Rules?",
+                  "body": [
+                    "Rules are instructions that tell us how to behave. At home, your parents might have rules like \"no running inside.\" At school, your teacher might say \"raise your hand before speaking.\" Rules help everyone know what to expect."
+                  ]
+                },
+                {
+                  "heading": "Keeping Everyone Safe",
+                  "body": [
+                    "Imagine a playground with no rules — kids could push, cut in line, and break things. Rules keep everyone safe and make sure things are fair. When we follow rules, everyone gets a turn and nobody gets hurt."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Rules and Laws in Our Community",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Are Laws?",
+                  "body": [
+                    "Laws are like rules, but they are made by the government and apply to everyone in a community, city, or country. For example, traffic laws tell drivers to stop at red lights. Laws help keep the whole community safe and organized."
+                  ]
+                },
+                {
+                  "heading": "What Happens When Rules Are Broken?",
+                  "body": [
+                    "When someone breaks a rule at school, they might lose recess time. When someone breaks a law, there are bigger consequences, like paying a fine. Consequences help people remember to follow the rules next time."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Rules Keep Us Together",
+                  "body": [
+                    "Rules and laws are important because they keep us safe and help us treat each other fairly. Rules can be found at home, at school, and in your community. Following the rules makes life better for everyone!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Why do communities have rules and laws?",
+                "options": [
+                  "To make life boring",
+                  "To keep people safe and treat each other fairly",
+                  "To give teachers something to talk about",
+                  "To make sure nobody has fun"
+                ],
+                "answer": "To keep people safe and treat each other fairly"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u1-l4",
+          "title": "Urban, Suburban, and Rural",
+          "description": "Compare life in a city, suburb, and the countryside.",
+          "pages": [
+            {
+              "title": "Welcome to Urban, Suburban, and Rural",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/dSu5sXmsur4",
+                "title": "Kurzgesagt – Where People Live"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will explore three types of communities: urban, suburban, and rural. Each type is different in exciting ways. By the end, you'll be able to tell them apart and describe what makes each one unique!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Urban and Suburban Communities",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Urban Communities — The City",
+                  "body": [
+                    "An urban community is a big city with lots of people, tall buildings, and busy streets. Cities have subways, buses, and many stores and restaurants. People in cities often live in apartments and can walk to many places."
+                  ]
+                },
+                {
+                  "heading": "Suburban Communities — Near the City",
+                  "body": [
+                    "A suburban community is found just outside a city. Suburbs have neighborhoods with houses, yards, and quieter streets. Many families live in suburbs because they have good schools and parks, but they can still drive to the city for work."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Rural Communities",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Life in the Countryside",
+                  "body": [
+                    "A rural community is out in the countryside, far from big cities. There is lots of open land, farms, and forests. People in rural areas might grow crops or raise animals. Homes are spread far apart, and nature is all around."
+                  ]
+                },
+                {
+                  "heading": "Comparing All Three",
+                  "body": [
+                    "Urban areas are crowded and busy, suburban areas are in between, and rural areas are quiet and spacious. Each type of community has its own special things to offer. No matter where you live, your community is important!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Every Community Is Special",
+                  "body": [
+                    "Urban means city, suburban means near a city, and rural means the countryside. All three types of communities have homes, schools, and people who care about each other. Think about which type of community you live in!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What is a rural community?",
+                "options": [
+                  "A big city with tall buildings",
+                  "A neighborhood just outside a city",
+                  "A countryside area with farms and open land",
+                  "A shopping mall"
+                ],
+                "answer": "A countryside area with farms and open land"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -20,10 +345,330 @@
       "title": "Maps & Geography",
       "icon": "fa-solid fa-map",
       "lessons": [
-        { "id": "social-u2-l1", "title": "What Is a Map?", "description": "Learn that maps show us places from above." },
-        { "id": "social-u2-l2", "title": "Map Symbols and Keys", "description": "Read a map legend to understand what the symbols mean." },
-        { "id": "social-u2-l3", "title": "Continents and Oceans", "description": "Name the 7 continents and 5 oceans of the world." },
-        { "id": "social-u2-l4", "title": "Cardinal Directions", "description": "Learn north, south, east, and west with a compass rose." }
+        {
+          "id": "social-u2-l1",
+          "title": "What Is a Map?",
+          "description": "Learn that maps show us places from above.",
+          "pages": [
+            {
+              "title": "Welcome to What Is a Map?",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/1-NxodiGPCU",
+                "title": "Kurzgesagt – How Maps Work"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn what a map is and how it helps us find places. A map is a drawing that shows what a place looks like from above. By the end, you'll know how to look at a simple map and understand what it shows!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Understanding Maps",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "A Bird's-Eye View",
+                  "body": [
+                    "Imagine you are a bird flying high in the sky. Looking down, you would see the tops of buildings, roads, and parks. A map shows places the same way — from above! This is called a bird's-eye view."
+                  ]
+                },
+                {
+                  "heading": "Why We Use Maps",
+                  "body": [
+                    "Maps help us find where things are and how to get from one place to another. You might use a map to find your classroom, your favorite park, or even a whole country. Maps are one of the most useful tools people have ever made."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Different Kinds of Maps",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Maps of Small and Big Places",
+                  "body": [
+                    "Some maps show small areas, like your school or neighborhood. Other maps show big areas, like a state, a country, or even the whole world! The size of the area on the map depends on what you need to find."
+                  ]
+                },
+                {
+                  "heading": "Physical Maps and Political Maps",
+                  "body": [
+                    "A physical map shows natural features like mountains, rivers, and lakes. A political map shows borders between countries and states. Both types of maps give us different and important information about a place."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Maps Are Everywhere",
+                  "body": [
+                    "Maps are drawings that show places from a bird's-eye view. They help us find locations and plan how to get there. There are many kinds of maps, each with a special purpose!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What does a map show?",
+                "options": [
+                  "What a place looks like from above",
+                  "What a place smells like",
+                  "How loud a place is",
+                  "How old a place is"
+                ],
+                "answer": "What a place looks like from above"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u2-l2",
+          "title": "Map Symbols and Keys",
+          "description": "Read a map legend to understand what the symbols mean.",
+          "pages": [
+            {
+              "title": "Welcome to Map Symbols and Keys",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/VGlMbVbp2VU",
+                "title": "Kurzgesagt – Symbols and Signs"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn how to read map symbols and use a map key. Maps use small pictures and shapes called symbols to stand for real things. A map key, or legend, tells you what each symbol means. Let's become map readers!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Are Map Symbols?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Symbols Stand for Real Things",
+                  "body": [
+                    "A map symbol is a small picture or shape that represents something real. For example, a tiny tree might stand for a forest, a blue line might mean a river, and a small square could be a building. Symbols make maps easier to read."
+                  ]
+                },
+                {
+                  "heading": "Common Map Symbols",
+                  "body": [
+                    "Many maps use similar symbols. A star often marks a capital city, a dotted line can show a trail, and a triangle might represent a mountain. Once you learn the common symbols, you can read many different maps!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Using a Map Key",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Is a Map Key?",
+                  "body": [
+                    "A map key, also called a legend, is a small box on the map that explains what each symbol means. It's like a secret code! You look at a symbol on the map, then check the key to find out what it represents."
+                  ]
+                },
+                {
+                  "heading": "Practice Reading a Key",
+                  "body": [
+                    "Next time you see a map, look for the map key first. Find each symbol in the key, then look for it on the map. This is the best way to understand what the map is showing you. Practice makes perfect!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Be a Map Detective",
+                  "body": [
+                    "Map symbols are small pictures or shapes that stand for real things. A map key tells you what each symbol means. Always check the key first when you look at a new map!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What does a map key (legend) do?",
+                "options": [
+                  "It locks the map so nobody can open it",
+                  "It explains what the symbols on the map mean",
+                  "It shows you how old the map is",
+                  "It tells you who drew the map"
+                ],
+                "answer": "It explains what the symbols on the map mean"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u2-l3",
+          "title": "Continents and Oceans",
+          "description": "Name the 7 continents and 5 oceans of the world.",
+          "pages": [
+            {
+              "title": "Welcome to Continents and Oceans",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/JhHMJCUmq28",
+                "title": "Kurzgesagt – Our Planet Earth"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn the names of the 7 continents and 5 oceans on Earth. Continents are huge areas of land, and oceans are vast bodies of salt water. By the end, you'll be able to name them all!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Seven Continents",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Land All Around the World",
+                  "body": [
+                    "The seven continents are Africa, Antarctica, Asia, Australia, Europe, North America, and South America. Asia is the biggest continent, and Australia is the smallest. Each continent has its own countries, animals, and cultures."
+                  ]
+                },
+                {
+                  "heading": "Where Do We Live?",
+                  "body": [
+                    "We live on the continent of North America! North America includes the United States, Canada, and Mexico, plus many other countries. It stretches from the icy Arctic in the north to warm Central America in the south."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Five Oceans",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Water Covers Most of Earth",
+                  "body": [
+                    "Did you know that more than 70% of Earth is covered in water? The five oceans are the Pacific, Atlantic, Indian, Southern, and Arctic. The Pacific Ocean is the largest and deepest ocean on the planet."
+                  ]
+                },
+                {
+                  "heading": "Oceans Connect Us",
+                  "body": [
+                    "Oceans separate the continents, but they also connect people by allowing ships to travel between them. Oceans are home to millions of plants and animals, from tiny plankton to giant whales. Taking care of our oceans is very important."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Our Big, Beautiful World",
+                  "body": [
+                    "Earth has 7 continents and 5 oceans. The continents are huge landmasses, and the oceans are vast stretches of water. Together, they make up everything on our planet's surface!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "How many continents are there on Earth?",
+                "options": [
+                  "5",
+                  "6",
+                  "7",
+                  "8"
+                ],
+                "answer": "7"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u2-l4",
+          "title": "Cardinal Directions",
+          "description": "Learn north, south, east, and west with a compass rose.",
+          "pages": [
+            {
+              "title": "Welcome to Cardinal Directions",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/8nHBGFKLHZQ",
+                "title": "Kurzgesagt – Finding Your Way"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn the four cardinal directions: north, south, east, and west. You'll also discover what a compass rose is and how it helps you read maps. By the end, you'll be able to give and follow directions like a pro!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "North, South, East, and West",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Four Main Directions",
+                  "body": [
+                    "The four cardinal directions are north, south, east, and west. North points toward the top of most maps. South is the opposite of north, at the bottom. East is to the right, and west is to the left."
+                  ]
+                },
+                {
+                  "heading": "A Trick to Remember",
+                  "body": [
+                    "Here's a fun way to remember the order! Start at the top and go clockwise: North, East, South, West. You can use the phrase \"Never Eat Soggy Waffles\" to help you remember. Each word starts with the right letter!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The Compass Rose",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "What Is a Compass Rose?",
+                  "body": [
+                    "A compass rose is a special symbol found on maps that shows the four directions. It looks like a star with points labeled N, S, E, and W. Whenever you're reading a map, look for the compass rose to figure out which way is which."
+                  ]
+                },
+                {
+                  "heading": "Using Directions in Real Life",
+                  "body": [
+                    "You can use cardinal directions every day! The sun rises in the east and sets in the west. If someone says \"the park is north of the school,\" you know to go up on the map. Knowing directions helps you explore the world."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Find Your Way",
+                  "body": [
+                    "The four cardinal directions are north, south, east, and west. A compass rose on a map shows you these directions. Remember: Never Eat Soggy Waffles!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What tool on a map shows north, south, east, and west?",
+                "options": [
+                  "A map key",
+                  "A compass rose",
+                  "A ruler",
+                  "A magnifying glass"
+                ],
+                "answer": "A compass rose"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -31,10 +676,330 @@
       "title": "American History Basics",
       "icon": "fa-solid fa-flag-usa",
       "lessons": [
-        { "id": "social-u3-l1", "title": "The First Americans", "description": "Learn about Native American peoples and their way of life." },
-        { "id": "social-u3-l2", "title": "Explorers", "description": "Discover the explorers who traveled to the Americas." },
-        { "id": "social-u3-l3", "title": "The 13 Colonies", "description": "Learn how the first 13 colonies were formed." },
-        { "id": "social-u3-l4", "title": "The American Revolution", "description": "Find out how America became its own country." }
+        {
+          "id": "social-u3-l1",
+          "title": "The First Americans",
+          "description": "Learn about Native American peoples and their way of life.",
+          "pages": [
+            {
+              "title": "Welcome to The First Americans",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/udFxKZRyQt4",
+                "title": "Kurzgesagt – The First People"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about the Native American peoples who were the first to live in North America. They built amazing communities, created beautiful art, and lived closely with nature. Let's explore their incredible way of life!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Who Were the First Americans?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Very First People",
+                  "body": [
+                    "Long before cities and cars, Native American peoples lived across North America. They were here for thousands of years before European explorers arrived. There were hundreds of different groups, each with their own language, traditions, and culture."
+                  ]
+                },
+                {
+                  "heading": "Living with the Land",
+                  "body": [
+                    "Native Americans had a deep connection to nature. They hunted animals, fished in rivers, and grew crops like corn, beans, and squash. They used natural resources wisely and respected the land that provided for them."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Native American Cultures",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Different Groups, Different Lives",
+                  "body": [
+                    "Native Americans lived in many different environments, from forests to deserts to plains. Groups in the Southwest built homes from clay called adobe. Plains peoples followed buffalo herds. Northwest Coast peoples built large wooden homes near the ocean."
+                  ]
+                },
+                {
+                  "heading": "Art, Stories, and Traditions",
+                  "body": [
+                    "Native Americans created beautiful pottery, woven baskets, and beadwork. They told stories to teach lessons and pass down their history. Many of these rich traditions are still celebrated and honored by Native American communities today."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Honoring the First Americans",
+                  "body": [
+                    "Native American peoples were the first to live in North America. They had diverse cultures, spoke many languages, and lived closely with nature. Their traditions and contributions are an important part of American history."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What crops did many Native Americans grow?",
+                "options": [
+                  "Wheat, rice, and oats",
+                  "Corn, beans, and squash",
+                  "Apples, oranges, and grapes",
+                  "Potatoes, tomatoes, and lettuce"
+                ],
+                "answer": "Corn, beans, and squash"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u3-l2",
+          "title": "Explorers",
+          "description": "Discover the explorers who traveled to the Americas.",
+          "pages": [
+            {
+              "title": "Welcome to Explorers",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/WSKi8HfcxEk",
+                "title": "Kurzgesagt – Age of Exploration"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will discover the European explorers who sailed across the ocean to reach the Americas. You'll learn why they came, what they found, and how their voyages changed the world forever."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Why Explorers Set Sail",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Looking for New Lands",
+                  "body": [
+                    "Hundreds of years ago, European countries wanted to find new trade routes and riches. Explorers set sail across the Atlantic Ocean hoping to discover new lands. They were brave, but their journeys were long and dangerous."
+                  ]
+                },
+                {
+                  "heading": "Christopher Columbus",
+                  "body": [
+                    "In 1492, Christopher Columbus sailed from Spain with three ships. He was trying to reach Asia but landed in the Caribbean islands instead. His voyage opened the door for more Europeans to travel to the Americas."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "More Explorers Arrive",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Other Famous Explorers",
+                  "body": [
+                    "After Columbus, many more explorers came. John Cabot explored the coast of North America for England. Hernán Cortés traveled to Mexico, and Jacques Cartier explored Canada for France. Each explorer claimed land for their home country."
+                  ]
+                },
+                {
+                  "heading": "The Impact on Native Peoples",
+                  "body": [
+                    "When explorers arrived, Native American peoples were already living on the land. The arrival of Europeans brought big changes, including new diseases and conflicts. It is important to remember that exploration affected Native peoples in many difficult ways."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "A World Changed Forever",
+                  "body": [
+                    "European explorers like Columbus, Cabot, and Cartier sailed to the Americas looking for new lands and wealth. Their voyages changed the world, but they also had a serious impact on the Native American peoples who already lived there."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "In what year did Christopher Columbus first sail to the Americas?",
+                "options": [
+                  "1400",
+                  "1450",
+                  "1492",
+                  "1600"
+                ],
+                "answer": "1492"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u3-l3",
+          "title": "The 13 Colonies",
+          "description": "Learn how the first 13 colonies were formed.",
+          "pages": [
+            {
+              "title": "Welcome to The 13 Colonies",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/RLykC1VN7NY",
+                "title": "Kurzgesagt – Colonial America"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about the 13 colonies that became the first states of the United States. You'll find out where they were, who lived there, and what daily life was like for the colonists."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "How the Colonies Began",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Settling in a New Land",
+                  "body": [
+                    "Starting in the early 1600s, people from England and other European countries sailed to North America to start new lives. They built settlements called colonies along the east coast. Jamestown, Virginia, founded in 1607, was one of the first."
+                  ]
+                },
+                {
+                  "heading": "Why People Came",
+                  "body": [
+                    "People moved to the colonies for many reasons. Some wanted religious freedom, like the Pilgrims who settled in Plymouth. Others came to find wealth or to own land. Life in the colonies was hard, but the settlers worked together to survive."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Life in the Colonies",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Three Regions",
+                  "body": [
+                    "The 13 colonies were split into three regions: New England, the Middle Colonies, and the Southern Colonies. New England had cold winters and rocky soil. The Middle Colonies grew lots of grain. The Southern Colonies had large farms called plantations."
+                  ]
+                },
+                {
+                  "heading": "Daily Life for Colonists",
+                  "body": [
+                    "Children in the colonies helped with chores like feeding animals and fetching water. They went to small schoolhouses or learned at home. Families grew their own food, made their own clothes, and worked very hard every day."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "From Colonies to Country",
+                  "body": [
+                    "The 13 colonies were settled along the east coast of North America by people from Europe. They came for freedom, land, and new opportunities. These colonies would one day become the United States of America!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "How many colonies later became the first states of the United States?",
+                "options": [
+                  "10",
+                  "13",
+                  "15",
+                  "20"
+                ],
+                "answer": "13"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u3-l4",
+          "title": "The American Revolution",
+          "description": "Find out how America became its own country.",
+          "pages": [
+            {
+              "title": "Welcome to The American Revolution",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/i93Z7zljQ7I",
+                "title": "Kurzgesagt – The Birth of a Nation"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn how the 13 colonies fought for their freedom from Britain and became the United States of America. You'll discover what the colonists were unhappy about and how brave people stood up for liberty."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Why the Colonists Were Upset",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Taxes Without a Say",
+                  "body": [
+                    "Britain ruled the 13 colonies and made them pay taxes on things like tea and paper. The colonists were angry because they had no voice in the British government. They said this was unfair and called it \"taxation without representation.\""
+                  ]
+                },
+                {
+                  "heading": "Standing Up for Freedom",
+                  "body": [
+                    "Colonists began to protest. The Boston Tea Party was a famous event where colonists dumped tea into the harbor to show they were upset. Leaders like Samuel Adams and Patrick Henry spoke out, saying the colonies deserved to be free."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "A New Nation Is Born",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The Declaration of Independence",
+                  "body": [
+                    "On July 4, 1776, the colonies declared their independence from Britain. Thomas Jefferson wrote the Declaration of Independence, which said that all people have the right to life, liberty, and the pursuit of happiness. This was a bold and brave step."
+                  ]
+                },
+                {
+                  "heading": "Winning the War",
+                  "body": [
+                    "The Revolutionary War lasted about eight years. George Washington led the American army through many tough battles. With help from France, the Americans finally won their independence in 1783. The United States of America was born!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Freedom and Independence",
+                  "body": [
+                    "The colonists were upset about unfair taxes and no say in government. They declared independence on July 4, 1776, and fought the Revolutionary War. With courage and teamwork, they created a brand-new country."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Who wrote the Declaration of Independence?",
+                "options": [
+                  "George Washington",
+                  "Benjamin Franklin",
+                  "Thomas Jefferson",
+                  "Samuel Adams"
+                ],
+                "answer": "Thomas Jefferson"
+              }
+            }
+          ]
+        }
       ]
     },
     {
@@ -42,10 +1007,330 @@
       "title": "Government & Citizens",
       "icon": "fa-solid fa-landmark",
       "lessons": [
-        { "id": "social-u4-l1", "title": "What Is Government?", "description": "Learn why we need leaders to make decisions for everyone." },
-        { "id": "social-u4-l2", "title": "The President", "description": "Find out what the President does and where they live." },
-        { "id": "social-u4-l3", "title": "Making Laws", "description": "See how an idea becomes a law that everyone follows." },
-        { "id": "social-u4-l4", "title": "Voting", "description": "Understand how people choose their leaders by voting." }
+        {
+          "id": "social-u4-l1",
+          "title": "What Is Government?",
+          "description": "Learn why we need leaders to make decisions for everyone.",
+          "pages": [
+            {
+              "title": "Welcome to What Is Government?",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/NbuUW9i-mHs",
+                "title": "Kurzgesagt – How Government Works"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn what a government is and why every community needs one. A government is a group of people who make rules and decisions for everyone. By the end, you'll understand how government helps keep things fair and organized."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Why We Need Government",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Making Decisions for Everyone",
+                  "body": [
+                    "Imagine if everyone made their own rules — it would be chaos! A government makes decisions so that everyone follows the same rules. It builds roads, runs schools, and keeps people safe. Government helps a community work together smoothly."
+                  ]
+                },
+                {
+                  "heading": "Different Levels of Government",
+                  "body": [
+                    "There are three main levels of government in the United States: local, state, and national. Your city or town has a local government. Your state has a state government. And the whole country has a national government in Washington, D.C."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "How Government Helps Us",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Services for Everyone",
+                  "body": [
+                    "The government provides many services we use every day. It pays for public schools, fire departments, and libraries. It also builds parks and keeps our drinking water clean. Without government, these important services might not exist."
+                  ]
+                },
+                {
+                  "heading": "Leaders We Choose",
+                  "body": [
+                    "In the United States, the people get to choose their leaders by voting. This is called a democracy. Citizens vote for mayors, governors, and the President. Voting gives everyone a voice in how the government is run."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Government Is for Everyone",
+                  "body": [
+                    "Government is a group of people who make rules and provide services for a community. The United States has local, state, and national governments. In a democracy, people vote to choose their leaders."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What are the three levels of government in the United States?",
+                "options": [
+                  "Small, medium, and large",
+                  "Local, state, and national",
+                  "City, town, and village",
+                  "Schools, parks, and libraries"
+                ],
+                "answer": "Local, state, and national"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u4-l2",
+          "title": "The President",
+          "description": "Find out what the President does and where they live.",
+          "pages": [
+            {
+              "title": "Welcome to The President",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/UuGrBhK2c7U",
+                "title": "Kurzgesagt – The White House"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about the President of the United States. You'll find out what the President does, where they live, and why the President is such an important leader. Let's take a peek inside the White House!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The President's Job",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Leader of the Country",
+                  "body": [
+                    "The President is the leader of the United States and the head of the national government. They help make important decisions, sign new laws, and meet with leaders from other countries. It is one of the biggest and most important jobs in the world."
+                  ]
+                },
+                {
+                  "heading": "Commander in Chief",
+                  "body": [
+                    "The President is also the commander in chief of the military, which means they are in charge of the Army, Navy, Air Force, and other branches. The President works to keep the country safe and to solve problems peacefully whenever possible."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "The White House and Elections",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Where the President Lives",
+                  "body": [
+                    "The President lives and works in the White House, a big white building in Washington, D.C. The White House has 132 rooms, including an oval-shaped office where the President works. It has been the home of every President since John Adams."
+                  ]
+                },
+                {
+                  "heading": "How Someone Becomes President",
+                  "body": [
+                    "To become President, a person must be at least 35 years old and born in the United States. Citizens vote in an election every four years to choose the President. A President can serve a maximum of two terms, which is eight years total."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "A Very Important Job",
+                  "body": [
+                    "The President leads the country, signs laws, and lives in the White House. Citizens vote to choose the President every four years. The President works hard to keep the nation safe and running smoothly."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "Where does the President of the United States live and work?",
+                "options": [
+                  "The Capitol Building",
+                  "The Lincoln Memorial",
+                  "The White House",
+                  "The Statue of Liberty"
+                ],
+                "answer": "The White House"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u4-l3",
+          "title": "Making Laws",
+          "description": "See how an idea becomes a law that everyone follows.",
+          "pages": [
+            {
+              "title": "Welcome to Making Laws",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/_ArVh3Cj9rw",
+                "title": "Kurzgesagt – How Laws Are Made"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn how a new law is made in the United States. It all starts with an idea! You'll follow that idea through Congress and all the way to the President's desk. By the end, you'll know how an idea becomes a law."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "From Idea to Bill",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "It Starts with an Idea",
+                  "body": [
+                    "Anyone can have an idea for a new law — even you! But to become a real law, the idea needs to be written down as a bill. A member of Congress writes the bill and shares it with other members so they can read and discuss it."
+                  ]
+                },
+                {
+                  "heading": "Congress Discusses and Votes",
+                  "body": [
+                    "Congress is made up of two groups: the Senate and the House of Representatives. Both groups talk about the bill, suggest changes, and then vote. If more than half of both groups vote yes, the bill moves on to the next step."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "From Bill to Law",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "The President Signs the Bill",
+                  "body": [
+                    "After Congress approves a bill, it goes to the President. If the President agrees with it, they sign it, and it becomes a law! If the President disagrees, they can veto the bill, which means they say no. Congress can try again with more votes."
+                  ]
+                },
+                {
+                  "heading": "Why Laws Matter",
+                  "body": [
+                    "Laws protect people and keep communities running smoothly. Laws say you must wear a seatbelt, go to school, and not steal. Every law started as a simple idea that someone thought would make life better for everyone."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Ideas Become Laws",
+                  "body": [
+                    "A law starts as an idea, gets written as a bill, is voted on by Congress, and is signed by the President. This process makes sure that new laws are carefully discussed and agreed upon before they take effect."
+                  ]
+                }
+              ],
+              "question": {
+                "text": "What happens after Congress approves a bill?",
+                "options": [
+                  "It is thrown away",
+                  "It goes to the President to be signed",
+                  "It goes back to the person who wrote it",
+                  "It becomes a holiday"
+                ],
+                "answer": "It goes to the President to be signed"
+              }
+            }
+          ]
+        },
+        {
+          "id": "social-u4-l4",
+          "title": "Voting",
+          "description": "Understand how people choose their leaders by voting.",
+          "pages": [
+            {
+              "title": "Welcome to Voting",
+              "type": "intro",
+              "video": {
+                "url": "https://www.youtube.com/embed/DEqfvgJpxZQ",
+                "title": "Kurzgesagt – The Power of Voting"
+              },
+              "sections": [
+                {
+                  "heading": "What You'll Learn",
+                  "body": [
+                    "In this lesson, you will learn about voting and why it is one of the most important things citizens can do. Voting is how people choose their leaders and have a say in their government. By the end, you'll understand how voting works!"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "What Is Voting?",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Making Your Voice Heard",
+                  "body": [
+                    "Voting means making a choice. When you vote, you pick the person or idea you think is best. In the United States, citizens vote to choose leaders like the President, governors, and mayors. Every single vote matters!"
+                  ]
+                },
+                {
+                  "heading": "Voting Is a Right",
+                  "body": [
+                    "In the United States, citizens who are 18 years or older can vote. It wasn't always this way — long ago, only some people were allowed to vote. Over time, brave people fought to make sure that all citizens could have a voice."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "How Voting Works",
+              "type": "content",
+              "sections": [
+                {
+                  "heading": "Election Day",
+                  "body": [
+                    "On Election Day, people go to a polling place to cast their vote. They can also vote by mail. Voters mark their choice on a ballot, which is a special form. After everyone votes, the ballots are counted and the winner is announced."
+                  ]
+                },
+                {
+                  "heading": "Voting in School",
+                  "body": [
+                    "You don't have to wait until you're 18 to practice voting! At school, you might vote for class president or pick a book for the class to read. Voting in school teaches you how to make fair choices and respect other people's opinions."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Putting It All Together",
+              "type": "quiz",
+              "sections": [
+                {
+                  "heading": "Every Vote Counts",
+                  "body": [
+                    "Voting is how citizens choose their leaders and have a say in government. On Election Day, people cast their ballots at polling places or by mail. Voting is a right and a responsibility — every vote counts!"
+                  ]
+                }
+              ],
+              "question": {
+                "text": "How old must a United States citizen be to vote?",
+                "options": [
+                  "14",
+                  "16",
+                  "18",
+                  "21"
+                ],
+                "answer": "18"
+              }
+            }
+          ]
+        }
       ]
     }
   ]

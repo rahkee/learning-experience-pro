@@ -3,6 +3,11 @@
   "name": "Math",
   "icon": "fa-solid fa-calculator",
   "color": "#6366f1",
+  "image": "/course-math.png",
+  "description": [
+    "Get ready to become a number ninja! In this course you'll add and subtract like a pro, master your times tables with cool tricks, discover how division and multiplication are best friends, and slice up pizzas (and more) with fractions. Every lesson is packed with fun ways to see math in action—counting on, fact families, and even a finger trick for the 9 times table!",
+    "You'll use your new superpowers everywhere: sharing treats fairly, telling time, measuring ingredients, and solving real puzzles. By the end, you'll feel confident with numbers big and small—and you might even amaze your family at the dinner table!"
+  ],
   "units": [
     {
       "id": "math-u1",
@@ -24,7 +29,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "In this lesson, you will learn how to add numbers from 0 to 9. Addition means putting numbers together to find out how many you have in all. By the end of this lesson, you'll be able to solve addition problems quickly and confidently!"
+                  "body": [
+                    "In this lesson, you will learn how to add numbers from 0 to 9. Addition means putting numbers together to find out how many you have in all. By the end of this lesson, you'll be able to solve addition problems quickly and confidently!"
+                  ]
                 }
               ]
             },
@@ -34,11 +41,15 @@
               "sections": [
                 {
                   "heading": "What Is Counting On?",
-                  "body": "Counting on is one of the easiest ways to add. Start with the bigger number, then count up by the smaller number. For example, to solve 5 + 3, start at 5 and count: 6, 7, 8. The answer is 8!"
+                  "body": [
+                    "Counting on is one of the easiest ways to add. Start with the bigger number, then count up by the smaller number. For example, to solve 5 + 3, start at 5 and count: 6, 7, 8. The answer is 8!"
+                  ]
                 },
                 {
                   "heading": "Using Objects to Help",
-                  "body": "You can use your fingers, blocks, or even drawings to help you count on. Hold up 5 fingers on one hand, then raise 3 more fingers one at a time while you count: 6, 7, 8. Objects make it easy to see the total."
+                  "body": [
+                    "You can use your fingers, blocks, or even drawings to help you count on. Hold up 5 fingers on one hand, then raise 3 more fingers one at a time while you count: 6, 7, 8. Objects make it easy to see the total."
+                  ]
                 }
               ]
             },
@@ -48,11 +59,15 @@
               "sections": [
                 {
                   "heading": "Friends of 10",
-                  "body": "Some number pairs are extra special because they add up to 10. These are called \"friends of 10.\" For example, 7 + 3 = 10, 6 + 4 = 10, and 5 + 5 = 10. Memorizing these pairs helps you solve harder problems later!"
+                  "body": [
+                    "Some number pairs are extra special because they add up to 10. These are called \"friends of 10.\" For example, 7 + 3 = 10, 6 + 4 = 10, and 5 + 5 = 10. Memorizing these pairs helps you solve harder problems later!"
+                  ]
                 },
                 {
                   "heading": "Doubles and Near Doubles",
-                  "body": "Doubles are fun because both numbers are the same: 2 + 2 = 4, 3 + 3 = 6, 4 + 4 = 8. Once you know your doubles, near doubles are easy too! For 3 + 4, just think: 3 + 3 = 6, plus one more is 7."
+                  "body": [
+                    "Doubles are fun because both numbers are the same: 2 + 2 = 4, 3 + 3 = 6, 4 + 4 = 8. Once you know your doubles, near doubles are easy too! For 3 + 4, just think: 3 + 3 = 6, plus one more is 7."
+                  ]
                 }
               ]
             },
@@ -62,12 +77,19 @@
               "sections": [
                 {
                   "heading": "Tips for Fast Addition",
-                  "body": "Here are some tricks to help you add quickly: always start counting from the bigger number, memorize your friends of 10, and practice your doubles. The more you practice, the faster you'll get!"
+                  "body": [
+                    "Here are some tricks to help you add quickly: always start counting from the bigger number, memorize your friends of 10, and practice your doubles. The more you practice, the faster you'll get!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 6 + 7?",
-                "options": ["11", "12", "13", "14"],
+                "options": [
+                  "11",
+                  "12",
+                  "13",
+                  "14"
+                ],
                 "answer": "13"
               }
             }
@@ -88,7 +110,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Now that you can add single-digit numbers, it's time to go bigger! In this lesson, you'll learn how to add two-digit numbers like 24 + 13. You'll discover how place value helps us add larger numbers step by step."
+                  "body": [
+                    "Now that you can add single-digit numbers, it's time to go bigger! In this lesson, you'll learn how to add two-digit numbers like 24 + 13. You'll discover how place value helps us add larger numbers step by step."
+                  ]
                 }
               ]
             },
@@ -98,11 +122,15 @@
               "sections": [
                 {
                   "heading": "Tens and Ones",
-                  "body": "Every two-digit number is made up of tens and ones. In the number 36, the 3 is in the tens place (meaning 30) and the 6 is in the ones place. When we add double-digit numbers, we add the tens and ones separately."
+                  "body": [
+                    "Every two-digit number is made up of tens and ones. In the number 36, the 3 is in the tens place (meaning 30) and the 6 is in the ones place. When we add double-digit numbers, we add the tens and ones separately."
+                  ]
                 },
                 {
                   "heading": "Adding Without Regrouping",
-                  "body": "When the ones digits add up to less than 10, it's straightforward! For 24 + 13, add the ones: 4 + 3 = 7. Then add the tens: 20 + 10 = 30. Put them together: 30 + 7 = 37!"
+                  "body": [
+                    "When the ones digits add up to less than 10, it's straightforward! For 24 + 13, add the ones: 4 + 3 = 7. Then add the tens: 20 + 10 = 30. Put them together: 30 + 7 = 37!"
+                  ]
                 }
               ]
             },
@@ -112,11 +140,15 @@
               "sections": [
                 {
                   "heading": "When Ones Add Up to More Than 9",
-                  "body": "Sometimes the ones add up to 10 or more. For 27 + 15, add the ones: 7 + 5 = 12. That's 1 ten and 2 ones. Write down the 2 and carry the 1 ten over to the tens column."
+                  "body": [
+                    "Sometimes the ones add up to 10 or more. For 27 + 15, add the ones: 7 + 5 = 12. That's 1 ten and 2 ones. Write down the 2 and carry the 1 ten over to the tens column."
+                  ]
                 },
                 {
                   "heading": "Step by Step",
-                  "body": "Let's solve 27 + 15. Step 1: Add the ones — 7 + 5 = 12. Write 2, carry 1. Step 2: Add the tens — 2 + 1 + 1 (carried) = 4. The answer is 42!"
+                  "body": [
+                    "Let's solve 27 + 15. Step 1: Add the ones — 7 + 5 = 12. Write 2, carry 1. Step 2: Add the tens — 2 + 1 + 1 (carried) = 4. The answer is 42!"
+                  ]
                 }
               ]
             },
@@ -126,12 +158,19 @@
               "sections": [
                 {
                   "heading": "Remember the Steps",
-                  "body": "When adding double-digit numbers, always start with the ones place first. If the ones add up to 10 or more, regroup by carrying a ten to the tens column. Then add the tens place, including any carried tens."
+                  "body": [
+                    "When adding double-digit numbers, always start with the ones place first. If the ones add up to 10 or more, regroup by carrying a ten to the tens column. Then add the tens place, including any carried tens."
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 38 + 25?",
-                "options": ["53", "63", "61", "73"],
+                "options": [
+                  "53",
+                  "63",
+                  "61",
+                  "73"
+                ],
                 "answer": "63"
               }
             }
@@ -152,7 +191,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Subtraction is the opposite of addition. Instead of putting numbers together, we take one number away from another. In this lesson, you'll learn to subtract numbers from 0 to 9 using fun strategies like counting back and thinking addition."
+                  "body": [
+                    "Subtraction is the opposite of addition. Instead of putting numbers together, we take one number away from another. In this lesson, you'll learn to subtract numbers from 0 to 9 using fun strategies like counting back and thinking addition."
+                  ]
                 }
               ]
             },
@@ -162,11 +203,15 @@
               "sections": [
                 {
                   "heading": "What Is Counting Back?",
-                  "body": "Counting back is one of the easiest ways to subtract. Start with the bigger number, then count backwards by the smaller number. For 8 − 3, start at 8 and count: 7, 6, 5. The answer is 5!"
+                  "body": [
+                    "Counting back is one of the easiest ways to subtract. Start with the bigger number, then count backwards by the smaller number. For 8 − 3, start at 8 and count: 7, 6, 5. The answer is 5!"
+                  ]
                 },
                 {
                   "heading": "Using a Number Line",
-                  "body": "A number line is like a road with numbers on it. To solve 9 − 4, put your finger on 9 and hop back 4 spaces: 8, 7, 6, 5. You landed on 5, so 9 − 4 = 5!"
+                  "body": [
+                    "A number line is like a road with numbers on it. To solve 9 − 4, put your finger on 9 and hop back 4 spaces: 8, 7, 6, 5. You landed on 5, so 9 − 4 = 5!"
+                  ]
                 }
               ]
             },
@@ -176,11 +221,15 @@
               "sections": [
                 {
                   "heading": "Addition and Subtraction Are Related",
-                  "body": "Addition and subtraction are in the same family! If you know that 3 + 5 = 8, then you also know that 8 − 5 = 3 and 8 − 3 = 5. Knowing your addition facts helps you subtract faster."
+                  "body": [
+                    "Addition and subtraction are in the same family! If you know that 3 + 5 = 8, then you also know that 8 − 5 = 3 and 8 − 3 = 5. Knowing your addition facts helps you subtract faster."
+                  ]
                 },
                 {
                   "heading": "Think Addition",
-                  "body": "When you see a subtraction problem like 7 − 4, think: \"What plus 4 equals 7?\" Since 4 + 3 = 7, the answer is 3! This strategy is called \"think addition\" and it's a powerful shortcut."
+                  "body": [
+                    "When you see a subtraction problem like 7 − 4, think: \"What plus 4 equals 7?\" Since 4 + 3 = 7, the answer is 3! This strategy is called \"think addition\" and it's a powerful shortcut."
+                  ]
                 }
               ]
             },
@@ -190,12 +239,19 @@
               "sections": [
                 {
                   "heading": "Everyday Subtraction",
-                  "body": "We use subtraction all the time! If you have 9 stickers and give 4 to a friend, how many are left? 9 − 4 = 5 stickers. Subtraction helps us figure out what's left over or how much more we need."
+                  "body": [
+                    "We use subtraction all the time! If you have 9 stickers and give 4 to a friend, how many are left? 9 − 4 = 5 stickers. Subtraction helps us figure out what's left over or how much more we need."
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 9 − 6?",
-                "options": ["2", "3", "4", "5"],
+                "options": [
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
                 "answer": "3"
               }
             }
@@ -216,7 +272,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Ready to subtract bigger numbers? In this lesson, you'll learn how to subtract two-digit numbers like 56 − 23. Just like addition, we use place value to break the problem into smaller, easier parts."
+                  "body": [
+                    "Ready to subtract bigger numbers? In this lesson, you'll learn how to subtract two-digit numbers like 56 − 23. Just like addition, we use place value to break the problem into smaller, easier parts."
+                  ]
                 }
               ]
             },
@@ -226,11 +284,15 @@
               "sections": [
                 {
                   "heading": "Start With the Ones",
-                  "body": "Just like addition, start with the ones place. For 56 − 23, subtract the ones: 6 − 3 = 3. Then subtract the tens: 5 − 2 = 3. Put them together and the answer is 33!"
+                  "body": [
+                    "Just like addition, start with the ones place. For 56 − 23, subtract the ones: 6 − 3 = 3. Then subtract the tens: 5 − 2 = 3. Put them together and the answer is 33!"
+                  ]
                 },
                 {
                   "heading": "Line Them Up",
-                  "body": "Always write the bigger number on top and line up the ones and tens columns. This makes it much easier to subtract each place value separately and avoid mistakes."
+                  "body": [
+                    "Always write the bigger number on top and line up the ones and tens columns. This makes it much easier to subtract each place value separately and avoid mistakes."
+                  ]
                 }
               ]
             },
@@ -240,11 +302,15 @@
               "sections": [
                 {
                   "heading": "When You Can't Subtract the Ones",
-                  "body": "Sometimes the top digit in the ones place is smaller than the bottom digit. For 42 − 17, you can't subtract 7 from 2! You need to borrow 1 ten from the tens place to make it work."
+                  "body": [
+                    "Sometimes the top digit in the ones place is smaller than the bottom digit. For 42 − 17, you can't subtract 7 from 2! You need to borrow 1 ten from the tens place to make it work."
+                  ]
                 },
                 {
                   "heading": "How to Borrow",
-                  "body": "In 42 − 17, the ones place has 2 − 7, which doesn't work. Borrow 1 ten from the 4 tens, making it 3 tens. The 2 ones become 12 ones. Now subtract: 12 − 7 = 5, and 3 − 1 = 2. The answer is 25!"
+                  "body": [
+                    "In 42 − 17, the ones place has 2 − 7, which doesn't work. Borrow 1 ten from the 4 tens, making it 3 tens. The 2 ones become 12 ones. Now subtract: 12 − 7 = 5, and 3 − 1 = 2. The answer is 25!"
+                  ]
                 }
               ]
             },
@@ -254,12 +320,19 @@
               "sections": [
                 {
                   "heading": "Steps to Remember",
-                  "body": "Step 1: Line up the numbers by place value. Step 2: Start with the ones. Step 3: If the top ones digit is smaller, borrow from the tens. Step 4: Subtract the tens. Always check your work by adding your answer to the bottom number!"
+                  "body": [
+                    "Step 1: Line up the numbers by place value. Step 2: Start with the ones. Step 3: If the top ones digit is smaller, borrow from the tens. Step 4: Subtract the tens. Always check your work by adding your answer to the bottom number!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 63 − 28?",
-                "options": ["25", "35", "41", "45"],
+                "options": [
+                  "25",
+                  "35",
+                  "41",
+                  "45"
+                ],
                 "answer": "35"
               }
             }
@@ -287,7 +360,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Multiplication is a faster way to add equal groups together! In this lesson, you'll discover what multiplication means and why it's such a powerful math tool. Get ready to see how groups and rows help us multiply!"
+                  "body": [
+                    "Multiplication is a faster way to add equal groups together! In this lesson, you'll discover what multiplication means and why it's such a powerful math tool. Get ready to see how groups and rows help us multiply!"
+                  ]
                 }
               ]
             },
@@ -297,11 +372,15 @@
               "sections": [
                 {
                   "heading": "Groups of the Same Size",
-                  "body": "Imagine you have 3 bags of apples, and each bag has 4 apples. That's 3 groups of 4! Instead of adding 4 + 4 + 4, you can multiply: 3 × 4 = 12. Multiplication is a shortcut for adding the same number over and over."
+                  "body": [
+                    "Imagine you have 3 bags of apples, and each bag has 4 apples. That's 3 groups of 4! Instead of adding 4 + 4 + 4, you can multiply: 3 × 4 = 12. Multiplication is a shortcut for adding the same number over and over."
+                  ]
                 },
                 {
                   "heading": "Repeated Addition",
-                  "body": "Every multiplication problem is really just addition in disguise. 5 × 2 means \"5 groups of 2,\" which is the same as 2 + 2 + 2 + 2 + 2 = 10. Multiplication just gets you to the answer faster!"
+                  "body": [
+                    "Every multiplication problem is really just addition in disguise. 5 × 2 means \"5 groups of 2,\" which is the same as 2 + 2 + 2 + 2 + 2 = 10. Multiplication just gets you to the answer faster!"
+                  ]
                 }
               ]
             },
@@ -311,11 +390,15 @@
               "sections": [
                 {
                   "heading": "What Is an Array?",
-                  "body": "An array is a way to arrange objects in rows and columns, like seats in a movie theater. If there are 3 rows with 4 seats in each row, that's a 3 × 4 array with 12 seats total!"
+                  "body": [
+                    "An array is a way to arrange objects in rows and columns, like seats in a movie theater. If there are 3 rows with 4 seats in each row, that's a 3 × 4 array with 12 seats total!"
+                  ]
                 },
                 {
                   "heading": "The Multiplication Symbol",
-                  "body": "The × symbol means \"times\" or \"groups of.\" When you see 4 × 5, read it as \"4 times 5\" or \"4 groups of 5.\" The answer to a multiplication problem is called the product."
+                  "body": [
+                    "The × symbol means \"times\" or \"groups of.\" When you see 4 × 5, read it as \"4 times 5\" or \"4 groups of 5.\" The answer to a multiplication problem is called the product."
+                  ]
                 }
               ]
             },
@@ -325,12 +408,19 @@
               "sections": [
                 {
                   "heading": "Multiplication in Real Life",
-                  "body": "You use multiplication every day! Counting wheels on cars (4 × the number of cars), legs on insects (6 × the number of insects), or petals on flowers. Multiplication helps us count big groups quickly."
+                  "body": [
+                    "You use multiplication every day! Counting wheels on cars (4 × the number of cars), legs on insects (6 × the number of insects), or petals on flowers. Multiplication helps us count big groups quickly."
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 4 × 3?",
-                "options": ["7", "10", "12", "15"],
+                "options": [
+                  "7",
+                  "10",
+                  "12",
+                  "15"
+                ],
                 "answer": "12"
               }
             }
@@ -351,7 +441,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Times tables are like a cheat sheet for multiplication! Once you memorize them, you can multiply super fast. In this lesson, you'll learn the 1, 2, and 3 times tables and discover patterns that make them easy to remember."
+                  "body": [
+                    "Times tables are like a cheat sheet for multiplication! Once you memorize them, you can multiply super fast. In this lesson, you'll learn the 1, 2, and 3 times tables and discover patterns that make them easy to remember."
+                  ]
                 }
               ]
             },
@@ -361,11 +453,15 @@
               "sections": [
                 {
                   "heading": "The Ones — Easiest Table Ever",
-                  "body": "The 1 times table is the easiest one! Any number times 1 is just that number. 1 × 5 = 5, 1 × 9 = 9, 1 × 100 = 100. Nothing changes when you multiply by 1!"
+                  "body": [
+                    "The 1 times table is the easiest one! Any number times 1 is just that number. 1 × 5 = 5, 1 × 9 = 9, 1 × 100 = 100. Nothing changes when you multiply by 1!"
+                  ]
                 },
                 {
                   "heading": "The Twos — Skip Counting",
-                  "body": "The 2 times table is like counting by twos: 2, 4, 6, 8, 10, 12, 14, 16, 18. If you can skip count by 2, you already know the 2 times table! For example, 2 × 7 just means counting by 2 seven times: 2, 4, 6, 8, 10, 12, 14."
+                  "body": [
+                    "The 2 times table is like counting by twos: 2, 4, 6, 8, 10, 12, 14, 16, 18. If you can skip count by 2, you already know the 2 times table! For example, 2 × 7 just means counting by 2 seven times: 2, 4, 6, 8, 10, 12, 14."
+                  ]
                 }
               ]
             },
@@ -375,11 +471,15 @@
               "sections": [
                 {
                   "heading": "Counting by Threes",
-                  "body": "The 3 times table goes: 3, 6, 9, 12, 15, 18, 21, 24, 27. Try clapping and counting by 3 to remember the pattern. Clap on 3, 6, 9, 12 — it has a nice rhythm to it!"
+                  "body": [
+                    "The 3 times table goes: 3, 6, 9, 12, 15, 18, 21, 24, 27. Try clapping and counting by 3 to remember the pattern. Clap on 3, 6, 9, 12 — it has a nice rhythm to it!"
+                  ]
                 },
                 {
                   "heading": "A Neat Pattern",
-                  "body": "Add up the digits of any answer in the 3 times table. For 3 × 4 = 12, add 1 + 2 = 3. For 3 × 8 = 24, add 2 + 4 = 6. The digit sums always make 3, 6, or 9! Use this to check your answers."
+                  "body": [
+                    "Add up the digits of any answer in the 3 times table. For 3 × 4 = 12, add 1 + 2 = 3. For 3 × 8 = 24, add 2 + 4 = 6. The digit sums always make 3, 6, or 9! Use this to check your answers."
+                  ]
                 }
               ]
             },
@@ -389,12 +489,19 @@
               "sections": [
                 {
                   "heading": "Say Them Out Loud",
-                  "body": "The best way to memorize times tables is to say them out loud. Try saying: \"one times three is three, two times three is six, three times three is nine...\" Practice a little every day and you'll have them memorized in no time!"
+                  "body": [
+                    "The best way to memorize times tables is to say them out loud. Try saying: \"one times three is three, two times three is six, three times three is nine...\" Practice a little every day and you'll have them memorized in no time!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 3 × 6?",
-                "options": ["9", "12", "15", "18"],
+                "options": [
+                  "9",
+                  "12",
+                  "15",
+                  "18"
+                ],
                 "answer": "18"
               }
             }
@@ -415,7 +522,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Now that you know the 1, 2, and 3 times tables, let's tackle the 4, 5, and 6 times tables! You'll learn some cool tricks that make these easier than you might think."
+                  "body": [
+                    "Now that you know the 1, 2, and 3 times tables, let's tackle the 4, 5, and 6 times tables! You'll learn some cool tricks that make these easier than you might think."
+                  ]
                 }
               ]
             },
@@ -425,11 +534,15 @@
               "sections": [
                 {
                   "heading": "The 4 Times Table",
-                  "body": "Here's a trick: the 4 times table is just the 2 times table doubled! For 4 × 3, first find 2 × 3 = 6, then double it: 6 × 2 = 12. So 4 × 3 = 12! The full table goes: 4, 8, 12, 16, 20, 24, 28, 32, 36."
+                  "body": [
+                    "Here's a trick: the 4 times table is just the 2 times table doubled! For 4 × 3, first find 2 × 3 = 6, then double it: 6 × 2 = 12. So 4 × 3 = 12! The full table goes: 4, 8, 12, 16, 20, 24, 28, 32, 36."
+                  ]
                 },
                 {
                   "heading": "The 5 Times Table",
-                  "body": "The 5 times table is one of the easiest! Every answer ends in 0 or 5. Count by fives: 5, 10, 15, 20, 25, 30, 35, 40, 45. You can even look at a clock to see it — each number on the clock face shows 5 more minutes!"
+                  "body": [
+                    "The 5 times table is one of the easiest! Every answer ends in 0 or 5. Count by fives: 5, 10, 15, 20, 25, 30, 35, 40, 45. You can even look at a clock to see it — each number on the clock face shows 5 more minutes!"
+                  ]
                 }
               ]
             },
@@ -439,11 +552,15 @@
               "sections": [
                 {
                   "heading": "Building on What You Know",
-                  "body": "If you know the 5 times table, the 6 times table is just one more group! For 6 × 4, think: 5 × 4 = 20, plus one more group of 4 is 24. So 6 × 4 = 24! The full table goes: 6, 12, 18, 24, 30, 36, 42, 48, 54."
+                  "body": [
+                    "If you know the 5 times table, the 6 times table is just one more group! For 6 × 4, think: 5 × 4 = 20, plus one more group of 4 is 24. So 6 × 4 = 24! The full table goes: 6, 12, 18, 24, 30, 36, 42, 48, 54."
+                  ]
                 },
                 {
                   "heading": "Even Number Trick",
-                  "body": "When you multiply 6 by an even number, the ones digit of the answer is the same as the number you multiplied by! Look: 6 × 2 = 12, 6 × 4 = 24, 6 × 6 = 36, 6 × 8 = 48. See the pattern?"
+                  "body": [
+                    "When you multiply 6 by an even number, the ones digit of the answer is the same as the number you multiplied by! Look: 6 × 2 = 12, 6 × 4 = 24, 6 × 6 = 36, 6 × 8 = 48. See the pattern?"
+                  ]
                 }
               ]
             },
@@ -453,12 +570,19 @@
               "sections": [
                 {
                   "heading": "Mix and Match",
-                  "body": "Now you know the 1 through 6 times tables! Try mixing them up: What's 5 × 4? What's 3 × 6? What's 4 × 5? Practice switching between tables so your brain stays sharp."
+                  "body": [
+                    "Now you know the 1 through 6 times tables! Try mixing them up: What's 5 × 4? What's 3 × 6? What's 4 × 5? Practice switching between tables so your brain stays sharp."
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 5 × 7?",
-                "options": ["25", "30", "35", "40"],
+                "options": [
+                  "25",
+                  "30",
+                  "35",
+                  "40"
+                ],
                 "answer": "35"
               }
             }
@@ -479,7 +603,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "The 7, 8, and 9 times tables can seem tricky, but you already know more than you think! Since you've learned the 1–6 tables, you already know many of the answers. In this lesson, you'll fill in the gaps and learn some awesome tricks."
+                  "body": [
+                    "The 7, 8, and 9 times tables can seem tricky, but you already know more than you think! Since you've learned the 1–6 tables, you already know many of the answers. In this lesson, you'll fill in the gaps and learn some awesome tricks."
+                  ]
                 }
               ]
             },
@@ -489,11 +615,15 @@
               "sections": [
                 {
                   "heading": "You Already Know Most of It",
-                  "body": "Here's the good news: you already know 7 × 1 through 7 × 6 from your earlier tables! The new ones to learn are 7 × 7 = 49, 7 × 8 = 56, and 7 × 9 = 63. That's only three new facts!"
+                  "body": [
+                    "Here's the good news: you already know 7 × 1 through 7 × 6 from your earlier tables! The new ones to learn are 7 × 7 = 49, 7 × 8 = 56, and 7 × 9 = 63. That's only three new facts!"
+                  ]
                 },
                 {
                   "heading": "Tricks for Sevens",
-                  "body": "For 7 × 8 = 56, try this memory trick: \"5, 6, 7, 8\" — the digits go in order! 56 = 7 × 8. The full 7 times table goes: 7, 14, 21, 28, 35, 42, 49, 56, 63."
+                  "body": [
+                    "For 7 × 8 = 56, try this memory trick: \"5, 6, 7, 8\" — the digits go in order! 56 = 7 × 8. The full 7 times table goes: 7, 14, 21, 28, 35, 42, 49, 56, 63."
+                  ]
                 }
               ]
             },
@@ -503,11 +633,15 @@
               "sections": [
                 {
                   "heading": "The 8 Times Table",
-                  "body": "The 8 times table is the 4 times table doubled! For 8 × 3, find 4 × 3 = 12, then double it to get 24. So 8 × 3 = 24! The full table goes: 8, 16, 24, 32, 40, 48, 56, 64, 72."
+                  "body": [
+                    "The 8 times table is the 4 times table doubled! For 8 × 3, find 4 × 3 = 12, then double it to get 24. So 8 × 3 = 24! The full table goes: 8, 16, 24, 32, 40, 48, 56, 64, 72."
+                  ]
                 },
                 {
                   "heading": "The 9 Times Finger Trick",
-                  "body": "Hold up all 10 fingers. To multiply 9 × 4, fold down finger number 4. You'll see 3 fingers on the left and 6 on the right — that's 36! This trick works for 9 × 1 through 9 × 10. Try 9 × 7: fold down finger 7 and you'll see 63!"
+                  "body": [
+                    "Hold up all 10 fingers. To multiply 9 × 4, fold down finger number 4. You'll see 3 fingers on the left and 6 on the right — that's 36! This trick works for 9 × 1 through 9 × 10. Try 9 × 7: fold down finger 7 and you'll see 63!"
+                  ]
                 }
               ]
             },
@@ -517,12 +651,19 @@
               "sections": [
                 {
                   "heading": "Celebrate Your Progress",
-                  "body": "Amazing work! You now know all the times tables from 1 to 9. Multiplication is something you get better at with practice. Try quizzing yourself, playing times table games, or challenging a friend!"
+                  "body": [
+                    "Amazing work! You now know all the times tables from 1 to 9. Multiplication is something you get better at with practice. Try quizzing yourself, playing times table games, or challenging a friend!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 9 × 6?",
-                "options": ["45", "48", "54", "56"],
+                "options": [
+                  "45",
+                  "48",
+                  "54",
+                  "56"
+                ],
                 "answer": "54"
               }
             }
@@ -550,7 +691,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Division is a way to split things into equal groups. It's the opposite of multiplication! In this lesson, you'll learn what division means and how to think about sharing things fairly."
+                  "body": [
+                    "Division is a way to split things into equal groups. It's the opposite of multiplication! In this lesson, you'll learn what division means and how to think about sharing things fairly."
+                  ]
                 }
               ]
             },
@@ -560,11 +703,15 @@
               "sections": [
                 {
                   "heading": "Fair Shares",
-                  "body": "Imagine you have 12 cookies and want to share them equally among 3 friends. How many cookies does each friend get? You're dividing! 12 ÷ 3 = 4. Each friend gets 4 cookies."
+                  "body": [
+                    "Imagine you have 12 cookies and want to share them equally among 3 friends. How many cookies does each friend get? You're dividing! 12 ÷ 3 = 4. Each friend gets 4 cookies."
+                  ]
                 },
                 {
                   "heading": "Making Equal Groups",
-                  "body": "Division can also mean: \"How many groups can I make?\" If you have 15 stickers and put 5 in each pile, how many piles do you get? 15 ÷ 5 = 3 piles. Division helps us share fairly and organize things into equal groups."
+                  "body": [
+                    "Division can also mean: \"How many groups can I make?\" If you have 15 stickers and put 5 in each pile, how many piles do you get? 15 ÷ 5 = 3 piles. Division helps us share fairly and organize things into equal groups."
+                  ]
                 }
               ]
             },
@@ -574,11 +721,15 @@
               "sections": [
                 {
                   "heading": "Opposites That Work Together",
-                  "body": "Division is the opposite of multiplication. If 4 × 3 = 12, then 12 ÷ 3 = 4 and 12 ÷ 4 = 3. Knowing your times tables makes division much easier!"
+                  "body": [
+                    "Division is the opposite of multiplication. If 4 × 3 = 12, then 12 ÷ 3 = 4 and 12 ÷ 4 = 3. Knowing your times tables makes division much easier!"
+                  ]
                 },
                 {
                   "heading": "The Division Symbol",
-                  "body": "The ÷ symbol means \"divided by.\" When you see 20 ÷ 5, read it as \"20 divided by 5.\" The answer to a division problem is called the quotient."
+                  "body": [
+                    "The ÷ symbol means \"divided by.\" When you see 20 ÷ 5, read it as \"20 divided by 5.\" The answer to a division problem is called the quotient."
+                  ]
                 }
               ]
             },
@@ -588,12 +739,19 @@
               "sections": [
                 {
                   "heading": "When Do We Divide?",
-                  "body": "We divide all the time! Splitting a pizza among friends, sharing crayons equally, or figuring out how many teams you can make from a group. Division helps us share fairly and solve everyday problems."
+                  "body": [
+                    "We divide all the time! Splitting a pizza among friends, sharing crayons equally, or figuring out how many teams you can make from a group. Division helps us share fairly and solve everyday problems."
+                  ]
                 }
               ],
               "question": {
                 "text": "You have 18 marbles and share them equally among 3 friends. How many does each friend get?",
-                "options": ["5", "6", "7", "8"],
+                "options": [
+                  "5",
+                  "6",
+                  "7",
+                  "8"
+                ],
                 "answer": "6"
               }
             }
@@ -614,7 +772,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "In this lesson, you'll practice dividing numbers by 2 and 3. If you know your 2 and 3 times tables, you're already halfway there! Dividing is just multiplication in reverse."
+                  "body": [
+                    "In this lesson, you'll practice dividing numbers by 2 and 3. If you know your 2 and 3 times tables, you're already halfway there! Dividing is just multiplication in reverse."
+                  ]
                 }
               ]
             },
@@ -624,11 +784,15 @@
               "sections": [
                 {
                   "heading": "Splitting in Half",
-                  "body": "Dividing by 2 means splitting something into two equal parts — finding half! 10 ÷ 2 = 5, because two groups of 5 make 10. If you can find half of a number, you can divide by 2."
+                  "body": [
+                    "Dividing by 2 means splitting something into two equal parts — finding half! 10 ÷ 2 = 5, because two groups of 5 make 10. If you can find half of a number, you can divide by 2."
+                  ]
                 },
                 {
                   "heading": "Even Numbers Are Easy",
-                  "body": "Even numbers (2, 4, 6, 8, 10, 12...) divide perfectly by 2. Think of the 2 times table backwards: 2 × 6 = 12, so 12 ÷ 2 = 6. Your times tables work in both directions!"
+                  "body": [
+                    "Even numbers (2, 4, 6, 8, 10, 12...) divide perfectly by 2. Think of the 2 times table backwards: 2 × 6 = 12, so 12 ÷ 2 = 6. Your times tables work in both directions!"
+                  ]
                 }
               ]
             },
@@ -638,11 +802,15 @@
               "sections": [
                 {
                   "heading": "Three Equal Groups",
-                  "body": "Dividing by 3 means making three equal groups. 15 ÷ 3 = 5, because three groups of 5 make 15. Think of your 3 times table: 3 × 5 = 15, so 15 ÷ 3 = 5."
+                  "body": [
+                    "Dividing by 3 means making three equal groups. 15 ÷ 3 = 5, because three groups of 5 make 15. Think of your 3 times table: 3 × 5 = 15, so 15 ÷ 3 = 5."
+                  ]
                 },
                 {
                   "heading": "Practice Problems",
-                  "body": "Try these in your head: 9 ÷ 3 = 3, 12 ÷ 3 = 4, 18 ÷ 3 = 6, 21 ÷ 3 = 7. Do you see how each answer matches your 3 times table? Multiplication and division really are best friends!"
+                  "body": [
+                    "Try these in your head: 9 ÷ 3 = 3, 12 ÷ 3 = 4, 18 ÷ 3 = 6, 21 ÷ 3 = 7. Do you see how each answer matches your 3 times table? Multiplication and division really are best friends!"
+                  ]
                 }
               ]
             },
@@ -652,12 +820,19 @@
               "sections": [
                 {
                   "heading": "Quick Tips",
-                  "body": "When dividing by 2, ask yourself: \"What number times 2 gives me this number?\" When dividing by 3, ask: \"What number times 3 gives me this number?\" Your times tables are the key to fast division!"
+                  "body": [
+                    "When dividing by 2, ask yourself: \"What number times 2 gives me this number?\" When dividing by 3, ask: \"What number times 3 gives me this number?\" Your times tables are the key to fast division!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 24 ÷ 3?",
-                "options": ["6", "7", "8", "9"],
+                "options": [
+                  "6",
+                  "7",
+                  "8",
+                  "9"
+                ],
                 "answer": "8"
               }
             }
@@ -678,7 +853,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Let's keep building your division skills! In this lesson, you'll practice dividing by 4 and 5. You'll learn some clever tricks that connect back to the times tables you already know."
+                  "body": [
+                    "Let's keep building your division skills! In this lesson, you'll practice dividing by 4 and 5. You'll learn some clever tricks that connect back to the times tables you already know."
+                  ]
                 }
               ]
             },
@@ -688,11 +865,15 @@
               "sections": [
                 {
                   "heading": "Four Equal Groups",
-                  "body": "Dividing by 4 means splitting into four equal parts. 20 ÷ 4 = 5, because four groups of 5 make 20. Use your 4 times table: 4 × 5 = 20, so 20 ÷ 4 = 5."
+                  "body": [
+                    "Dividing by 4 means splitting into four equal parts. 20 ÷ 4 = 5, because four groups of 5 make 20. Use your 4 times table: 4 × 5 = 20, so 20 ÷ 4 = 5."
+                  ]
                 },
                 {
                   "heading": "Halve It Twice",
-                  "body": "Here's a cool trick: dividing by 4 is the same as dividing by 2 twice! For 28 ÷ 4, first halve it: 28 ÷ 2 = 14. Then halve again: 14 ÷ 2 = 7. So 28 ÷ 4 = 7!"
+                  "body": [
+                    "Here's a cool trick: dividing by 4 is the same as dividing by 2 twice! For 28 ÷ 4, first halve it: 28 ÷ 2 = 14. Then halve again: 14 ÷ 2 = 7. So 28 ÷ 4 = 7!"
+                  ]
                 }
               ]
             },
@@ -702,11 +883,15 @@
               "sections": [
                 {
                   "heading": "Five Equal Groups",
-                  "body": "Dividing by 5 means splitting into five equal parts. 30 ÷ 5 = 6, because five groups of 6 make 30. Remember, the 5 times table answers always end in 0 or 5, which makes the pattern easy to spot."
+                  "body": [
+                    "Dividing by 5 means splitting into five equal parts. 30 ÷ 5 = 6, because five groups of 6 make 30. Remember, the 5 times table answers always end in 0 or 5, which makes the pattern easy to spot."
+                  ]
                 },
                 {
                   "heading": "The Clock Trick",
-                  "body": "Think of a clock! Each number on the clock face represents 5 minutes. 25 minutes means the minute hand points to the 5, so 25 ÷ 5 = 5. 40 minutes puts the hand on the 8, so 40 ÷ 5 = 8!"
+                  "body": [
+                    "Think of a clock! Each number on the clock face represents 5 minutes. 25 minutes means the minute hand points to the 5, so 25 ÷ 5 = 5. 40 minutes puts the hand on the 8, so 40 ÷ 5 = 8!"
+                  ]
                 }
               ]
             },
@@ -716,12 +901,19 @@
               "sections": [
                 {
                   "heading": "You're Getting Faster",
-                  "body": "By now you can divide by 2, 3, 4, and 5. The secret is always the same: use your times tables backwards! The better you know your multiplication facts, the easier division becomes."
+                  "body": [
+                    "By now you can divide by 2, 3, 4, and 5. The secret is always the same: use your times tables backwards! The better you know your multiplication facts, the easier division becomes."
+                  ]
                 }
               ],
               "question": {
                 "text": "What is 35 ÷ 5?",
-                "options": ["5", "6", "7", "8"],
+                "options": [
+                  "5",
+                  "6",
+                  "7",
+                  "8"
+                ],
                 "answer": "7"
               }
             }
@@ -742,7 +934,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "In this lesson, you'll see how division and multiplication are two sides of the same coin. You'll learn about fact families and discover how to check your division answers using multiplication."
+                  "body": [
+                    "In this lesson, you'll see how division and multiplication are two sides of the same coin. You'll learn about fact families and discover how to check your division answers using multiplication."
+                  ]
                 }
               ]
             },
@@ -752,11 +946,15 @@
               "sections": [
                 {
                   "heading": "What Is a Fact Family?",
-                  "body": "A fact family is a group of related math facts that use the same three numbers. For the numbers 3, 5, and 15, the fact family is: 3 × 5 = 15, 5 × 3 = 15, 15 ÷ 5 = 3, and 15 ÷ 3 = 5. Four facts, one family!"
+                  "body": [
+                    "A fact family is a group of related math facts that use the same three numbers. For the numbers 3, 5, and 15, the fact family is: 3 × 5 = 15, 5 × 3 = 15, 15 ÷ 5 = 3, and 15 ÷ 3 = 5. Four facts, one family!"
+                  ]
                 },
                 {
                   "heading": "Building Fact Families",
-                  "body": "Take any multiplication fact you know, like 4 × 6 = 24. You can write the whole family: 4 × 6 = 24, 6 × 4 = 24, 24 ÷ 6 = 4, and 24 ÷ 4 = 6. Every multiplication fact gives you two division facts for free!"
+                  "body": [
+                    "Take any multiplication fact you know, like 4 × 6 = 24. You can write the whole family: 4 × 6 = 24, 6 × 4 = 24, 24 ÷ 6 = 4, and 24 ÷ 4 = 6. Every multiplication fact gives you two division facts for free!"
+                  ]
                 }
               ]
             },
@@ -766,11 +964,15 @@
               "sections": [
                 {
                   "heading": "Multiply to Check Division",
-                  "body": "You can always check a division answer by multiplying. If you think 36 ÷ 9 = 4, check it: does 4 × 9 = 36? Yes! So you know your answer is correct."
+                  "body": [
+                    "You can always check a division answer by multiplying. If you think 36 ÷ 9 = 4, check it: does 4 × 9 = 36? Yes! So you know your answer is correct."
+                  ]
                 },
                 {
                   "heading": "Divide to Check Multiplication",
-                  "body": "It works the other way too! If you think 7 × 8 = 56, check it: does 56 ÷ 8 = 7? Yes! Multiplication and division always work together to prove each other right."
+                  "body": [
+                    "It works the other way too! If you think 7 × 8 = 56, check it: does 56 ÷ 8 = 7? Yes! Multiplication and division always work together to prove each other right."
+                  ]
                 }
               ]
             },
@@ -780,12 +982,19 @@
               "sections": [
                 {
                   "heading": "The Power of Fact Families",
-                  "body": "Understanding fact families makes you stronger at both multiplication and division. When you see a division problem, think of its multiplication partner. When you see a multiplication problem, know that you can divide to find missing pieces."
+                  "body": [
+                    "Understanding fact families makes you stronger at both multiplication and division. When you see a division problem, think of its multiplication partner. When you see a multiplication problem, know that you can divide to find missing pieces."
+                  ]
                 }
               ],
               "question": {
                 "text": "If 7 × 8 = 56, what is 56 ÷ 7?",
-                "options": ["6", "7", "8", "9"],
+                "options": [
+                  "6",
+                  "7",
+                  "8",
+                  "9"
+                ],
                 "answer": "8"
               }
             }
@@ -813,7 +1022,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Fractions are numbers that represent parts of a whole. In this lesson, you'll learn what fractions are, what they look like, and how to read them. Fractions are everywhere — from slicing pizza to telling time!"
+                  "body": [
+                    "Fractions are numbers that represent parts of a whole. In this lesson, you'll learn what fractions are, what they look like, and how to read them. Fractions are everywhere — from slicing pizza to telling time!"
+                  ]
                 }
               ]
             },
@@ -823,11 +1034,15 @@
               "sections": [
                 {
                   "heading": "Splitting Things Up",
-                  "body": "When you cut a sandwich in half, each piece is a fraction of the whole sandwich. A fraction tells you how many equal parts you have out of the total number of parts. If a pizza is cut into 4 equal slices and you eat 1, you ate one-fourth of the pizza!"
+                  "body": [
+                    "When you cut a sandwich in half, each piece is a fraction of the whole sandwich. A fraction tells you how many equal parts you have out of the total number of parts. If a pizza is cut into 4 equal slices and you eat 1, you ate one-fourth of the pizza!"
+                  ]
                 },
                 {
                   "heading": "Equal Parts Matter",
-                  "body": "For a fraction to work, the parts must be equal. If you cut a cake into 3 pieces but one piece is huge and the others are tiny, those aren't true thirds. Each piece must be exactly the same size."
+                  "body": [
+                    "For a fraction to work, the parts must be equal. If you cut a cake into 3 pieces but one piece is huge and the others are tiny, those aren't true thirds. Each piece must be exactly the same size."
+                  ]
                 }
               ]
             },
@@ -837,11 +1052,15 @@
               "sections": [
                 {
                   "heading": "The Top Number",
-                  "body": "The top number in a fraction is called the numerator. It tells you how many parts you have. In the fraction 3/4, the numerator is 3, meaning you have 3 parts out of the total."
+                  "body": [
+                    "The top number in a fraction is called the numerator. It tells you how many parts you have. In the fraction 3/4, the numerator is 3, meaning you have 3 parts out of the total."
+                  ]
                 },
                 {
                   "heading": "The Bottom Number",
-                  "body": "The bottom number is called the denominator. It tells you how many equal parts the whole is divided into. In 3/4, the denominator is 4, meaning the whole is split into 4 equal parts. Together, 3/4 means \"3 out of 4 equal parts.\""
+                  "body": [
+                    "The bottom number is called the denominator. It tells you how many equal parts the whole is divided into. In 3/4, the denominator is 4, meaning the whole is split into 4 equal parts. Together, 3/4 means \"3 out of 4 equal parts.\""
+                  ]
                 }
               ]
             },
@@ -851,12 +1070,19 @@
               "sections": [
                 {
                   "heading": "Everyday Fractions",
-                  "body": "Fractions are everywhere! When you share something equally, tell time (half past, quarter to), or measure ingredients for a recipe, you're using fractions. They fill in the gaps between the whole numbers you already know."
+                  "body": [
+                    "Fractions are everywhere! When you share something equally, tell time (half past, quarter to), or measure ingredients for a recipe, you're using fractions. They fill in the gaps between the whole numbers you already know."
+                  ]
                 }
               ],
               "question": {
                 "text": "A pie is cut into 6 equal slices. You eat 2 slices. What fraction of the pie did you eat?",
-                "options": ["1/6", "2/6", "3/6", "4/6"],
+                "options": [
+                  "1/6",
+                  "2/6",
+                  "3/6",
+                  "4/6"
+                ],
                 "answer": "2/6"
               }
             }
@@ -877,7 +1103,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Halves and quarters are two of the most common fractions you'll ever use. In this lesson, you'll learn to identify, create, and work with halves (1/2) and quarters (1/4). You'll see how they appear in shapes, numbers, and everyday life."
+                  "body": [
+                    "Halves and quarters are two of the most common fractions you'll ever use. In this lesson, you'll learn to identify, create, and work with halves (1/2) and quarters (1/4). You'll see how they appear in shapes, numbers, and everyday life."
+                  ]
                 }
               ]
             },
@@ -887,11 +1115,15 @@
               "sections": [
                 {
                   "heading": "What Is a Half?",
-                  "body": "A half means splitting something into 2 equal parts. Each part is one-half, written as 1/2. If you fold a piece of paper exactly in the middle, each side is one-half of the paper. Two halves always make one whole: 1/2 + 1/2 = 1."
+                  "body": [
+                    "A half means splitting something into 2 equal parts. Each part is one-half, written as 1/2. If you fold a piece of paper exactly in the middle, each side is one-half of the paper. Two halves always make one whole: 1/2 + 1/2 = 1."
+                  ]
                 },
                 {
                   "heading": "Finding Half of a Number",
-                  "body": "To find half of a number, divide it by 2. Half of 10 is 5. Half of 8 is 4. Half of 6 is 3. Halving numbers is the same as dividing by 2 — a skill you've already practiced!"
+                  "body": [
+                    "To find half of a number, divide it by 2. Half of 10 is 5. Half of 8 is 4. Half of 6 is 3. Halving numbers is the same as dividing by 2 — a skill you've already practiced!"
+                  ]
                 }
               ]
             },
@@ -901,11 +1133,15 @@
               "sections": [
                 {
                   "heading": "What Is a Quarter?",
-                  "body": "A quarter means splitting something into 4 equal parts. Each part is one-quarter, written as 1/4. Think of a coin — a quarter is called that because it's one-fourth of a dollar! Two quarters make a half, and four quarters make a whole."
+                  "body": [
+                    "A quarter means splitting something into 4 equal parts. Each part is one-quarter, written as 1/4. Think of a coin — a quarter is called that because it's one-fourth of a dollar! Two quarters make a half, and four quarters make a whole."
+                  ]
                 },
                 {
                   "heading": "Finding a Quarter of a Number",
-                  "body": "To find a quarter of a number, divide it by 4. A quarter of 12 is 3. A quarter of 20 is 5. You can also find a quarter by halving a number twice: half of 20 is 10, half of 10 is 5. So a quarter of 20 is 5!"
+                  "body": [
+                    "To find a quarter of a number, divide it by 4. A quarter of 12 is 3. A quarter of 20 is 5. You can also find a quarter by halving a number twice: half of 20 is 10, half of 10 is 5. So a quarter of 20 is 5!"
+                  ]
                 }
               ]
             },
@@ -915,12 +1151,19 @@
               "sections": [
                 {
                   "heading": "Comparing Halves and Quarters",
-                  "body": "A half is bigger than a quarter. Think about it: if you cut a pizza into 2 slices, each slice is bigger than if you cut it into 4 slices. One-half is the same as two-quarters (1/2 = 2/4). The more pieces you cut, the smaller each piece gets!"
+                  "body": [
+                    "A half is bigger than a quarter. Think about it: if you cut a pizza into 2 slices, each slice is bigger than if you cut it into 4 slices. One-half is the same as two-quarters (1/2 = 2/4). The more pieces you cut, the smaller each piece gets!"
+                  ]
                 }
               ],
               "question": {
                 "text": "What is half of 16?",
-                "options": ["4", "6", "8", "10"],
+                "options": [
+                  "4",
+                  "6",
+                  "8",
+                  "10"
+                ],
                 "answer": "8"
               }
             }
@@ -941,7 +1184,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "You already know halves and quarters. Now let's explore thirds and sixths! In this lesson, you'll learn how to divide things into 3 and 6 equal parts and discover the special relationship between them."
+                  "body": [
+                    "You already know halves and quarters. Now let's explore thirds and sixths! In this lesson, you'll learn how to divide things into 3 and 6 equal parts and discover the special relationship between them."
+                  ]
                 }
               ]
             },
@@ -951,11 +1196,15 @@
               "sections": [
                 {
                   "heading": "What Is a Third?",
-                  "body": "A third means splitting something into 3 equal parts. Each part is one-third, written as 1/3. If three friends share a chocolate bar equally, each person gets one-third. Three thirds make a whole: 1/3 + 1/3 + 1/3 = 1."
+                  "body": [
+                    "A third means splitting something into 3 equal parts. Each part is one-third, written as 1/3. If three friends share a chocolate bar equally, each person gets one-third. Three thirds make a whole: 1/3 + 1/3 + 1/3 = 1."
+                  ]
                 },
                 {
                   "heading": "Finding a Third of a Number",
-                  "body": "To find a third of a number, divide it by 3. A third of 12 is 4. A third of 18 is 6. A third of 9 is 3. If you know your 3 times table, finding thirds is a breeze!"
+                  "body": [
+                    "To find a third of a number, divide it by 3. A third of 12 is 4. A third of 18 is 6. A third of 9 is 3. If you know your 3 times table, finding thirds is a breeze!"
+                  ]
                 }
               ]
             },
@@ -965,11 +1214,15 @@
               "sections": [
                 {
                   "heading": "What Is a Sixth?",
-                  "body": "A sixth means splitting something into 6 equal parts. Each part is one-sixth, written as 1/6. Think of a pie cut into 6 equal slices — each slice is one-sixth of the pie. Six sixths make a whole."
+                  "body": [
+                    "A sixth means splitting something into 6 equal parts. Each part is one-sixth, written as 1/6. Think of a pie cut into 6 equal slices — each slice is one-sixth of the pie. Six sixths make a whole."
+                  ]
                 },
                 {
                   "heading": "Thirds and Sixths Are Related",
-                  "body": "Here's something cool: one-third is the same as two-sixths! 1/3 = 2/6. If you take a piece that's one-third and cut it in half, you get two pieces that are each one-sixth. Two sixths make a third, just like two quarters make a half!"
+                  "body": [
+                    "Here's something cool: one-third is the same as two-sixths! 1/3 = 2/6. If you take a piece that's one-third and cut it in half, you get two pieces that are each one-sixth. Two sixths make a third, just like two quarters make a half!"
+                  ]
                 }
               ]
             },
@@ -979,12 +1232,19 @@
               "sections": [
                 {
                   "heading": "Comparing Pieces",
-                  "body": "The more parts you divide something into, the smaller each part gets. One-third is bigger than one-sixth, just like one-half is bigger than one-quarter. Imagine cutting the same pie: 3 big slices vs. 6 smaller slices."
+                  "body": [
+                    "The more parts you divide something into, the smaller each part gets. One-third is bigger than one-sixth, just like one-half is bigger than one-quarter. Imagine cutting the same pie: 3 big slices vs. 6 smaller slices."
+                  ]
                 }
               ],
               "question": {
                 "text": "A ribbon is cut into 3 equal pieces. What fraction is each piece?",
-                "options": ["1/2", "1/3", "1/4", "1/6"],
+                "options": [
+                  "1/2",
+                  "1/3",
+                  "1/4",
+                  "1/6"
+                ],
                 "answer": "1/3"
               }
             }
@@ -1005,7 +1265,9 @@
               "sections": [
                 {
                   "heading": "What You'll Learn",
-                  "body": "Which is bigger: 1/2 or 1/3? In this lesson, you'll learn how to compare fractions and figure out which one is larger or smaller. You'll use pictures, number lines, and smart strategies to become a fraction comparison expert!"
+                  "body": [
+                    "Which is bigger: 1/2 or 1/3? In this lesson, you'll learn how to compare fractions and figure out which one is larger or smaller. You'll use pictures, number lines, and smart strategies to become a fraction comparison expert!"
+                  ]
                 }
               ]
             },
@@ -1015,11 +1277,15 @@
               "sections": [
                 {
                   "heading": "When the Bottom Numbers Match",
-                  "body": "Comparing fractions with the same denominator is easy! Just look at the numerators. 3/8 is bigger than 2/8 because 3 is bigger than 2. When the pieces are the same size, more pieces means a bigger fraction."
+                  "body": [
+                    "Comparing fractions with the same denominator is easy! Just look at the numerators. 3/8 is bigger than 2/8 because 3 is bigger than 2. When the pieces are the same size, more pieces means a bigger fraction."
+                  ]
                 },
                 {
                   "heading": "Examples",
-                  "body": "Which is bigger, 2/5 or 4/5? Since both fractions have fifths (same-size pieces), just compare the top numbers: 4 is bigger than 2, so 4/5 wins! What about 1/4 and 3/4? Since 3 parts is more than 1 part, 3/4 is bigger."
+                  "body": [
+                    "Which is bigger, 2/5 or 4/5? Since both fractions have fifths (same-size pieces), just compare the top numbers: 4 is bigger than 2, so 4/5 wins! What about 1/4 and 3/4? Since 3 parts is more than 1 part, 3/4 is bigger."
+                  ]
                 }
               ]
             },
@@ -1029,11 +1295,15 @@
               "sections": [
                 {
                   "heading": "When the Top Numbers Match",
-                  "body": "What if the numerators are the same? Then look at the denominators — but be careful! Bigger denominators mean smaller pieces. So 1/3 is bigger than 1/6, because thirds are bigger pieces than sixths."
+                  "body": [
+                    "What if the numerators are the same? Then look at the denominators — but be careful! Bigger denominators mean smaller pieces. So 1/3 is bigger than 1/6, because thirds are bigger pieces than sixths."
+                  ]
                 },
                 {
                   "heading": "Using Pictures to Compare",
-                  "body": "Drawing pictures is a great way to compare tricky fractions. Draw two rectangles the same size. Divide one into the first fraction and the other into the second. Shade the parts you're comparing, and you can see which fraction takes up more space!"
+                  "body": [
+                    "Drawing pictures is a great way to compare tricky fractions. Draw two rectangles the same size. Divide one into the first fraction and the other into the second. Shade the parts you're comparing, and you can see which fraction takes up more space!"
+                  ]
                 }
               ]
             },
@@ -1043,12 +1313,19 @@
               "sections": [
                 {
                   "heading": "Helpful Strategies",
-                  "body": "When comparing fractions, remember these tips: if the denominators are the same, the bigger numerator wins. If the numerators are the same, the smaller denominator wins (because the pieces are bigger). When in doubt, draw a picture!"
+                  "body": [
+                    "When comparing fractions, remember these tips: if the denominators are the same, the bigger numerator wins. If the numerators are the same, the smaller denominator wins (because the pieces are bigger). When in doubt, draw a picture!"
+                  ]
                 }
               ],
               "question": {
                 "text": "Which fraction is larger: 2/5 or 3/5?",
-                "options": ["2/5", "3/5", "They are equal", "Cannot compare"],
+                "options": [
+                  "2/5",
+                  "3/5",
+                  "They are equal",
+                  "Cannot compare"
+                ],
                 "answer": "3/5"
               }
             }
