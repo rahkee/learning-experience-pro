@@ -72,20 +72,20 @@ function CommentItem({ comment, elementKey, courseColor, onRefresh }) {
             {comment.replies.map((reply) => {
               const rUser = getUserById(reply.userId)
               return (
-                <div key={reply.id} className="flex gap-2">
+                <div key={reply.id} className="flex gap-2.5">
                   <span
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5"
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
                     style={{ backgroundColor: (rUser?.color ?? '#6366f1') + '33', color: rUser?.color ?? '#6366f1' }}
                   >
                     {getInitials(rUser)}
                   </span>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-semibold text-gray-300">{getDisplayName(rUser)}</span>
+                      <span className="text-sm font-semibold text-gray-300">{getDisplayName(rUser)}</span>
                       <RoleBadge role={rUser?.role} />
-                      <span className="text-[10px] text-gray-600">{timeAgo(reply.timestamp)}</span>
+                      <span className="text-[11px] text-gray-600">{timeAgo(reply.timestamp)}</span>
                     </div>
-                    <p className="text-xs text-gray-400 mt-0.5 break-words">
+                    <p className="text-sm text-gray-400 mt-0.5 break-words">
                       <RenderText text={reply.text} />
                     </p>
                   </div>
