@@ -1,6 +1,6 @@
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getAllStudentThreads, markThreadRead, getThread, addReply } from '../data/discussions.js'
-import { getUserById, getInitials, getDisplayName, generateFakeReply } from '../data/fakeUsers.js'
+import { getUserById, getInitials, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
 import CommentInput from './CommentInput.jsx'
 import RenderText from './RenderText.jsx'
 
@@ -31,6 +31,13 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
   const [expandedKey, setExpandedKey] = useState(null)
   const [version, setVersion] = useState(0)
   const refresh = useCallback(() => setVersion((v) => v + 1), [])
+  const [usersWithStatus, setUsersWithStatus] = useState(() => getAllUsersWithStatus())
+
+  useEffect(() => {
+    if (!open) return
+    const id = setInterval(() => setUsersWithStatus(getAllUsersWithStatus()), 5000)
+    return () => clearInterval(id)
+  }, [open])
 
   const threads = getAllStudentThreads(courseId, steps)
   void version
@@ -69,6 +76,23 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
           >
             <i className="fa-light fa-xmark text-sm" />
           </button>
+        </div>
+
+        <div className="px-4 py-3 border-b border-gray-800 flex items-center gap-2 overflow-x-auto">
+          {usersWithStatus.map((u) => (
+            <div key={u.id} className="relative shrink-0">
+              <span
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity ${u.online ? '' : 'opacity-40'}`}
+                style={{ backgroundColor: u.color + '33', color: u.color }}
+                title={getDisplayName(u)}
+              >
+                {getInitials(u)}
+              </span>
+              {u.online && (
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-gray-900" />
+              )}
+            </div>
+          ))}
         </div>
 
         <div className="flex-1 overflow-y-auto">

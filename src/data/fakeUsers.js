@@ -13,6 +13,33 @@ const userMap = Object.fromEntries(users.map((u) => [u.id, u]))
 
 export const currentUserId = 'student-001'
 
+let onlineSet = new Set([currentUserId, 'teacher-001', 'student-002', 'mod-001'])
+let lastRotation = Date.now()
+const ROTATION_INTERVAL = 12000
+
+function rotateOnlineStatus() {
+  const now = Date.now()
+  if (now - lastRotation < ROTATION_INTERVAL) return
+  lastRotation = now
+
+  const others = users.filter((u) => u.id !== currentUserId)
+  const toToggle = others[Math.floor(Math.random() * others.length)]
+
+  if (onlineSet.has(toToggle.id)) {
+    if (onlineSet.size > 2) onlineSet.delete(toToggle.id)
+  } else {
+    onlineSet.add(toToggle.id)
+  }
+
+  if (Math.random() < 0.7) onlineSet.add('teacher-001')
+  if (Math.random() < 0.6) onlineSet.add('mod-001')
+}
+
+export function getAllUsersWithStatus() {
+  rotateOnlineStatus()
+  return users.map((u) => ({ ...u, online: onlineSet.has(u.id) }))
+}
+
 export function getUserById(id) {
   return userMap[id] ?? null
 }

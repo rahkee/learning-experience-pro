@@ -1,16 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { getCourseWithProgress } from '../data/courses.js'
+import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
 import { saveProgress } from '../data/progress.js'
+import { seedCommunityChat } from '../data/discussions.js'
 import NotificationBell from '../components/NotificationBell.jsx'
+import CourseCommunity from '../components/CourseCommunity.jsx'
 
 export default function CourseDetails() {
   const { courseId } = useParams()
   const navigate = useNavigate()
   const course = getCourseWithProgress(courseId)
   const [selectedUnitId, setSelectedUnitId] = useState(null)
+  const [tab, setTab] = useState('explore')
   const effectiveUnitId = selectedUnitId ?? course?.units?.[0]?.id ?? null
   const selectedUnit = course?.units?.find((u) => u.id === effectiveUnitId)
+  const steps = course ? flattenCoursePages(course) : []
+
+  useEffect(() => {
+    if (course) seedCommunityChat(courseId, course.name)
+  }, [courseId, course?.name])
 
   if (!course) {
     return (
@@ -28,12 +36,10 @@ export default function CourseDetails() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      {/* Global notification bell */}
       <div className="fixed top-4 right-6 z-50">
         <NotificationBell />
       </div>
 
-      {/* Hero with course image and overlay */}
       <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden">
         <img
           src={course.image}
@@ -60,7 +66,6 @@ export default function CourseDetails() {
       </div>
 
       <main className="py-8">
-        {/* Description and actions — constrained width */}
         <div className="max-w-3xl mx-auto px-6">
           <div className="space-y-4">
             {course.description?.map((paragraph, i) => (
@@ -74,9 +79,7 @@ export default function CourseDetails() {
               type="button"
               onClick={() => navigate(`/play/${courseId}`)}
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-950"
-              style={{
-                backgroundColor: course.color ?? '#6366f1',
-              }}
+              style={{ backgroundColor: course.color ?? '#6366f1' }}
             >
               <span className="relative w-4 h-4">
                 <i className="fa-light fa-play absolute inset-0 transition-opacity group-hover:opacity-0" />
@@ -87,12 +90,38 @@ export default function CourseDetails() {
           </div>
         </div>
 
-        {/* Units — 2-column: units left, selected unit content right */}
-        {course.units?.length > 0 && (
-          <section className="mt-12 pt-10 border-t border-gray-800 px-6">
-            <h2 className="text-xl font-bold mb-6 text-center">Pick a Unit to Explore</h2>
+        <section className="mt-12 pt-10 border-t border-gray-800 px-6">
+          <div className="flex justify-center gap-2 mb-8">
+            <button
+              type="button"
+              onClick={() => setTab('explore')}
+              className="px-5 py-2 rounded-full text-sm font-medium transition-colors"
+              style={
+                tab === 'explore'
+                  ? { backgroundColor: course.color, color: '#fff' }
+                  : { backgroundColor: 'transparent', color: '#9ca3af', border: '1px solid #374151' }
+              }
+            >
+              <i className="fa-light fa-compass mr-1.5" />
+              Explore the Course
+            </button>
+            <button
+              type="button"
+              onClick={() => setTab('community')}
+              className="px-5 py-2 rounded-full text-sm font-medium transition-colors"
+              style={
+                tab === 'community'
+                  ? { backgroundColor: course.color, color: '#fff' }
+                  : { backgroundColor: 'transparent', color: '#9ca3af', border: '1px solid #374151' }
+              }
+            >
+              <i className="fa-light fa-users mr-1.5" />
+              Community
+            </button>
+          </div>
+
+          {tab === 'explore' && course.units?.length > 0 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-              {/* Left column: unit list — responsive grid below lg, vertical list at lg */}
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-1 gap-3">
                 {course.units.map((unit) => {
                   const isActive = effectiveUnitId === unit.id
@@ -128,7 +157,6 @@ export default function CourseDetails() {
                 })}
               </div>
 
-              {/* Right column: selected unit title + lessons (no container) */}
               <div className="text-left min-h-[200px]" style={{ '--unit-color': course.color ?? '#6366f1' }}>
                 {selectedUnit ? (
                   <>
@@ -167,8 +195,16 @@ export default function CourseDetails() {
                 )}
               </div>
             </div>
-          </section>
-        )}
+          )}
+
+          {tab === 'community' && (
+            <CourseCommunity
+              courseId={courseId}
+              courseColor={course.color}
+              steps={steps}
+            />
+          )}
+        </section>
       </main>
     </div>
   )

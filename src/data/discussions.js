@@ -298,3 +298,103 @@ export function seedLiveChat(elementKey, lessonTitle) {
   timestamps[elementKey] = new Date().toISOString()
   saveReadTimestamps(timestamps)
 }
+
+const communityChatTemplates = [
+  { userId: 'teacher-001', text: (name) => `Welcome to the ${name} community! Feel free to ask questions or share what you're learning.` },
+  { userId: 'student-002', text: () => "Hey everyone! Super excited to be taking this course. Anyone else just getting started?" },
+  { userId: 'student-003', text: () => "Yeah I just joined yesterday! The lessons look really interesting so far." },
+  { userId: 'mod-001', text: () => "Welcome to all the new students! Don't forget to check out the lesson materials before each session." },
+  { userId: 'student-004', text: () => "Does anyone have tips for taking notes? I want to make sure I remember everything." },
+  { userId: 'teacher-001', text: () => "Great question! I recommend writing down key concepts in your own words after each lesson." },
+  { userId: 'student-002', text: () => "I like to draw little diagrams and pictures. It helps me remember better!" },
+  { userId: 'student-003', text: () => "Ooh that's a good idea Jamie! I might try that too." },
+  { userId: 'mod-001', text: () => "You can also revisit any lesson page and use the discussion threads to ask questions about specific content." },
+  { userId: 'student-004', text: () => "I just finished the first unit and it was awesome! Can't wait for the next one." },
+  { userId: 'teacher-001', text: () => "So proud of everyone's progress! Keep up the great work and don't hesitate to ask for help." },
+  { userId: 'student-002', text: () => "This is probably my favorite class right now. The content is really fun!" },
+]
+
+export function seedCommunityChat(courseId, courseName) {
+  const key = `${courseId}:community`
+  const data = load()
+  if (data[key] && data[key].comments.length > 0) return
+
+  const baseTime = Date.now() - 1800000
+  data[key] = {
+    seeded: true,
+    community: true,
+    comments: communityChatTemplates.map((tpl, i) => ({
+      id: makeId() + '-comm-' + i,
+      userId: tpl.userId,
+      text: typeof tpl.text === 'function' ? tpl.text(courseName) : tpl.text,
+      timestamp: new Date(baseTime + i * 140000).toISOString(),
+      replies: [],
+    })),
+  }
+  save(data)
+
+  const timestamps = loadReadTimestamps()
+  timestamps[key] = new Date().toISOString()
+  saveReadTimestamps(timestamps)
+}
+
+export function addCommunityMessage(courseId, text, userId) {
+  return addComment(`${courseId}:community`, text, userId)
+}
+
+export function getCourseCommunityFeed(courseId, steps) {
+  const data = load()
+  const feed = []
+  const communityKey = `${courseId}:community`
+
+  const communityThread = data[communityKey]
+  if (communityThread) {
+    for (const c of communityThread.comments) {
+      feed.push({
+        type: 'chat',
+        id: c.id,
+        userId: c.userId,
+        text: c.text,
+        timestamp: c.timestamp,
+        elementKey: communityKey,
+        replies: c.replies ?? [],
+        commentId: c.id,
+      })
+    }
+  }
+
+  for (const [key, thread] of Object.entries(data)) {
+    if (!key.startsWith(`${courseId}:`)) continue
+    if (key === communityKey) continue
+    if (thread.comments.length === 0) continue
+
+    let lessonTitle = ''
+    if (steps) {
+      for (const step of steps) {
+        const prefix = `${courseId}:${step.lessonId}:${step.pageIndex}:`
+        if (key.startsWith(prefix)) {
+          lessonTitle = step.lessonTitle
+          break
+        }
+      }
+    }
+
+    for (const c of thread.comments) {
+      feed.push({
+        type: 'discussion',
+        id: c.id,
+        userId: c.userId,
+        text: c.text,
+        timestamp: c.timestamp,
+        elementKey: key,
+        lessonTitle,
+        replies: c.replies ?? [],
+        commentId: c.id,
+        commentCount: thread.comments.length + thread.comments.reduce((s, cm) => s + (cm.replies?.length ?? 0), 0),
+      })
+    }
+  }
+
+  feed.sort((a, b) => a.timestamp.localeCompare(b.timestamp))
+  return feed
+}
