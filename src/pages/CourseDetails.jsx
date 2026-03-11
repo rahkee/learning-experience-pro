@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getCourseWithProgress } from '../data/courses.js'
 import { saveProgress } from '../data/progress.js'
+import NotificationBell from '../components/NotificationBell.jsx'
 
 export default function CourseDetails() {
   const { courseId } = useParams()
@@ -27,6 +28,11 @@ export default function CourseDetails() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
+      {/* Global notification bell */}
+      <div className="fixed top-4 right-6 z-50">
+        <NotificationBell />
+      </div>
+
       {/* Hero with course image and overlay */}
       <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden">
         <img

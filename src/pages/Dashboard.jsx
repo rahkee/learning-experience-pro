@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { getStudent, getAllCoursesWithProgress } from '../data/courses.js'
+import NotificationBell from '../components/NotificationBell.jsx'
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -18,13 +19,7 @@ export default function Dashboard() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end gap-4 px-6 py-4 bg-transparent"
         aria-label="Main navigation"
       >
-        <button
-          type="button"
-          className="p-2 rounded-full hover:bg-white/10 transition-colors"
-          aria-label="Notifications"
-        >
-          <i className="fa-solid fa-bell text-xl" />
-        </button>
+        <NotificationBell />
         <button
           type="button"
           className="p-2 rounded-full hover:bg-white/10 transition-colors"

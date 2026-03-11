@@ -2,6 +2,11 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
 import { getStudentProgress, saveProgress } from '../data/progress.js'
+import LiveChat from '../components/LiveChat.jsx'
+import ThreadableContent from '../components/ThreadableContent.jsx'
+import ChatSidebar from '../components/ChatSidebar.jsx'
+import NotificationBell from '../components/NotificationBell.jsx'
+import { getUnreadCount } from '../data/discussions.js'
 
 export default function CoursePlayer() {
   const { courseId } = useParams()
@@ -23,6 +28,7 @@ export default function CoursePlayer() {
   const [currentIndex, setCurrentIndex] = useState(resolveStartIndex)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [answerLocked, setAnswerLocked] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     setSelectedAnswer(null)
@@ -121,34 +127,55 @@ export default function CoursePlayer() {
             {unitTitle} &middot; {lessonTitle} &middot; Page {step.pageIndex + 1}
           </p>
         </div>
-        <span className="text-xs text-gray-600 shrink-0">
+        <span className="text-xs text-gray-600 shrink-0 mr-1">
           {currentIndex + 1} / {steps.length}
         </span>
+        <NotificationBell />
       </header>
 
       {/* Page content */}
-      <main className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full">
+      <main className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full pr-14">
         <h1 className="text-2xl md:text-3xl font-bold mb-6">{page.title}</h1>
 
         {page.type === 'intro' && page.video && (
-          <div className="aspect-video rounded-xl overflow-hidden mb-8 bg-black">
-            <iframe
-              src={page.video.url}
-              title={page.video.title}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <>
+            <ThreadableContent
+              elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:video:0`}
+              courseColor={course.color}
+            >
+              <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                <iframe
+                  src={page.video.url}
+                  title={page.video.title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </ThreadableContent>
+            <div className="mb-8">
+              <LiveChat
+                elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:livechat:0`}
+                lessonTitle={lessonTitle}
+                courseColor={course.color}
+              />
+            </div>
+          </>
         )}
 
         {page.sections?.map((section, i) => (
           <div key={i} className="mb-6">
             <h2 className="text-lg font-semibold mb-2 text-gray-200">{section.heading}</h2>
             {section.body?.map((paragraph, j) => (
-              <p key={j} className="text-gray-400 leading-relaxed mb-3">
-                {paragraph}
-              </p>
+              <ThreadableContent
+                key={j}
+                elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
+                courseColor={course.color}
+              >
+                <p className="text-gray-400 leading-relaxed mb-3">
+                  {paragraph}
+                </p>
+              </ThreadableContent>
             ))}
           </div>
         ))}
@@ -215,6 +242,20 @@ export default function CoursePlayer() {
 
         <button
           type="button"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="relative w-10 h-10 rounded-full flex items-center justify-center border border-gray-700 hover:bg-gray-800 transition-colors"
+          aria-label="My discussions"
+        >
+          <i className="fa-light fa-messages text-sm" />
+          {getUnreadCount() > 0 && (
+            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">
+              {getUnreadCount() > 9 ? '9+' : getUnreadCount()}
+            </span>
+          )}
+        </button>
+
+        <button
+          type="button"
           onClick={handleNext}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-white"
           style={{ backgroundColor: course.color ?? '#6366f1' }}
@@ -232,6 +273,18 @@ export default function CoursePlayer() {
           )}
         </button>
       </footer>
+
+      <ChatSidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        courseId={courseId}
+        courseColor={course.color}
+        steps={steps}
+        onNavigate={(stepIndex) => {
+          setCurrentIndex(stepIndex)
+          persistPosition(stepIndex)
+        }}
+      />
     </div>
   )
 }
