@@ -13,7 +13,6 @@
     {
       "courseId": "math",
       "enrolled": true,
-      "progress": 0,
       "currentLessonId": "math-u1-l1",
       "currentPage": 0,
       "completedLessons": [],
@@ -22,7 +21,6 @@
     {
       "courseId": "science",
       "enrolled": true,
-      "progress": 0,
       "currentLessonId": "science-u1-l1",
       "currentPage": 0,
       "completedLessons": [],
@@ -31,7 +29,6 @@
     {
       "courseId": "english",
       "enrolled": true,
-      "progress": 0,
       "currentLessonId": "english-u1-l1",
       "currentPage": 0,
       "completedLessons": [],
@@ -40,7 +37,6 @@
     {
       "courseId": "social-studies",
       "enrolled": true,
-      "progress": 0,
       "currentLessonId": "social-u1-l1",
       "currentPage": 0,
       "completedLessons": [],
