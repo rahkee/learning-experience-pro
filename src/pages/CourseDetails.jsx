@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getCourseWithProgress } from '../data/courses.js'
+import { saveProgress } from '../data/progress.js'
 
 export default function CourseDetails() {
   const { courseId } = useParams()
+  const navigate = useNavigate()
   const course = getCourseWithProgress(courseId)
   const [selectedUnitId, setSelectedUnitId] = useState(null)
-  const selectedUnit = course?.units?.find((u) => u.id === selectedUnitId)
+  const effectiveUnitId = selectedUnitId ?? course?.units?.[0]?.id ?? null
+  const selectedUnit = course?.units?.find((u) => u.id === effectiveUnitId)
 
   if (!course) {
     return (
@@ -40,7 +43,7 @@ export default function CourseDetails() {
             to="/"
             className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white mb-4"
           >
-            <i className="fa-solid fa-arrow-left" />
+            <i className="fa-light fa-arrow-left" />
             Back to dashboard
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold">{course.name}</h1>
@@ -63,72 +66,97 @@ export default function CourseDetails() {
           <div className="mt-8">
             <button
               type="button"
-              className="px-6 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-950"
+              onClick={() => navigate(`/play/${courseId}`)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-950"
               style={{
                 backgroundColor: course.color ?? '#6366f1',
               }}
             >
-              {course.progress > 0 ? 'Continue' : 'Start'} course
+              <i className="fa-light fa-play" />
+              {course.progress > 0 ? 'Continue' : 'Start'} Course
             </button>
           </div>
         </div>
 
-        {/* Units in this course — full viewport width, tab-like */}
+        {/* Units — 2-column: units left, selected unit content right */}
         {course.units?.length > 0 && (
-          <section className="mt-12 pt-10 border-t border-gray-800 px-6 text-center">
-            <h2 className="text-xl font-bold mb-6">Pick a unit to explore</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              {course.units.map((unit) => {
-                const isActive = selectedUnitId === unit.id
-                return (
-                  <button
-                    key={unit.id}
-                    type="button"
-                    onClick={() => setSelectedUnitId(isActive ? null : unit.id)}
-                    style={{ '--unit-color': course.color ?? '#6366f1' }}
-                    className={`group text-left rounded-xl overflow-hidden bg-gray-900 border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--unit-color)] focus:ring-offset-2 focus:ring-offset-gray-950 ${
-                      isActive
-                        ? 'border-[var(--unit-color)] ring-2 ring-[var(--unit-color)]/40'
-                        : 'border-gray-800 hover:border-[var(--unit-color)]'
-                    }`}
-                  >
-                    <div className="aspect-[4/3] w-full overflow-hidden bg-gray-800">
-                      <img
-                        src={unit.image}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className={`font-bold text-lg mb-2 transition-colors ${isActive ? 'text-[var(--unit-color)]' : 'group-hover:text-[var(--unit-color)]'}`}>
-                        {unit.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm">
-                        {unit.description}
-                      </p>
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Lessons for selected unit */}
-            {selectedUnit?.lessons?.length > 0 && (
-              <div className="mt-8 max-w-7xl mx-auto">
-                <h3 className="text-lg font-semibold mb-4">{selectedUnit.title} — Lessons</h3>
-                <ul className="space-y-4">
-                  {selectedUnit.lessons.map((lesson) => (
-                    <li
-                      key={lesson.id}
-                      className="p-4 rounded-lg bg-gray-900/80 border border-gray-800"
+          <section className="mt-12 pt-10 border-t border-gray-800 px-6">
+            <h2 className="text-xl font-bold mb-6 text-center">Pick a Unit to Explore</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {/* Left column: unit list */}
+              <div className="space-y-3">
+                {course.units.map((unit) => {
+                  const isActive = effectiveUnitId === unit.id
+                  return (
+                    <button
+                      key={unit.id}
+                      type="button"
+                      onClick={() => setSelectedUnitId(unit.id)}
+                      style={{ '--unit-color': course.color ?? '#6366f1' }}
+                      className={`w-full text-left rounded-xl overflow-hidden bg-gray-900 border-2 transition-colors focus:outline-none ${
+                        isActive ? 'border-[var(--unit-color)]' : 'border-gray-800 hover:border-[var(--unit-color)] focus:border-[var(--unit-color)]'
+                      }`}
                     >
-                      <h4 className="font-medium text-white">{lesson.title}</h4>
-                      <p className="text-gray-400 text-sm mt-1">{lesson.description}</p>
-                    </li>
-                  ))}
-                </ul>
+                      <div className="flex gap-4 p-4">
+                        <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-gray-800">
+                          <img
+                            src={unit.image}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-bold text-lg mb-1 text-gray-400">
+                            {unit.title}
+                          </h3>
+                          <p className="text-gray-400 text-sm line-clamp-2">
+                            {unit.description}
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  )
+                })}
               </div>
-            )}
+
+              {/* Right column: selected unit title + lessons (no container) */}
+              <div className="text-left min-h-[200px]" style={{ '--unit-color': course.color ?? '#6366f1' }}>
+                {selectedUnit ? (
+                  <>
+                    <h3 className="text-lg font-semibold mb-1">{selectedUnit.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4">{selectedUnit.description}</p>
+                    <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Lessons</h4>
+                    <ul className="space-y-3">
+                      {selectedUnit.lessons?.map((lesson) => (
+                        <li
+                          key={lesson.id}
+                          className="flex items-center gap-4 p-4 rounded-lg bg-gray-900/80 border border-gray-800"
+                        >
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-white">{lesson.title}</h4>
+                            <p className="text-gray-400 text-sm mt-1">{lesson.description}</p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              saveProgress(courseId, { currentLessonId: lesson.id, currentPage: 0 })
+                              navigate(`/play/${courseId}`)
+                            }}
+                            className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 hover:border-[var(--unit-color)] hover:bg-[var(--unit-color)]/20 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            style={{ '--unit-color': course.color ?? '#6366f1' }}
+                            aria-label={`Play ${lesson.title}`}
+                          >
+                            <i className="fa-light fa-play text-sm ml-0.5" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <div className="text-gray-500 text-sm">Select a unit to view its lessons.</div>
+                )}
+              </div>
+            </div>
           </section>
         )}
       </main>

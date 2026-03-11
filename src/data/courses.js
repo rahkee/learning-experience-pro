@@ -3,6 +3,7 @@ import courseMath from '../database/course-math.json'
 import courseScience from '../database/course-science.json'
 import courseEnglish from '../database/course-english.json'
 import courseSocialStudies from '../database/course-social-studies.json'
+import { getCoursesForUI } from './progress.js'
 
 const courseById = {
   math: courseMath,
@@ -28,7 +29,8 @@ export function getStudent() {
 }
 
 export function getAllCoursesWithProgress() {
-  return db.courses
+  const courses = getCoursesForUI()
+  return courses
     .filter((entry) => courseById[entry.courseId])
     .map((entry) => {
       const course = courseById[entry.courseId]
@@ -44,7 +46,8 @@ export function getAllCoursesWithProgress() {
 export function getCourseWithProgress(courseId) {
   const course = courseById[courseId]
   if (!course) return null
-  const entry = db.courses.find((c) => c.courseId === courseId)
+  const courses = getCoursesForUI()
+  const entry = courses.find((c) => c.courseId === courseId)
   if (!entry) return null
   const progress = computeProgress(entry.completedLessons, course)
   return {
@@ -52,4 +55,30 @@ export function getCourseWithProgress(courseId) {
     ...entry,
     progress,
   }
+}
+
+export function getCourseContent(courseId) {
+  return courseById[courseId] ?? null
+}
+
+export function flattenCoursePages(course) {
+  if (!course?.units) return []
+  const steps = []
+  course.units.forEach((unit, unitIndex) => {
+    ;(unit.lessons ?? []).forEach((lesson, lessonIndex) => {
+      ;(lesson.pages ?? []).forEach((page, pageIndex) => {
+        steps.push({
+          unitIndex,
+          lessonIndex,
+          pageIndex,
+          unitId: unit.id,
+          lessonId: lesson.id,
+          unitTitle: unit.title,
+          lessonTitle: lesson.title,
+          page,
+        })
+      })
+    })
+  })
+  return steps
 }
