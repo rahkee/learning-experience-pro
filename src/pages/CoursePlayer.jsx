@@ -1,10 +1,12 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
-import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
+import { getCourseWithProgress, flattenCoursePages, getStudent } from '../data/courses.js'
 import { getStudentProgress, saveProgress } from '../data/progress.js'
+import { getInitials } from '../data/fakeUsers.js'
 import LiveChat from '../components/LiveChat.jsx'
 import ThreadableContent from '../components/ThreadableContent.jsx'
 import ChatSidebar from '../components/ChatSidebar.jsx'
+import NotificationBell from '../components/NotificationBell.jsx'
 import { getUnreadCount } from '../data/discussions.js'
 
 export default function CoursePlayer() {
@@ -60,6 +62,7 @@ export default function CoursePlayer() {
   const { page, unitTitle, lessonTitle } = step
   const isFirst = currentIndex === 0
   const isLast = currentIndex === steps.length - 1
+  const unreadCount = useMemo(() => getUnreadCount(), [sidebarOpen, currentIndex])
 
   const persistPosition = (index) => {
     const s = steps[index]
@@ -118,11 +121,12 @@ export default function CoursePlayer() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
       <header
-        className="sticky top-0 z-20 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4 animate-fade"
+        className="sticky top-0 z-30 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4 animate-fade"
         style={{ '--course-color': course.color ?? '#6366f1', '--delay': '0ms' }}
       >
         <Link
           to={`/course/${courseId}`}
+          viewTransition
           className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center border border-gray-700 hover:border-gray-500 transition-colors"
           aria-label="Back to course"
         >
@@ -136,12 +140,28 @@ export default function CoursePlayer() {
             {unitTitle} &middot; {lessonTitle} &middot; Page {step.pageIndex + 1}
           </p>
         </div>
-        <span className="text-xs text-gray-600 shrink-0 mr-1">
+        <span className="text-xs text-gray-600 shrink-0">
           {currentIndex + 1} / {steps.length}
         </span>
+        <div className="flex items-center gap-3 ml-2">
+          <NotificationBell />
+          <button
+            type="button"
+            className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            aria-label="Messages"
+          >
+            <i className="fa-solid fa-envelope text-lg" />
+          </button>
+          <div
+            className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold shrink-0"
+            aria-hidden
+          >
+            {getInitials(getStudent())}
+          </div>
+        </div>
       </header>
 
-      <main key={currentIndex} className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full pr-14">
+      <main key={currentIndex} className="flex-1 overflow-y-auto px-4 pt-8 pb-24 max-w-3xl mx-auto w-full pr-14">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 animate-in" style={{ '--delay': '0ms' }}>{page.title}</h1>
 
         {page.type === 'intro' && page.video && (
@@ -177,18 +197,35 @@ export default function CoursePlayer() {
           return (
             <div key={i} className="mb-6">
               <h2 className="text-lg font-semibold mb-2 text-gray-200 animate-in" style={{ '--delay': `${sectionBase}ms` }}>{section.heading}</h2>
-              {section.body?.map((paragraph, j) => (
-                <div key={j} className="animate-in" style={{ '--delay': `${sectionBase + 60 + j * 50}ms` }}>
-                  <ThreadableContent
-                    elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
-                    courseColor={course.color}
-                  >
-                    <p className="text-gray-400 leading-relaxed mb-3">
-                      {paragraph}
-                    </p>
-                  </ThreadableContent>
-                </div>
-              ))}
+              {section.body?.map((item, j) => {
+                const isImage = typeof item === 'object' && item?.type === 'image'
+                return (
+                  <div key={j} className="animate-in" style={{ '--delay': `${sectionBase + 60 + j * 50}ms` }}>
+                    <ThreadableContent
+                      elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
+                      courseColor={course.color}
+                    >
+                      {isImage ? (
+                        <figure className="mb-4">
+                          <img
+                            src={item.src}
+                            alt={item.alt ?? ''}
+                            className="w-full rounded-xl border border-gray-800 img-fade"
+                            onLoad={(e) => e.currentTarget.classList.add('loaded')}
+                          />
+                          {item.caption && (
+                            <figcaption className="text-xs text-gray-500 mt-1.5 text-center">{item.caption}</figcaption>
+                          )}
+                        </figure>
+                      ) : (
+                        <p className="text-gray-400 leading-relaxed mb-3">
+                          {item}
+                        </p>
+                      )}
+                    </ThreadableContent>
+                  </div>
+                )
+              })}
             </div>
           )
         })}
@@ -244,9 +281,10 @@ export default function CoursePlayer() {
 
       {/* Pagination bar */}
       <footer
-        className="sticky bottom-0 z-20 bg-gray-950/90 backdrop-blur border-t border-gray-800 px-4 py-3 flex items-center justify-between gap-4 max-w-3xl mx-auto w-full animate-in"
+        className="fixed bottom-0 left-0 right-0 z-20 bg-gray-950/90 backdrop-blur border-t border-gray-800 px-4 py-3 animate-in"
         style={{ '--course-color': course.color ?? '#6366f1', '--delay': '100ms' }}
       >
+        <div className="flex items-center justify-between gap-4 max-w-3xl mx-auto w-full">
         <button
           type="button"
           onClick={handlePrev}
@@ -264,9 +302,9 @@ export default function CoursePlayer() {
           aria-label="My discussions"
         >
           <i className="fa-light fa-messages text-sm" />
-          {getUnreadCount() > 0 && (
+          {unreadCount > 0 && (
             <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">
-              {getUnreadCount() > 99 ? '99+' : getUnreadCount()}
+              {unreadCount > 99 ? '99+' : unreadCount}
             </span>
           )}
         </button>
@@ -289,6 +327,7 @@ export default function CoursePlayer() {
             </>
           )}
         </button>
+        </div>
       </footer>
 
       <ChatSidebar

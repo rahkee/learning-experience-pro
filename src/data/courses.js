@@ -1,16 +1,6 @@
 import db from '../database/db.json'
-import courseMath from '../database/course-math.json'
-import courseScience from '../database/course-science.json'
-import courseEnglish from '../database/course-english.json'
-import courseSocialStudies from '../database/course-social-studies.json'
+import courseById from './courseMap.js'
 import { getCoursesForUI } from './progress.js'
-
-const courseById = {
-  math: courseMath,
-  science: courseScience,
-  english: courseEnglish,
-  'social-studies': courseSocialStudies,
-}
 
 function getTotalLessons(course) {
   if (!course?.units) return 0
@@ -55,10 +45,6 @@ export function getCourseWithProgress(courseId) {
     ...entry,
     progress,
   }
-}
-
-export function getCourseContent(courseId) {
-  return courseById[courseId] ?? null
 }
 
 export function flattenCoursePages(course) {

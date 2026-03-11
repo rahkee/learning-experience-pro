@@ -52,3 +52,12 @@
 .animate-panel {
   animation: panel-in 200ms ease-out forwards;
 }
+
+.img-fade {
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+
+.img-fade.loaded {
+  opacity: 1;
+}

@@ -210,17 +210,6 @@ export function getAllStudentThreads(courseId, steps) {
   })
 }
 
-export function getAllStudentThreadsGlobal(coursesWithSteps) {
-  const all = []
-  for (const { courseId, courseName, courseColor, steps } of coursesWithSteps) {
-    const threads = getAllStudentThreads(courseId, steps)
-    for (const t of threads) {
-      all.push({ ...t, courseId, courseName, courseColor })
-    }
-  }
-  return all
-}
-
 export function getGlobalNotifications(coursesWithSteps) {
   const data = load()
   const byElement = new Map()
@@ -358,9 +347,10 @@ function getContentSnippetFromSteps(elementKey, steps, courseId) {
   if (!section?.body) return ''
 
   const bodyIdx = parseInt(parts[6], 10)
-  const paragraph = Array.isArray(section.body) ? section.body[bodyIdx] : section.body
-  if (!paragraph) return ''
-  return paragraph
+  const item = Array.isArray(section.body) ? section.body[bodyIdx] : section.body
+  if (!item) return ''
+  if (typeof item === 'object' && item.type === 'image') return item.caption ?? '[Image]'
+  return item
 }
 
 export function seedChatroomChat(courseId, courseName, steps) {

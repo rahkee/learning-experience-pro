@@ -1,18 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { getInitials, getDisplayName } from '../data/fakeUsers.js'
-
-function RoleBadge({ role }) {
-  if (role === 'student') return null
-  const colors =
-    role === 'teacher'
-      ? 'bg-red-500/20 text-red-400'
-      : 'bg-purple-500/20 text-purple-400'
-  return (
-    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase ${colors}`}>
-      {role}
-    </span>
-  )
-}
+import { getDisplayName } from '../data/fakeUsers.js'
+import RoleBadge from './shared/RoleBadge.jsx'
+import UserAvatar from './shared/UserAvatar.jsx'
 
 export default function MentionAutocomplete({ users, activeIndex, onSelect, visible }) {
   const listRef = useRef(null)
@@ -42,12 +31,7 @@ export default function MentionAutocomplete({ users, activeIndex, onSelect, visi
             i === activeIndex ? 'bg-gray-700' : 'hover:bg-gray-700/50'
           }`}
         >
-          <span
-            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-            style={{ backgroundColor: user.color + '33', color: user.color }}
-          >
-            {getInitials(user)}
-          </span>
+          <UserAvatar user={user} />
           <span className="flex-1 min-w-0 truncate text-gray-200">
             {getDisplayName(user)}
           </span>

@@ -2,32 +2,12 @@ import { useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getGlobalNotifications, markThreadRead } from '../data/discussions.js'
 import { getAllCoursesWithProgress, flattenCoursePages } from '../data/courses.js'
-import { getUserById, getInitials, getDisplayName } from '../data/fakeUsers.js'
+import { getUserById, getDisplayName } from '../data/fakeUsers.js'
 import { saveProgress } from '../data/progress.js'
+import { timeAgo } from '../utils/timeAgo.js'
 import RenderText from '../components/RenderText.jsx'
-
-function timeAgo(iso) {
-  const diff = Date.now() - new Date(iso).getTime()
-  const mins = Math.floor(diff / 60000)
-  if (mins < 1) return 'just now'
-  if (mins < 60) return `${mins}m ago`
-  const hrs = Math.floor(mins / 60)
-  if (hrs < 24) return `${hrs}h ago`
-  return `${Math.floor(hrs / 24)}d ago`
-}
-
-function RoleBadge({ role }) {
-  if (role === 'student') return null
-  const colors =
-    role === 'teacher'
-      ? 'bg-red-500/20 text-red-400'
-      : 'bg-purple-500/20 text-purple-400'
-  return (
-    <span className={`text-[10px] px-1 py-0.5 rounded-full font-medium uppercase leading-none ${colors}`}>
-      {role}
-    </span>
-  )
-}
+import RoleBadge from '../components/shared/RoleBadge.jsx'
+import UserAvatar from '../components/shared/UserAvatar.jsx'
 
 function NotificationItem({ item, onClick }) {
   const user = item.latestUserId ? getUserById(item.latestUserId) : null
@@ -42,12 +22,7 @@ function NotificationItem({ item, onClick }) {
         <span className="w-2 h-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
       )}
       {user && (
-        <span
-          className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-          style={{ backgroundColor: (user.color ?? '#6366f1') + '33', color: user.color }}
-        >
-          {getInitials(user)}
-        </span>
+        <UserAvatar user={user} className="mt-0.5" />
       )}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5 flex-wrap">

@@ -1,17 +1,7 @@
 import db from '../database/db.json'
-import courseMath from '../database/course-math.json'
-import courseScience from '../database/course-science.json'
-import courseEnglish from '../database/course-english.json'
-import courseSocialStudies from '../database/course-social-studies.json'
+import courseById from './courseMap.js'
 
 const STORAGE_KEY = 'student-progress'
-
-const courseById = {
-  math: courseMath,
-  science: courseScience,
-  english: courseEnglish,
-  'social-studies': courseSocialStudies,
-}
 
 function getDefaultCourses() {
   return db.courses.map((c) => ({ ...c }))

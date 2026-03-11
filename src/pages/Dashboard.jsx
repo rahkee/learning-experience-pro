@@ -25,7 +25,8 @@ export default function Dashboard() {
                   <img
                     src={course.image}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover img-fade"
+                    onLoad={(e) => e.currentTarget.classList.add('loaded')}
                   />
                 </div>
                 <div className="p-4">

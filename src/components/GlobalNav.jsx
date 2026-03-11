@@ -1,12 +1,13 @@
+import { useLocation } from 'react-router-dom'
 import NotificationBell from './NotificationBell.jsx'
 import { getStudent } from '../data/courses.js'
+import { getInitials } from '../data/fakeUsers.js'
 
 export default function GlobalNav() {
+  const { pathname } = useLocation()
   const student = getStudent()
-  const initials = [student.firstName, student.lastName]
-    .map((n) => n?.charAt(0) ?? '')
-    .join('')
-    .toUpperCase() || '?'
+
+  if (pathname.startsWith('/play/') || pathname === '/notifications') return null
 
   return (
     <nav
@@ -26,7 +27,7 @@ export default function GlobalNav() {
         className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-semibold shrink-0"
         aria-hidden
       >
-        {initials}
+        {getInitials(student)}
       </div>
     </nav>
   )

@@ -1,31 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { getAllStudentThreads, markThreadRead, getThread, addReply } from '../data/discussions.js'
-import { getUserById, getInitials, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
+import { getUserById, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
+import { timeAgo } from '../utils/timeAgo.js'
 import CommentInput from './CommentInput.jsx'
 import RenderText from './RenderText.jsx'
-
-function timeAgo(iso) {
-  const diff = Date.now() - new Date(iso).getTime()
-  const mins = Math.floor(diff / 60000)
-  if (mins < 1) return 'just now'
-  if (mins < 60) return `${mins}m ago`
-  const hrs = Math.floor(mins / 60)
-  if (hrs < 24) return `${hrs}h ago`
-  return `${Math.floor(hrs / 24)}d ago`
-}
-
-function RoleBadge({ role }) {
-  if (role === 'student') return null
-  const colors =
-    role === 'teacher'
-      ? 'bg-red-500/20 text-red-400'
-      : 'bg-purple-500/20 text-purple-400'
-  return (
-    <span className={`text-[10px] px-1 py-0.5 rounded-full font-medium uppercase leading-none ${colors}`}>
-      {role}
-    </span>
-  )
-}
+import RoleBadge from './shared/RoleBadge.jsx'
+import UserAvatar from './shared/UserAvatar.jsx'
 
 export default function ChatSidebar({ open, onClose, courseId, courseColor, steps, onNavigate }) {
   const [expandedKey, setExpandedKey] = useState(null)
@@ -94,13 +74,7 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
               className={`relative shrink-0 ${open ? 'animate-in' : ''}`}
               style={{ '--delay': `${150 + ui * 30}ms` }}
             >
-              <span
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity ${u.online ? '' : 'opacity-40'}`}
-                style={{ backgroundColor: u.color + '33', color: u.color }}
-                title={getDisplayName(u)}
-              >
-                {getInitials(u)}
-              </span>
+              <UserAvatar user={u} size="lg" className={`transition-opacity ${u.online ? '' : 'opacity-40'}`} />
               {u.online && (
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-gray-900" />
               )}
@@ -156,12 +130,7 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
                           return (
                             <div key={comment.id} className="text-xs">
                               <div className="flex items-center gap-1.5 mb-1">
-                                <span
-                                  className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold shrink-0"
-                                  style={{ backgroundColor: (user?.color ?? '#6366f1') + '33', color: user?.color }}
-                                >
-                                  {getInitials(user)}
-                                </span>
+                                <UserAvatar user={user} size="sm" />
                                 <span className="font-semibold text-gray-300">{getDisplayName(user)}</span>
                                 <RoleBadge role={user?.role} />
                                 <span className="text-gray-600 text-[10px]">{timeAgo(comment.timestamp)}</span>
@@ -176,12 +145,7 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
                                     const rUser = getUserById(r.userId)
                                     return (
                                       <div key={r.id} className="flex gap-1.5 items-start">
-                                        <span
-                                          className="w-4 h-4 rounded-full flex items-center justify-center text-[7px] font-bold shrink-0 mt-0.5"
-                                          style={{ backgroundColor: (rUser?.color ?? '#6366f1') + '33', color: rUser?.color }}
-                                        >
-                                          {getInitials(rUser)}
-                                        </span>
+                                        <UserAvatar user={rUser} size="xs" className="mt-0.5" />
                                         <div className="min-w-0">
                                           <div className="flex items-center gap-1 flex-wrap">
                                             <span className="font-semibold text-gray-400" style={{ color: rUser?.color }}>

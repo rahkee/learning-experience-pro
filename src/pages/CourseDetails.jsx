@@ -39,7 +39,8 @@ export default function CourseDetails() {
         <img
           src={course.image}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover img-fade"
+          onLoad={(e) => e.currentTarget.classList.add('loaded')}
         />
         <div
           className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/80 to-transparent"

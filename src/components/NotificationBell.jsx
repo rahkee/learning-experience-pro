@@ -10,7 +10,7 @@ export default function NotificationBell() {
   const poll = useCallback(() => setUnread(getGlobalUnreadCount()), [])
 
   useEffect(() => {
-    const id = setInterval(poll, 2000)
+    const id = setInterval(poll, 5000)
     return () => clearInterval(id)
   }, [poll])
 

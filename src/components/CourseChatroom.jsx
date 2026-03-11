@@ -1,43 +1,18 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCourseChatroomFeed, addChatroomMessage, addReply, getThread } from '../data/discussions.js'
-import { getUserById, getInitials, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
+import { getUserById, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
+import { timeAgo } from '../utils/timeAgo.js'
 import CommentInput from './CommentInput.jsx'
 import RenderText from './RenderText.jsx'
-
-function timeAgo(iso) {
-  const diff = Date.now() - new Date(iso).getTime()
-  const mins = Math.floor(diff / 60000)
-  if (mins < 1) return 'just now'
-  if (mins < 60) return `${mins}m ago`
-  const hrs = Math.floor(mins / 60)
-  if (hrs < 24) return `${hrs}h ago`
-  return `${Math.floor(hrs / 24)}d ago`
-}
-
-function RoleBadge({ role }) {
-  if (role === 'student') return null
-  const colors =
-    role === 'teacher'
-      ? 'bg-red-500/20 text-red-400'
-      : 'bg-purple-500/20 text-purple-400'
-  return (
-    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium uppercase leading-none ${colors}`}>
-      {role}
-    </span>
-  )
-}
+import RoleBadge from './shared/RoleBadge.jsx'
+import UserAvatar from './shared/UserAvatar.jsx'
 
 function ChatBubble({ item }) {
   const user = getUserById(item.userId)
   return (
     <div className="flex gap-2.5 items-start">
-      <span
-        className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-        style={{ backgroundColor: (user?.color ?? '#6366f1') + '33', color: user?.color }}
-      >
-        {getInitials(user)}
-      </span>
+      <UserAvatar user={user} className="mt-0.5" />
       <div className="min-w-0">
         <span className="inline-flex items-center gap-1.5">
           <span className="text-sm font-semibold" style={{ color: user?.color ?? '#9ca3af' }}>
@@ -78,12 +53,7 @@ function DiscussionCard({ item, courseColor, onClick }) {
       )}
 
       <div className="flex gap-2.5 items-start">
-        <span
-          className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-          style={{ backgroundColor: (user?.color ?? '#6366f1') + '33', color: user?.color }}
-        >
-          {getInitials(user)}
-        </span>
+        <UserAvatar user={user} className="mt-0.5" />
         <div className="min-w-0 flex-1">
           <div className="inline-flex items-center gap-1.5">
             <span className="text-sm font-semibold" style={{ color: user?.color ?? '#9ca3af' }}>
@@ -157,12 +127,7 @@ function ThreadPanel({ item, courseColor, onClose, onReplySubmit, onGoToLesson }
         )}
 
         <div className="flex gap-2.5 items-start">
-          <span
-            className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-            style={{ backgroundColor: (user?.color ?? '#6366f1') + '33', color: user?.color }}
-          >
-            {getInitials(user)}
-          </span>
+          <UserAvatar user={user} className="mt-0.5" />
           <div className="min-w-0">
             <div className="inline-flex items-center gap-1.5">
               <span className="text-sm font-semibold" style={{ color: user?.color }}>
@@ -183,12 +148,7 @@ function ThreadPanel({ item, courseColor, onClose, onReplySubmit, onGoToLesson }
               const rUser = getUserById(r.userId)
               return (
                 <div key={r.id} className="flex gap-2 items-start">
-                  <span
-                    className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5"
-                    style={{ backgroundColor: (rUser?.color ?? '#6366f1') + '33', color: rUser?.color }}
-                  >
-                    {getInitials(rUser)}
-                  </span>
+                  <UserAvatar user={rUser} size="md" className="mt-0.5" />
                   <div className="min-w-0">
                     <div className="inline-flex items-center gap-1.5">
                       <span className="text-sm font-semibold" style={{ color: rUser?.color }}>
@@ -234,7 +194,7 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
     const id = setInterval(() => {
       refresh()
       setUsersWithStatus(getAllUsersWithStatus())
-    }, 3000)
+    }, 5000)
     return () => clearInterval(id)
   }, [refresh])
 
@@ -271,13 +231,7 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
       <div className="px-4 py-3 flex items-center gap-2 border-b border-gray-800 animate-fade" style={{ '--delay': '0ms' }}>
         {usersWithStatus.map((u, ui) => (
           <div key={u.id} className="relative shrink-0 animate-in" style={{ '--delay': `${ui * 40}ms` }}>
-            <span
-              className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity ${u.online ? '' : 'opacity-40'}`}
-              style={{ backgroundColor: u.color + '33', color: u.color }}
-              title={getDisplayName(u)}
-            >
-              {getInitials(u)}
-            </span>
+            <UserAvatar user={u} size="lg" className={`transition-opacity ${u.online ? '' : 'opacity-40'}`} />
             {u.online && (
               <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-gray-950" />
             )}
