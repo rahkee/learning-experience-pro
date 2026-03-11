@@ -48,7 +48,8 @@ export default function Dashboard() {
               key={course.id}
               type="button"
               onClick={() => navigate(`/course/${course.id}`)}
-              className="text-left rounded-xl overflow-hidden bg-gray-900 border border-gray-800 hover:border-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950"
+              style={{ '--course-color': course.color ?? '#6366f1' }}
+              className="group text-left rounded-xl overflow-hidden bg-gray-900 border border-gray-800 hover:border-[var(--course-color)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--course-color)] focus:ring-offset-2 focus:ring-offset-gray-950"
             >
               <div className="aspect-[4/3] w-full overflow-hidden bg-gray-800">
                 <img
@@ -58,7 +59,7 @@ export default function Dashboard() {
                 />
               </div>
               <div className="p-4">
-                <h2 className="font-bold text-lg mb-2">{course.name}</h2>
+                <h2 className="font-bold text-lg mb-2 group-hover:text-[var(--course-color)] transition-colors">{course.name}</h2>
                 <p className="text-gray-400 text-sm line-clamp-3 mb-4">
                   {course.description?.[0] ?? ''}
                 </p>
