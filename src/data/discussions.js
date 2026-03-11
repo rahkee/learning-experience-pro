@@ -1,4 +1,6 @@
 const CURRENT_USER_ID = 'student-001'
+const CURRENT_USER_FIRST_NAME = 'Alex'
+const mentionPattern = new RegExp(`@${CURRENT_USER_FIRST_NAME}\\b`, 'i')
 
 const STORAGE_KEY = 'discussions'
 const READ_KEY = 'discussions-read'
@@ -107,17 +109,64 @@ function getUnreadCountForThread(elementKey) {
   return count
 }
 
+function userParticipatedIn(thread) {
+  return thread.comments.some((c) => c.userId === CURRENT_USER_ID)
+}
+
+function threadMentionsUser(thread) {
+  for (const c of thread.comments) {
+    if (c.userId !== CURRENT_USER_ID && mentionPattern.test(c.text)) return true
+    for (const r of c.replies ?? []) {
+      if (r.userId !== CURRENT_USER_ID && mentionPattern.test(r.text)) return true
+    }
+  }
+  return false
+}
+
 export function getUnreadCount() {
   const data = load()
   let total = 0
-  for (const key of Object.keys(data)) {
+  for (const [key, thread] of Object.entries(data)) {
+    if (thread.seeded) continue
+    if (!userParticipatedIn(thread)) continue
     total += getUnreadCountForThread(key)
   }
   return total
 }
 
 export function getGlobalUnreadCount() {
-  return getUnreadCount()
+  const data = load()
+  let total = 0
+  for (const [key, thread] of Object.entries(data)) {
+    if (thread.seeded && !threadMentionsUser(thread)) continue
+    if (userParticipatedIn(thread) || threadMentionsUser(thread)) {
+      total += getUnreadCountForThread(key)
+    }
+  }
+  return total
+}
+
+function getLastActivityTimestamp(thread) {
+  let latest = ''
+  for (const c of thread.comments) {
+    if (c.timestamp > latest) latest = c.timestamp
+    for (const r of c.replies ?? []) {
+      if (r.timestamp > latest) latest = r.timestamp
+    }
+  }
+  return latest
+}
+
+function getLatestMessage(thread) {
+  let latest = null
+  let latestTs = ''
+  for (const c of thread.comments) {
+    if (c.timestamp > latestTs) { latest = c; latestTs = c.timestamp }
+    for (const r of c.replies ?? []) {
+      if (r.timestamp > latestTs) { latest = r; latestTs = r.timestamp }
+    }
+  }
+  return latest
 }
 
 export function getAllStudentThreads(courseId, steps) {
@@ -128,21 +177,24 @@ export function getAllStudentThreads(courseId, steps) {
     const keyPrefix = `${courseId}:${step.lessonId}:${step.pageIndex}:`
     for (const [key, thread] of Object.entries(data)) {
       if (!key.startsWith(keyPrefix)) continue
+      if (thread.seeded) continue
       const hasStudentComment = thread.comments.some((c) => c.userId === CURRENT_USER_ID)
       if (!hasStudentComment) continue
 
       const allComments = thread.comments
-      const lastComment = allComments[allComments.length - 1]
-      const lastReply = lastComment?.replies?.[lastComment.replies.length - 1]
-      const latestText = lastReply?.text ?? lastComment?.text ?? ''
+      const latestMsg = getLatestMessage(thread)
+      const latestText = latestMsg?.text ?? ''
       const totalReplies = allComments.reduce((sum, c) => sum + (c.replies?.length ?? 0), 0)
 
       threads.push({
         elementKey: key,
         unitTitle: step.unitTitle,
         lessonTitle: step.lessonTitle,
+        lessonId: step.lessonId,
         pageIndex: step.pageIndex,
         latestText,
+        latestUserId: latestMsg?.userId ?? null,
+        lastActivityTimestamp: getLastActivityTimestamp(thread),
         commentCount: allComments.length + totalReplies,
         unread: isThreadUnread(key),
         stepIndex: steps.indexOf(step),
@@ -169,6 +221,65 @@ export function getAllStudentThreadsGlobal(coursesWithSteps) {
   return all
 }
 
+export function getMentionNotifications(coursesWithSteps) {
+  const data = load()
+  const notifications = []
+
+  for (const { courseId, courseName, courseColor, steps } of coursesWithSteps) {
+    for (const step of steps) {
+      const keyPrefix = `${courseId}:${step.lessonId}:${step.pageIndex}:`
+      for (const [key, thread] of Object.entries(data)) {
+        if (!key.startsWith(keyPrefix)) continue
+
+        for (const c of thread.comments) {
+          if (c.userId !== CURRENT_USER_ID && mentionPattern.test(c.text)) {
+            notifications.push({
+              type: 'mention',
+              elementKey: key,
+              courseId,
+              courseName,
+              courseColor,
+              unitTitle: step.unitTitle,
+              lessonTitle: step.lessonTitle,
+              lessonId: step.lessonId,
+              pageIndex: step.pageIndex,
+              stepIndex: steps.indexOf(step),
+              latestText: c.text,
+              latestUserId: c.userId,
+              lastActivityTimestamp: c.timestamp,
+              unread: isThreadUnread(key),
+              commentCount: 1,
+            })
+          }
+          for (const r of c.replies ?? []) {
+            if (r.userId !== CURRENT_USER_ID && mentionPattern.test(r.text)) {
+              notifications.push({
+                type: 'mention',
+                elementKey: key,
+                courseId,
+                courseName,
+                courseColor,
+                unitTitle: step.unitTitle,
+                lessonTitle: step.lessonTitle,
+                lessonId: step.lessonId,
+                pageIndex: step.pageIndex,
+                stepIndex: steps.indexOf(step),
+                latestText: r.text,
+                latestUserId: r.userId,
+                lastActivityTimestamp: r.timestamp,
+                unread: isThreadUnread(key),
+                commentCount: 1,
+              })
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return notifications
+}
+
 const liveChatTemplates = [
   { userId: 'teacher-001', text: (title) => `Welcome everyone! Today we're learning about ${title}. Let's have fun! 🎉` },
   { userId: 'student-002', text: () => "I'm so excited for this one! I've been looking forward to it all week!" },
@@ -186,6 +297,7 @@ export function seedLiveChat(elementKey, lessonTitle) {
 
   const baseTime = Date.now() - 600000
   data[elementKey] = {
+    seeded: true,
     comments: liveChatTemplates.map((tpl, i) => ({
       id: makeId() + '-seed-' + i,
       userId: tpl.userId,
@@ -195,4 +307,8 @@ export function seedLiveChat(elementKey, lessonTitle) {
     })),
   }
   save(data)
+
+  const timestamps = loadReadTimestamps()
+  timestamps[elementKey] = new Date().toISOString()
+  saveReadTimestamps(timestamps)
 }

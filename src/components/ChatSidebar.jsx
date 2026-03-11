@@ -14,6 +14,19 @@ function timeAgo(iso) {
   return `${Math.floor(hrs / 24)}d ago`
 }
 
+function RoleBadge({ role }) {
+  if (role === 'student') return null
+  const colors =
+    role === 'teacher'
+      ? 'bg-red-500/20 text-red-400'
+      : 'bg-purple-500/20 text-purple-400'
+  return (
+    <span className={`text-[10px] px-1 py-0.5 rounded-full font-medium uppercase leading-none ${colors}`}>
+      {role}
+    </span>
+  )
+}
+
 export default function ChatSidebar({ open, onClose, courseId, courseColor, steps, onNavigate }) {
   const [expandedKey, setExpandedKey] = useState(null)
   const [version, setVersion] = useState(0)
@@ -96,12 +109,12 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
                     </button>
 
                     {isExpanded && thread && (
-                      <div className="px-4 pb-3 space-y-2">
+                      <div className="px-4 pb-4 space-y-4">
                         {thread.comments.map((comment) => {
                           const user = getUserById(comment.userId)
                           return (
                             <div key={comment.id} className="text-xs">
-                              <div className="flex items-center gap-1.5">
+                              <div className="flex items-center gap-1.5 mb-1">
                                 <span
                                   className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold shrink-0"
                                   style={{ backgroundColor: (user?.color ?? '#6366f1') + '33', color: user?.color }}
@@ -109,31 +122,43 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
                                   {getInitials(user)}
                                 </span>
                                 <span className="font-semibold text-gray-300">{getDisplayName(user)}</span>
+                                <RoleBadge role={user?.role} />
                                 <span className="text-gray-600 text-[10px]">{timeAgo(comment.timestamp)}</span>
                               </div>
-                              <p className="text-gray-400 ml-6.5 mt-0.5 break-words">
+                              <p className="text-gray-400 ml-7 break-words">
                                 <RenderText text={comment.text} />
                               </p>
 
                               {comment.replies.length > 0 && (
-                                <div className="ml-6 mt-1 pl-2 border-l border-gray-800 space-y-1">
+                                <div className="ml-7 mt-2.5 pl-3 border-l border-gray-800 space-y-2.5">
                                   {comment.replies.map((r) => {
                                     const rUser = getUserById(r.userId)
                                     return (
-                                      <div key={r.id}>
-                                        <span className="font-semibold text-gray-400" style={{ color: rUser?.color }}>
-                                          {getDisplayName(rUser)}
+                                      <div key={r.id} className="flex gap-1.5 items-start">
+                                        <span
+                                          className="w-4 h-4 rounded-full flex items-center justify-center text-[7px] font-bold shrink-0 mt-0.5"
+                                          style={{ backgroundColor: (rUser?.color ?? '#6366f1') + '33', color: rUser?.color }}
+                                        >
+                                          {getInitials(rUser)}
                                         </span>
-                                        <span className="text-gray-500 ml-1">
-                                          <RenderText text={r.text} />
-                                        </span>
+                                        <div className="min-w-0">
+                                          <div className="flex items-center gap-1 flex-wrap">
+                                            <span className="font-semibold text-gray-400" style={{ color: rUser?.color }}>
+                                              {getDisplayName(rUser)}
+                                            </span>
+                                            <RoleBadge role={rUser?.role} />
+                                          </div>
+                                          <p className="text-gray-500 mt-0.5 break-words">
+                                            <RenderText text={r.text} />
+                                          </p>
+                                        </div>
                                       </div>
                                     )
                                   })}
                                 </div>
                               )}
 
-                              <div className="ml-6 mt-1.5">
+                              <div className="ml-7 mt-3">
                                 <CommentInput
                                   onSubmit={(text) => handleReply(t.elementKey, comment.id, text)}
                                   placeholder="Reply..."

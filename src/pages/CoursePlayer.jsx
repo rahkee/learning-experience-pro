@@ -31,6 +31,7 @@ export default function CoursePlayer() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     setSelectedAnswer(null)
     setAnswerLocked(false)
   }, [currentIndex])
@@ -248,8 +249,8 @@ export default function CoursePlayer() {
         >
           <i className="fa-light fa-messages text-sm" />
           {getUnreadCount() > 0 && (
-            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">
-              {getUnreadCount() > 9 ? '9+' : getUnreadCount()}
+            <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">
+              {getUnreadCount() > 99 ? '99+' : getUnreadCount()}
             </span>
           )}
         </button>
