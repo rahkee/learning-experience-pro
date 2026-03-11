@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAllStudentThreadsGlobal, getMentionNotifications, markThreadRead } from '../data/discussions.js'
+import { getGlobalNotifications, markThreadRead } from '../data/discussions.js'
 import { getAllCoursesWithProgress, flattenCoursePages } from '../data/courses.js'
 import { getUserById, getInitials, getDisplayName } from '../data/fakeUsers.js'
 import { saveProgress } from '../data/progress.js'
@@ -89,26 +89,7 @@ export default function Notifications() {
     }))
   }, [])
 
-  const allThreads = getAllStudentThreadsGlobal(coursesWithSteps)
-  const mentionNotifs = getMentionNotifications(coursesWithSteps)
-
-  const allItems = useMemo(() => {
-    const byElement = new Map()
-    for (const t of allThreads) {
-      byElement.set(t.elementKey, { ...t, type: 'thread' })
-    }
-    for (const m of mentionNotifs) {
-      const existing = byElement.get(m.elementKey)
-      if (existing) {
-        existing.type = 'mention'
-      } else {
-        byElement.set(m.elementKey, m)
-      }
-    }
-    const combined = [...byElement.values()]
-    combined.sort((a, b) => (b.lastActivityTimestamp ?? '').localeCompare(a.lastActivityTimestamp ?? ''))
-    return combined
-  }, [allThreads, mentionNotifs])
+  const allItems = getGlobalNotifications(coursesWithSteps)
 
   const generalItems = allItems.filter((t) => t.type === 'mention')
 

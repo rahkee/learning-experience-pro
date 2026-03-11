@@ -221,63 +221,49 @@ export function getAllStudentThreadsGlobal(coursesWithSteps) {
   return all
 }
 
-export function getMentionNotifications(coursesWithSteps) {
+export function getGlobalNotifications(coursesWithSteps) {
   const data = load()
-  const notifications = []
+  const byElement = new Map()
 
   for (const { courseId, courseName, courseColor, steps } of coursesWithSteps) {
     for (const step of steps) {
       const keyPrefix = `${courseId}:${step.lessonId}:${step.pageIndex}:`
       for (const [key, thread] of Object.entries(data)) {
         if (!key.startsWith(keyPrefix)) continue
+        if (thread.seeded && !threadMentionsUser(thread)) continue
 
-        for (const c of thread.comments) {
-          if (c.userId !== CURRENT_USER_ID && mentionPattern.test(c.text)) {
-            notifications.push({
-              type: 'mention',
-              elementKey: key,
-              courseId,
-              courseName,
-              courseColor,
-              unitTitle: step.unitTitle,
-              lessonTitle: step.lessonTitle,
-              lessonId: step.lessonId,
-              pageIndex: step.pageIndex,
-              stepIndex: steps.indexOf(step),
-              latestText: c.text,
-              latestUserId: c.userId,
-              lastActivityTimestamp: c.timestamp,
-              unread: isThreadUnread(key),
-              commentCount: 1,
-            })
-          }
-          for (const r of c.replies ?? []) {
-            if (r.userId !== CURRENT_USER_ID && mentionPattern.test(r.text)) {
-              notifications.push({
-                type: 'mention',
-                elementKey: key,
-                courseId,
-                courseName,
-                courseColor,
-                unitTitle: step.unitTitle,
-                lessonTitle: step.lessonTitle,
-                lessonId: step.lessonId,
-                pageIndex: step.pageIndex,
-                stepIndex: steps.indexOf(step),
-                latestText: r.text,
-                latestUserId: r.userId,
-                lastActivityTimestamp: r.timestamp,
-                unread: isThreadUnread(key),
-                commentCount: 1,
-              })
-            }
-          }
-        }
+        const participated = userParticipatedIn(thread)
+        const mentioned = threadMentionsUser(thread)
+        if (!participated && !mentioned) continue
+
+        const latestMsg = getLatestMessage(thread)
+        const allComments = thread.comments
+        const totalReplies = allComments.reduce((sum, c) => sum + (c.replies?.length ?? 0), 0)
+
+        byElement.set(key, {
+          type: mentioned ? 'mention' : 'thread',
+          elementKey: key,
+          courseId,
+          courseName,
+          courseColor,
+          unitTitle: step.unitTitle,
+          lessonTitle: step.lessonTitle,
+          lessonId: step.lessonId,
+          pageIndex: step.pageIndex,
+          stepIndex: steps.indexOf(step),
+          latestText: latestMsg?.text ?? '',
+          latestUserId: latestMsg?.userId ?? null,
+          lastActivityTimestamp: getLastActivityTimestamp(thread),
+          commentCount: allComments.length + totalReplies,
+          unread: isThreadUnread(key),
+        })
       }
     }
   }
 
-  return notifications
+  const items = [...byElement.values()]
+  items.sort((a, b) => (b.lastActivityTimestamp ?? '').localeCompare(a.lastActivityTimestamp ?? ''))
+  return items
 }
 
 const liveChatTemplates = [

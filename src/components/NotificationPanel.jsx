@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { getAllStudentThreadsGlobal, getMentionNotifications, markThreadRead } from '../data/discussions.js'
+import { getGlobalNotifications, markThreadRead } from '../data/discussions.js'
 import { getAllCoursesWithProgress, flattenCoursePages } from '../data/courses.js'
 import { getUserById, getInitials, getDisplayName } from '../data/fakeUsers.js'
 import { saveProgress } from '../data/progress.js'
@@ -45,26 +45,7 @@ export default function NotificationPanel({ onClose }) {
     }))
   }, [])
 
-  const allThreads = getAllStudentThreadsGlobal(coursesWithSteps)
-  const mentionNotifs = getMentionNotifications(coursesWithSteps)
-
-  const merged = useMemo(() => {
-    const byElement = new Map()
-    for (const t of allThreads) {
-      byElement.set(t.elementKey, { ...t, type: 'thread' })
-    }
-    for (const m of mentionNotifs) {
-      const existing = byElement.get(m.elementKey)
-      if (existing) {
-        existing.type = 'mention'
-      } else {
-        byElement.set(m.elementKey, m)
-      }
-    }
-    const combined = [...byElement.values()]
-    combined.sort((a, b) => (b.lastActivityTimestamp ?? '').localeCompare(a.lastActivityTimestamp ?? ''))
-    return combined
-  }, [allThreads, mentionNotifs])
+  const items = getGlobalNotifications(coursesWithSteps)
 
   const handleClick = (t) => {
     markThreadRead(t.elementKey)
@@ -74,7 +55,7 @@ export default function NotificationPanel({ onClose }) {
     navigate(`/play/${t.courseId}`, { state: { stepIndex: t.stepIndex, ts: Date.now() } })
   }
 
-  const hasAny = merged.length > 0
+  const hasAny = items.length > 0
 
   return (
     <div className="absolute top-full right-0 mt-2 w-80 rounded-xl bg-gray-900 border border-gray-800 shadow-2xl z-50 flex flex-col" style={{ maxHeight: '28rem' }}>
@@ -84,7 +65,7 @@ export default function NotificationPanel({ onClose }) {
           <button
             type="button"
             onClick={() => {
-              for (const t of merged) markThreadRead(t.elementKey)
+              for (const t of items) markThreadRead(t.elementKey)
               refresh()
             }}
             className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
@@ -100,12 +81,12 @@ export default function NotificationPanel({ onClose }) {
             No notifications yet.
           </div>
         ) : (
-          merged.map((t, i) => {
+          items.map((t, i) => {
             const user = t.latestUserId ? getUserById(t.latestUserId) : null
 
             return (
               <button
-                key={`${t.elementKey}-${t.lastActivityTimestamp}-${i}`}
+                key={`${t.elementKey}-${i}`}
                 type="button"
                 onClick={() => handleClick(t)}
                 className="w-full text-left px-4 py-3 hover:bg-gray-800/50 transition-colors flex gap-2.5 items-start border-b border-gray-800/50 last:border-b-0"
