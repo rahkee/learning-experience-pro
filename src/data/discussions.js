@@ -360,7 +360,7 @@ function getContentSnippetFromSteps(elementKey, steps, courseId) {
   const bodyIdx = parseInt(parts[6], 10)
   const paragraph = Array.isArray(section.body) ? section.body[bodyIdx] : section.body
   if (!paragraph) return ''
-  return paragraph.length > 120 ? paragraph.slice(0, 120) + '...' : paragraph
+  return paragraph
 }
 
 export function seedChatroomChat(courseId, courseName, steps) {
@@ -450,11 +450,14 @@ export function getCourseChatroomFeed(courseId, steps) {
     if (thread.comments.length === 0) continue
 
     let lessonTitle = ''
+    let stepIndex = -1
     if (steps) {
-      for (const step of steps) {
+      for (let si = 0; si < steps.length; si++) {
+        const step = steps[si]
         const prefix = `${courseId}:${step.lessonId}:${step.pageIndex}:`
         if (key.startsWith(prefix)) {
           lessonTitle = step.lessonTitle
+          stepIndex = si
           break
         }
       }
@@ -471,6 +474,7 @@ export function getCourseChatroomFeed(courseId, steps) {
         timestamp: c.timestamp,
         elementKey: key,
         lessonTitle,
+        stepIndex,
         contentSnippet,
         replies: c.replies ?? [],
         commentId: c.id,

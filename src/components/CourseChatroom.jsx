@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getCourseChatroomFeed, addChatroomMessage, addReply, getThread } from '../data/discussions.js'
 import { getUserById, getInitials, getDisplayName, generateFakeReply, getAllUsersWithStatus } from '../data/fakeUsers.js'
 import CommentInput from './CommentInput.jsx'
@@ -71,8 +72,8 @@ function DiscussionCard({ item, courseColor, onClick }) {
       </div>
 
       {item.contentSnippet && (
-        <div className="mb-2 px-2.5 py-1.5 rounded bg-gray-900/60 border border-gray-700/50 text-xs text-gray-500 italic line-clamp-2">
-          "{item.contentSnippet}"
+        <div className="mb-2 px-2.5 py-2 rounded bg-gray-900/60 border border-gray-700/50 text-sm text-gray-400">
+          {item.contentSnippet}
         </div>
       )}
 
@@ -104,7 +105,7 @@ function DiscussionCard({ item, courseColor, onClick }) {
   )
 }
 
-function ThreadPanel({ item, courseColor, onClose, onReplySubmit }) {
+function ThreadPanel({ item, courseColor, onClose, onReplySubmit, onGoToLesson }) {
   const thread = getThread(item.elementKey)
   const comment = thread.comments.find((c) => c.id === item.commentId)
   const panelRef = useRef(null)
@@ -122,14 +123,26 @@ function ThreadPanel({ item, courseColor, onClose, onReplySubmit }) {
   return (
     <div className="border-t border-gray-700 bg-gray-900/80 flex flex-col" style={{ maxHeight: '50%' }}>
       <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800 shrink-0">
-        <span className="text-xs text-gray-400 font-medium">
-          <i className="fa-light fa-message-lines mr-1.5" />
-          Thread in "{item.lessonTitle || 'lesson'}"
-        </span>
+        <div className="flex items-center gap-3 min-w-0">
+          <span className="text-xs text-gray-400 font-medium truncate">
+            <i className="fa-light fa-message-lines mr-1.5" />
+            Thread in "{item.lessonTitle || 'lesson'}"
+          </span>
+          {item.stepIndex >= 0 && (
+            <button
+              type="button"
+              onClick={onGoToLesson}
+              className="text-xs font-medium shrink-0 hover:underline transition-colors"
+              style={{ color: courseColor }}
+            >
+              View in lesson <i className="fa-light fa-arrow-right ml-0.5 text-[10px]" />
+            </button>
+          )}
+        </div>
         <button
           type="button"
           onClick={onClose}
-          className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+          className="text-xs text-gray-500 hover:text-gray-300 transition-colors shrink-0 ml-3"
         >
           <i className="fa-light fa-xmark mr-1" />
           Back to chat
@@ -138,8 +151,8 @@ function ThreadPanel({ item, courseColor, onClose, onReplySubmit }) {
 
       <div ref={panelRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
         {item.contentSnippet && (
-          <div className="px-3 py-2 rounded bg-gray-800/60 border border-gray-700/50 text-xs text-gray-400 italic">
-            "{item.contentSnippet}"
+          <div className="px-3 py-2 rounded bg-gray-800/60 border border-gray-700/50 text-sm text-gray-400">
+            {item.contentSnippet}
           </div>
         )}
 
@@ -207,6 +220,7 @@ function ThreadPanel({ item, courseColor, onClose, onReplySubmit }) {
 }
 
 export default function CourseChatroom({ courseId, courseColor, steps }) {
+  const navigate = useNavigate()
   const [version, setVersion] = useState(0)
   const refresh = useCallback(() => setVersion((v) => v + 1), [])
   const scrollRef = useRef(null)
@@ -301,6 +315,11 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
           courseColor={courseColor}
           onClose={() => setSelectedThread(null)}
           onReplySubmit={handleReply}
+          onGoToLesson={() => {
+            if (selectedThread.stepIndex >= 0) {
+              navigate(`/play/${courseId}`, { state: { stepIndex: selectedThread.stepIndex } })
+            }
+          }}
         />
       ) : (
         <div className="px-4 py-3 border-t border-gray-800">
