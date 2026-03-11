@@ -36,11 +36,11 @@ export default function CourseDetails() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="fixed top-4 right-6 z-50">
+      <div className="fixed top-4 right-6 z-50 animate-in" style={{ '--delay': '0ms' }}>
         <NotificationBell />
       </div>
 
-      <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden">
+      <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden animate-fade" style={{ '--delay': '0ms' }}>
         <img
           src={course.image}
           alt=""
@@ -53,14 +53,16 @@ export default function CourseDetails() {
         <div className="absolute bottom-0 left-0 right-0 px-6 py-6 md:py-10 max-w-3xl mx-auto w-full">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white mb-4"
+            viewTransition
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white mb-4 animate-in"
+            style={{ '--delay': '80ms' }}
           >
             <i className="fa-light fa-arrow-left" />
             Back to dashboard
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold">{course.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold animate-in" style={{ '--delay': '140ms' }}>{course.name}</h1>
           {course.progress !== undefined && (
-            <p className="text-gray-400 mt-1">{course.progress}% complete</p>
+            <p className="text-gray-400 mt-1 animate-in" style={{ '--delay': '200ms' }}>{course.progress}% complete</p>
           )}
         </div>
       </div>
@@ -69,12 +71,12 @@ export default function CourseDetails() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="space-y-4">
             {course.description?.map((paragraph, i) => (
-              <p key={i} className="text-gray-300 leading-relaxed">
+              <p key={i} className="text-gray-300 leading-relaxed animate-in" style={{ '--delay': `${260 + i * 60}ms` }}>
                 {paragraph}
               </p>
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 animate-in" style={{ '--delay': '400ms' }}>
             <button
               type="button"
               onClick={() => navigate(`/play/${courseId}`)}
@@ -90,7 +92,7 @@ export default function CourseDetails() {
           </div>
         </div>
 
-        <section className="mt-12 pt-10 border-t border-gray-800 px-6">
+        <section className="mt-12 pt-10 border-t border-gray-800 px-6 animate-fade" style={{ '--delay': '400ms' }}>
           <div className="flex justify-center gap-2 mb-8">
             <button
               type="button"
@@ -123,15 +125,15 @@ export default function CourseDetails() {
           {tab === 'explore' && course.units?.length > 0 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-1 gap-3">
-                {course.units.map((unit) => {
+                {course.units.map((unit, ui) => {
                   const isActive = effectiveUnitId === unit.id
                   return (
                     <button
                       key={unit.id}
                       type="button"
                       onClick={() => setSelectedUnitId(unit.id)}
-                      style={{ '--unit-color': course.color ?? '#6366f1' }}
-                      className={`w-full h-full text-left rounded-xl overflow-hidden bg-gray-900 border-2 transition-colors focus:outline-none ${
+                      style={{ '--unit-color': course.color ?? '#6366f1', '--delay': `${ui * 60}ms` }}
+                      className={`w-full h-full text-left rounded-xl overflow-hidden bg-gray-900 border-2 transition-colors focus:outline-none animate-in ${
                         isActive ? 'border-[var(--unit-color)]' : 'border-gray-800 hover:border-[var(--unit-color)] focus:border-[var(--unit-color)]'
                       }`}
                     >
@@ -160,11 +162,11 @@ export default function CourseDetails() {
               <div className="text-left min-h-[200px]" style={{ '--unit-color': course.color ?? '#6366f1' }}>
                 {selectedUnit ? (
                   <>
-                    <h3 className="text-lg font-semibold mb-1">{selectedUnit.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{selectedUnit.description}</p>
-                    <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Lessons</h4>
+                    <h3 className="text-lg font-semibold mb-1 animate-in" style={{ '--delay': '0ms' }}>{selectedUnit.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4 animate-in" style={{ '--delay': '60ms' }}>{selectedUnit.description}</p>
+                    <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3 animate-in" style={{ '--delay': '120ms' }}>Lessons</h4>
                     <ul className="space-y-3">
-                      {selectedUnit.lessons?.map((lesson) => (
+                      {selectedUnit.lessons?.map((lesson, li) => (
                         <button
                           key={lesson.id}
                           type="button"
@@ -172,8 +174,8 @@ export default function CourseDetails() {
                             saveProgress(courseId, { currentLessonId: lesson.id, currentPage: 0 })
                             navigate(`/play/${courseId}`)
                           }}
-                          className="group w-full text-left flex items-center gap-4 p-4 rounded-lg bg-gray-900/80 border border-gray-800 hover:border-[var(--unit-color)] transition-colors focus:outline-none"
-                          style={{ '--unit-color': course.color ?? '#6366f1' }}
+                          className="group w-full text-left flex items-center gap-4 p-4 rounded-lg bg-gray-900/80 border border-gray-800 hover:border-[var(--unit-color)] transition-colors focus:outline-none animate-in"
+                          style={{ '--unit-color': course.color ?? '#6366f1', '--delay': `${180 + li * 60}ms` }}
                         >
                           <div className="min-w-0 flex-1">
                             <h4 className="font-medium text-white">{lesson.title}</h4>

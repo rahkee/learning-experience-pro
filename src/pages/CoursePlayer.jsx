@@ -118,10 +118,9 @@ export default function CoursePlayer() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
-      {/* Top bar */}
       <header
-        className="sticky top-0 z-20 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4"
-        style={{ '--course-color': course.color ?? '#6366f1' }}
+        className="sticky top-0 z-20 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4 animate-fade"
+        style={{ '--course-color': course.color ?? '#6366f1', '--delay': '0ms' }}
       >
         <Link
           to={`/course/${courseId}`}
@@ -144,27 +143,28 @@ export default function CoursePlayer() {
         <NotificationBell />
       </header>
 
-      {/* Page content */}
-      <main className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full pr-14">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">{page.title}</h1>
+      <main key={currentIndex} className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full pr-14">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6 animate-in" style={{ '--delay': '0ms' }}>{page.title}</h1>
 
         {page.type === 'intro' && page.video && (
           <>
-            <ThreadableContent
-              elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:video:0`}
-              courseColor={course.color}
-            >
-              <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
-                <iframe
-                  src={page.video.url}
-                  title={page.video.title}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </ThreadableContent>
-            <div className="mb-8">
+            <div className="animate-in" style={{ '--delay': '80ms' }}>
+              <ThreadableContent
+                elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:video:0`}
+                courseColor={course.color}
+              >
+                <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                  <iframe
+                    src={page.video.url}
+                    title={page.video.title}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </ThreadableContent>
+            </div>
+            <div className="mb-8 animate-in" style={{ '--delay': '160ms' }}>
               <LiveChat
                 elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:livechat:0`}
                 lessonTitle={lessonTitle}
@@ -174,72 +174,80 @@ export default function CoursePlayer() {
           </>
         )}
 
-        {page.sections?.map((section, i) => (
-          <div key={i} className="mb-6">
-            <h2 className="text-lg font-semibold mb-2 text-gray-200">{section.heading}</h2>
-            {section.body?.map((paragraph, j) => (
-              <ThreadableContent
-                key={j}
-                elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
-                courseColor={course.color}
-              >
-                <p className="text-gray-400 leading-relaxed mb-3">
-                  {paragraph}
-                </p>
-              </ThreadableContent>
-            ))}
-          </div>
-        ))}
-
-        {page.type === 'quiz' && page.question && (
-          <div className="mt-8 p-6 rounded-xl bg-gray-900 border border-gray-800">
-            <h3 className="text-lg font-semibold mb-4">{page.question.text}</h3>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {page.question.options?.map((option) => {
-                const isCorrect = option === page.question.answer
-                let optionClasses =
-                  'px-4 py-3 rounded-lg border text-left transition-colors font-medium '
-                if (!answerLocked) {
-                  optionClasses +=
-                    'border-gray-700 hover:border-gray-500 hover:bg-gray-800 cursor-pointer'
-                } else if (selectedAnswer === option) {
-                  optionClasses += isCorrect
-                    ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
-                    : 'border-red-500 bg-red-500/20 text-red-300'
-                } else if (isCorrect) {
-                  optionClasses += 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
-                } else {
-                  optionClasses += 'border-gray-800 text-gray-600'
-                }
-
-                return (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleQuizAnswer(option)}
-                    disabled={answerLocked}
-                    className={optionClasses}
+        {page.sections?.map((section, i) => {
+          const sectionBase = page.type === 'intro' ? 240 + i * 120 : 80 + i * 120
+          return (
+            <div key={i} className="mb-6">
+              <h2 className="text-lg font-semibold mb-2 text-gray-200 animate-in" style={{ '--delay': `${sectionBase}ms` }}>{section.heading}</h2>
+              {section.body?.map((paragraph, j) => (
+                <div key={j} className="animate-in" style={{ '--delay': `${sectionBase + 60 + j * 50}ms` }}>
+                  <ThreadableContent
+                    elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
+                    courseColor={course.color}
                   >
-                    {option}
-                  </button>
-                )
-              })}
+                    <p className="text-gray-400 leading-relaxed mb-3">
+                      {paragraph}
+                    </p>
+                  </ThreadableContent>
+                </div>
+              ))}
             </div>
-            {answerLocked && (
-              <p className={`mt-4 font-medium ${selectedAnswer === page.question.answer ? 'text-emerald-400' : 'text-red-400'}`}>
-                {selectedAnswer === page.question.answer
-                  ? 'Correct! Great job!'
-                  : `Not quite — the answer is ${page.question.answer}.`}
-              </p>
-            )}
-          </div>
-        )}
+          )
+        })}
+
+        {page.type === 'quiz' && page.question && (() => {
+          const quizBase = 80 + (page.sections?.length ?? 0) * 120
+          return (
+            <div className="mt-8 p-6 rounded-xl bg-gray-900 border border-gray-800 animate-in" style={{ '--delay': `${quizBase}ms` }}>
+              <h3 className="text-lg font-semibold mb-4">{page.question.text}</h3>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {page.question.options?.map((option, oi) => {
+                  const isCorrect = option === page.question.answer
+                  let optionClasses =
+                    'px-4 py-3 rounded-lg border text-left transition-colors font-medium animate-in '
+                  if (!answerLocked) {
+                    optionClasses +=
+                      'border-gray-700 hover:border-gray-500 hover:bg-gray-800 cursor-pointer'
+                  } else if (selectedAnswer === option) {
+                    optionClasses += isCorrect
+                      ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
+                      : 'border-red-500 bg-red-500/20 text-red-300'
+                  } else if (isCorrect) {
+                    optionClasses += 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
+                  } else {
+                    optionClasses += 'border-gray-800 text-gray-600'
+                  }
+
+                  return (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => handleQuizAnswer(option)}
+                      disabled={answerLocked}
+                      className={optionClasses}
+                      style={{ '--delay': `${quizBase + 60 + oi * 50}ms` }}
+                    >
+                      {option}
+                    </button>
+                  )
+                })}
+              </div>
+              {answerLocked && (
+                <p className={`mt-4 font-medium ${selectedAnswer === page.question.answer ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {selectedAnswer === page.question.answer
+                    ? 'Correct! Great job!'
+                    : `Not quite — the answer is ${page.question.answer}.`}
+                </p>
+              )}
+            </div>
+          )
+        })()}
       </main>
 
       {/* Pagination bar */}
       <footer
-        className="sticky bottom-0 z-20 bg-gray-950/90 backdrop-blur border-t border-gray-800 px-4 py-3 flex items-center justify-between gap-4 max-w-3xl mx-auto w-full"
-        style={{ '--course-color': course.color ?? '#6366f1' }}
+        className="sticky bottom-0 z-20 bg-gray-950/90 backdrop-blur border-t border-gray-800 px-4 py-3 flex items-center justify-between gap-4 max-w-3xl mx-auto w-full animate-in"
+        style={{ '--course-color': course.color ?? '#6366f1', '--delay': '100ms' }}
       >
         <button
           type="button"

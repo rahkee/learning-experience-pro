@@ -268,9 +268,9 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
 
   return (
     <div className="max-w-3xl mx-auto flex flex-col" style={{ height: 'calc(100vh - 20rem)' }}>
-      <div className="px-4 py-3 flex items-center gap-2 border-b border-gray-800">
-        {usersWithStatus.map((u) => (
-          <div key={u.id} className="relative shrink-0">
+      <div className="px-4 py-3 flex items-center gap-2 border-b border-gray-800 animate-fade" style={{ '--delay': '0ms' }}>
+        {usersWithStatus.map((u, ui) => (
+          <div key={u.id} className="relative shrink-0 animate-in" style={{ '--delay': `${ui * 40}ms` }}>
             <span
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity ${u.online ? '' : 'opacity-40'}`}
               style={{ backgroundColor: u.color + '33', color: u.color }}
@@ -283,27 +283,30 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
             )}
           </div>
         ))}
-        <span className="text-xs text-gray-500 ml-auto">
+        <span className="text-xs text-gray-500 ml-auto animate-fade" style={{ '--delay': '300ms' }}>
           {usersWithStatus.filter((u) => u.online).length} online
         </span>
       </div>
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
         {feed.length === 0 ? (
-          <div className="text-center text-gray-500 text-sm py-12">
+          <div className="text-center text-gray-500 text-sm py-12 animate-fade" style={{ '--delay': '200ms' }}>
             No activity yet. Start the conversation!
           </div>
         ) : (
-          feed.map((item) =>
+          feed.map((item, fi) =>
             item.type === 'chat' ? (
-              <ChatBubble key={item.id} item={item} />
+              <div key={item.id} className="animate-in" style={{ '--delay': `${Math.min(fi * 40, 600)}ms` }}>
+                <ChatBubble item={item} />
+              </div>
             ) : (
-              <DiscussionCard
-                key={item.id}
-                item={item}
-                courseColor={courseColor}
-                onClick={() => handleDiscussionClick(item)}
-              />
+              <div key={item.id} className="animate-in" style={{ '--delay': `${Math.min(fi * 40, 600)}ms` }}>
+                <DiscussionCard
+                  item={item}
+                  courseColor={courseColor}
+                  onClick={() => handleDiscussionClick(item)}
+                />
+              </div>
             )
           )
         )}
@@ -322,7 +325,7 @@ export default function CourseChatroom({ courseId, courseColor, steps }) {
           }}
         />
       ) : (
-        <div className="px-4 py-3 border-t border-gray-800">
+        <div className="px-4 py-3 border-t border-gray-800 animate-in" style={{ '--delay': '300ms' }}>
           <CommentInput
             onSubmit={handleSend}
             placeholder="Say something in the chatroom..."
