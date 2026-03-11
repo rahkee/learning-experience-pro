@@ -33,7 +33,7 @@ export default function ThreadableContent({ elementKey, courseColor, children })
       </div>
 
       {open && (
-        <div className="mt-3 ml-2 pl-4 border-l-2 border-gray-800 pb-2">
+        <div className="mt-3 ml-2 pl-4 border-l-2 border-gray-800 pb-2 animate-in" style={{ '--delay': '0ms' }}>
           <DiscussionThread elementKey={elementKey} courseColor={courseColor} />
         </div>
       )}

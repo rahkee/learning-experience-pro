@@ -123,17 +123,15 @@ export default function CourseComplete() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-12 max-w-2xl mx-auto w-full">
-        {/* Hero */}
-        <div className="w-24 h-24 rounded-2xl overflow-hidden mb-6 shadow-lg">
+        <div className="w-24 h-24 rounded-2xl overflow-hidden mb-6 shadow-lg animate-in" style={{ '--delay': '0ms' }}>
           <img src={course.image} alt="" className="w-full h-full object-cover" />
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Course Complete!</h1>
-        <p className="text-gray-400 text-center mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center animate-in" style={{ '--delay': '80ms' }}>Course Complete!</h1>
+        <p className="text-gray-400 text-center mb-10 animate-in" style={{ '--delay': '140ms' }}>
           You finished <span style={{ color }} className="font-semibold">{course.name}</span>. Great work!
         </p>
 
-        {/* Course progress bar */}
-        <div className="w-full mb-10">
+        <div className="w-full mb-10 animate-in" style={{ '--delay': '220ms' }}>
           <div className="flex items-center justify-between text-sm mb-2">
             <span className="text-gray-400">Course Progress</span>
             <span className="font-semibold" style={{ color }}>100%</span>
@@ -141,30 +139,19 @@ export default function CourseComplete() {
           <AnimatedBar percent={100} color={color} />
         </div>
 
-        {/* Stats grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full mb-12">
-          <StatCard
-            icon="fa-light fa-book-open"
-            label="Pages Read"
-            value={pagesCount}
-            color={color}
-          />
-          <StatCard
-            icon="fa-light fa-video"
-            label="Video Hours"
-            value={`${(videoCount / 10).toFixed(1)}`}
-            color={color}
-          />
-          <StatCard
-            icon="fa-light fa-circle-check"
-            label="Quiz Answers"
-            value={`${quizCorrect} / ${stats.totalQuizzes}`}
-            color={color}
-          />
+          {[
+            { icon: 'fa-light fa-book-open', label: 'Pages Read', value: pagesCount, delay: 320 },
+            { icon: 'fa-light fa-video', label: 'Video Hours', value: `${(videoCount / 10).toFixed(1)}`, delay: 380 },
+            { icon: 'fa-light fa-circle-check', label: 'Quiz Answers', value: `${quizCorrect} / ${stats.totalQuizzes}`, delay: 440 },
+          ].map((s) => (
+            <div key={s.label} className="animate-in" style={{ '--delay': `${s.delay}ms` }}>
+              <StatCard icon={s.icon} label={s.label} value={s.value} color={color} />
+            </div>
+          ))}
         </div>
 
-        {/* Graduation progress */}
-        <div className="w-full mb-10">
+        <div className="w-full mb-10 animate-in" style={{ '--delay': '520ms' }}>
           <div className="flex items-center justify-between text-sm mb-2">
             <span className="text-gray-400">Your Path to Graduation</span>
             <span className="font-semibold" style={{ color }}>
@@ -177,8 +164,7 @@ export default function CourseComplete() {
           </p>
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-in" style={{ '--delay': '600ms' }}>
           <Link
             to={`/course/${courseId}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 text-sm font-medium hover:bg-gray-800 transition-colors"

@@ -1,39 +1,11 @@
 import { Link } from 'react-router-dom'
-import { getStudent, getAllCoursesWithProgress } from '../data/courses.js'
-import NotificationBell from '../components/NotificationBell.jsx'
+import { getAllCoursesWithProgress } from '../data/courses.js'
 
 export default function Dashboard() {
-  const student = getStudent()
   const courses = getAllCoursesWithProgress()
-
-  const initials = [student.firstName, student.lastName]
-    .map((n) => n?.charAt(0) ?? '')
-    .join('')
-    .toUpperCase() || '?'
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end gap-4 px-6 py-4 bg-transparent animate-in"
-        style={{ '--delay': '0ms' }}
-        aria-label="Main navigation"
-      >
-        <NotificationBell />
-        <button
-          type="button"
-          className="p-2 rounded-full hover:bg-white/10 transition-colors"
-          aria-label="Messages"
-        >
-          <i className="fa-solid fa-envelope text-xl" />
-        </button>
-        <div
-          className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-semibold shrink-0"
-          aria-hidden
-        >
-          {initials}
-        </div>
-      </nav>
-
       <main className="pt-24 px-6 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {courses.map((course, i) => {

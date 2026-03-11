@@ -29,7 +29,7 @@ function RoleBadge({ role }) {
   )
 }
 
-export default function NotificationPanel({ onClose }) {
+export default function NotificationPanel({ open, onClose }) {
   const navigate = useNavigate()
   const [version, setVersion] = useState(0)
   const refresh = useCallback(() => setVersion((v) => v + 1), [])
@@ -57,9 +57,11 @@ export default function NotificationPanel({ onClose }) {
 
   const hasAny = items.length > 0
 
+  if (!open) return null
+
   return (
-    <div className="absolute top-full right-0 mt-2 w-80 rounded-xl bg-gray-900 border border-gray-800 shadow-2xl z-50 flex flex-col" style={{ maxHeight: '28rem' }}>
-      <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between shrink-0">
+    <div className="absolute top-full right-0 mt-2 w-80 rounded-xl bg-gray-900 border border-gray-800 shadow-2xl z-50 flex flex-col animate-panel" style={{ maxHeight: '28rem', transformOrigin: 'top right' }}>
+      <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between shrink-0 animate-fade" style={{ '--delay': '0ms' }}>
         <h3 className="text-sm font-semibold">Notifications</h3>
         {hasAny && (
           <button
@@ -89,7 +91,8 @@ export default function NotificationPanel({ onClose }) {
                 key={`${t.elementKey}-${i}`}
                 type="button"
                 onClick={() => handleClick(t)}
-                className="w-full text-left px-4 py-3 hover:bg-gray-800/50 transition-colors flex gap-2.5 items-start border-b border-gray-800/50 last:border-b-0"
+                className="w-full text-left px-4 py-3 hover:bg-gray-800/50 transition-colors flex gap-2.5 items-start border-b border-gray-800/50 last:border-b-0 animate-in"
+                style={{ '--delay': `${Math.min(i * 30, 400)}ms` }}
               >
                 {t.unread && (
                   <span className="w-2 h-2 rounded-full bg-red-500 shrink-0 mt-1.5" />
@@ -135,7 +138,10 @@ export default function NotificationPanel({ onClose }) {
         )}
       </div>
 
-      <div className="px-4 py-2.5 border-t border-gray-800 shrink-0">
+      <div
+        className="px-4 py-2.5 border-t border-gray-800 shrink-0 animate-in"
+        style={{ '--delay': `${Math.min(items.length * 30 + 50, 500)}ms` }}
+      >
         <Link
           to="/notifications"
           onClick={onClose}

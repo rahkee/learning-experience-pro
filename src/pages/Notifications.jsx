@@ -5,7 +5,6 @@ import { getAllCoursesWithProgress, flattenCoursePages } from '../data/courses.j
 import { getUserById, getInitials, getDisplayName } from '../data/fakeUsers.js'
 import { saveProgress } from '../data/progress.js'
 import RenderText from '../components/RenderText.jsx'
-import NotificationBell from '../components/NotificationBell.jsx'
 
 function timeAgo(iso) {
   const diff = Date.now() - new Date(iso).getTime()
@@ -118,7 +117,7 @@ export default function Notifications() {
           Dashboard
         </Link>
         <h1 className="text-lg font-bold">All Notifications</h1>
-        <NotificationBell />
+        <div className="w-10" />
       </nav>
 
       <main className="pt-24 px-6 pb-16 max-w-7xl mx-auto">

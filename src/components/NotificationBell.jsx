@@ -41,7 +41,7 @@ export default function NotificationBell() {
           </span>
         )}
       </button>
-      {open && <NotificationPanel onClose={() => setOpen(false)} />}
+      <NotificationPanel open={open} onClose={() => setOpen(false)} />
     </div>
   )
 }

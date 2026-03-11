@@ -61,13 +61,19 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
     generateFakeReply(elementKey, text, commentId).then(() => refresh())
   }
 
-  if (!open) return null
-
   return (
     <>
-      <div className="fixed inset-0 bg-black/40 z-40" onClick={onClose} />
-      <div className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900 border-l border-gray-800 z-50 flex flex-col shadow-2xl">
-        <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+      <div
+        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={onClose}
+      />
+      <div
+        className={`fixed top-0 right-0 bottom-0 w-80 bg-gray-900 border-l border-gray-800 z-50 flex flex-col shadow-2xl transition-transform duration-300 ease-out ${open ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div
+          className={`px-4 py-3 border-b border-gray-800 flex items-center justify-between ${open ? 'animate-in' : ''}`}
+          style={{ '--delay': '100ms' }}
+        >
           <h2 className="text-sm font-semibold">My Discussions</h2>
           <button
             type="button"
@@ -78,9 +84,16 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
           </button>
         </div>
 
-        <div className="px-4 py-3 border-b border-gray-800 flex items-center gap-2 overflow-x-auto">
-          {usersWithStatus.map((u) => (
-            <div key={u.id} className="relative shrink-0">
+        <div
+          className={`px-4 py-3 border-b border-gray-800 flex items-center gap-2 overflow-x-auto ${open ? 'animate-fade' : ''}`}
+          style={{ '--delay': '150ms' }}
+        >
+          {usersWithStatus.map((u, ui) => (
+            <div
+              key={u.id}
+              className={`relative shrink-0 ${open ? 'animate-in' : ''}`}
+              style={{ '--delay': `${150 + ui * 30}ms` }}
+            >
               <span
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity ${u.online ? '' : 'opacity-40'}`}
                 style={{ backgroundColor: u.color + '33', color: u.color }}
@@ -102,12 +115,16 @@ export default function ChatSidebar({ open, onClose, courseId, courseColor, step
             </div>
           ) : (
             <div className="divide-y divide-gray-800">
-              {threads.map((t) => {
+              {threads.map((t, ti) => {
                 const isExpanded = expandedKey === t.elementKey
                 const thread = isExpanded ? getThread(t.elementKey) : null
 
                 return (
-                  <div key={t.elementKey}>
+                  <div
+                    key={t.elementKey}
+                    className={open ? 'animate-in' : ''}
+                    style={{ '--delay': `${Math.min(200 + ti * 40, 600)}ms` }}
+                  >
                     <button
                       type="button"
                       onClick={() => handleThreadClick(t)}

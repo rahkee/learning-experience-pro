@@ -124,22 +124,25 @@ export default function DiscussionThread({ elementKey, courseColor }) {
     <div className="space-y-4">
       {thread.comments.length > 0 && (
         <div className="space-y-4">
-          {thread.comments.map((comment) => (
-            <CommentItem
-              key={comment.id}
-              comment={comment}
-              elementKey={elementKey}
-              courseColor={courseColor}
-              onRefresh={refresh}
-            />
+          {thread.comments.map((comment, i) => (
+            <div key={comment.id} className="animate-in" style={{ '--delay': `${i * 60}ms` }}>
+              <CommentItem
+                comment={comment}
+                elementKey={elementKey}
+                courseColor={courseColor}
+                onRefresh={refresh}
+              />
+            </div>
           ))}
         </div>
       )}
-      <CommentInput
-        onSubmit={handleNewComment}
-        placeholder="Start a discussion..."
-        courseColor={courseColor}
-      />
+      <div className="animate-in" style={{ '--delay': `${thread.comments.length * 60 + 60}ms` }}>
+        <CommentInput
+          onSubmit={handleNewComment}
+          placeholder="Start a discussion..."
+          courseColor={courseColor}
+        />
+      </div>
     </div>
   )
 }

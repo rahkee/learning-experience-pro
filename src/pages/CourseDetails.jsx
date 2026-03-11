@@ -3,7 +3,6 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getCourseWithProgress, flattenCoursePages } from '../data/courses.js'
 import { saveProgress } from '../data/progress.js'
 import { seedChatroomChat } from '../data/discussions.js'
-import NotificationBell from '../components/NotificationBell.jsx'
 import CourseChatroom from '../components/CourseChatroom.jsx'
 
 export default function CourseDetails() {
@@ -36,10 +35,6 @@ export default function CourseDetails() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <div className="fixed top-4 right-6 z-50 animate-in" style={{ '--delay': '0ms' }}>
-        <NotificationBell />
-      </div>
-
       <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden animate-fade" style={{ '--delay': '0ms' }}>
         <img
           src={course.image}

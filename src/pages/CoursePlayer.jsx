@@ -5,7 +5,6 @@ import { getStudentProgress, saveProgress } from '../data/progress.js'
 import LiveChat from '../components/LiveChat.jsx'
 import ThreadableContent from '../components/ThreadableContent.jsx'
 import ChatSidebar from '../components/ChatSidebar.jsx'
-import NotificationBell from '../components/NotificationBell.jsx'
 import { getUnreadCount } from '../data/discussions.js'
 
 export default function CoursePlayer() {
@@ -140,7 +139,6 @@ export default function CoursePlayer() {
         <span className="text-xs text-gray-600 shrink-0 mr-1">
           {currentIndex + 1} / {steps.length}
         </span>
-        <NotificationBell />
       </header>
 
       <main key={currentIndex} className="flex-1 overflow-y-auto px-4 py-8 max-w-3xl mx-auto w-full pr-14">
@@ -233,7 +231,7 @@ export default function CoursePlayer() {
                 })}
               </div>
               {answerLocked && (
-                <p className={`mt-4 font-medium ${selectedAnswer === page.question.answer ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`mt-4 font-medium animate-in ${selectedAnswer === page.question.answer ? 'text-emerald-400' : 'text-red-400'}`} style={{ '--delay': '0ms' }}>
                   {selectedAnswer === page.question.answer
                     ? 'Correct! Great job!'
                     : `Not quite — the answer is ${page.question.answer}.`}
