@@ -42,7 +42,7 @@ export default function LiveChat({ elementKey, lessonTitle, courseColor }) {
         <span className="text-xs text-gray-600 ml-auto">{thread.comments.length} messages</span>
       </div>
 
-      <div ref={scrollRef} className="h-64 overflow-y-auto px-4 py-3 space-y-2.5">
+      <div ref={scrollRef} className="min-h-64 max-h-[528px] overflow-y-auto px-4 py-3 space-y-2.5">
         {thread.comments.map((msg) => {
           const user = getUserById(msg.userId)
           return (

@@ -63,6 +63,10 @@ export default function CoursePlayer() {
   const isFirst = currentIndex === 0
   const isLast = currentIndex === steps.length - 1
   const unreadCount = useMemo(() => getUnreadCount(), [sidebarOpen, currentIndex])
+  const shouldShowLiveChat = page.type === 'intro' && !!page.video
+  const liveChatSectionIndex = page.sections?.findIndex(
+    (section) => section.heading === "What You'll Learn"
+  )
 
   const persistPosition = (index) => {
     const s = steps[index]
@@ -121,13 +125,13 @@ export default function CoursePlayer() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
       <header
-        className="sticky top-0 z-30 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4 animate-fade"
+        className="sticky top-0 z-30 isolate bg-gray-950/90 backdrop-blur border-b border-gray-800 px-4 py-3 flex items-center gap-4 animate-fade"
         style={{ '--course-color': course.color ?? '#6366f1', '--delay': '0ms' }}
       >
         <Link
           to={`/course/${courseId}`}
           viewTransition
-          className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center border border-gray-700 hover:border-gray-500 transition-colors"
+          className="shrink-0 w-9 h-9 rounded-full flex items-center justify-center border border-gray-700 hover:border-gray-500 transition-colors text-white mix-blend-difference"
           aria-label="Back to course"
         >
           <i className="fa-light fa-xmark text-sm" />
@@ -147,13 +151,13 @@ export default function CoursePlayer() {
           <NotificationBell />
           <button
             type="button"
-            className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors text-white bg-gray-900/70 border border-gray-700 hover:bg-gray-800 leading-none shrink-0"
             aria-label="Messages"
           >
-            <i className="fa-solid fa-envelope text-lg" />
+            <i className="fa-solid fa-envelope text-lg leading-none" />
           </button>
           <div
-            className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-semibold shrink-0"
+            className="w-8 h-8 rounded-full bg-white text-black mix-blend-difference flex items-center justify-center text-xs font-semibold shrink-0"
             aria-hidden
           >
             {getInitials(getStudent())}
@@ -164,7 +168,7 @@ export default function CoursePlayer() {
       <main key={currentIndex} className="flex-1 overflow-y-auto px-4 pt-8 pb-24 max-w-3xl mx-auto w-full pr-14">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 animate-in" style={{ '--delay': '0ms' }}>{page.title}</h1>
 
-        {page.type === 'intro' && page.video && (
+        {shouldShowLiveChat && (
           <>
             <div className="animate-in" style={{ '--delay': '80ms' }}>
               <ThreadableContent
@@ -182,53 +186,67 @@ export default function CoursePlayer() {
                 </div>
               </ThreadableContent>
             </div>
-            <div className="mb-8 animate-in" style={{ '--delay': '160ms' }}>
-              <LiveChat
-                elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:livechat:0`}
-                lessonTitle={lessonTitle}
-                courseColor={course.color}
-              />
-            </div>
           </>
         )}
 
         {page.sections?.map((section, i) => {
           const sectionBase = page.type === 'intro' ? 240 + i * 120 : 80 + i * 120
           return (
-            <div key={i} className="mb-6">
-              <h2 className="text-lg font-semibold mb-2 text-gray-200 animate-in" style={{ '--delay': `${sectionBase}ms` }}>{section.heading}</h2>
-              {section.body?.map((item, j) => {
-                const isImage = typeof item === 'object' && item?.type === 'image'
-                return (
-                  <div key={j} className="animate-in" style={{ '--delay': `${sectionBase + 60 + j * 50}ms` }}>
-                    <ThreadableContent
-                      elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
-                      courseColor={course.color}
-                    >
-                      {isImage ? (
-                        <figure className="mb-4">
-                          <img
-                            src={item.src}
-                            alt={item.alt ?? ''}
-                            className="w-full rounded-xl border border-gray-800 img-fade"
-                            onLoad={(e) => e.currentTarget.classList.add('loaded')}
-                          />
-                          {item.caption && (
-                            <figcaption className="text-xs text-gray-500 mt-1.5 text-center">{item.caption}</figcaption>
-                          )}
-                        </figure>
-                      ) : (
-                        <p className="text-gray-400 leading-relaxed mb-3">
-                          {item}
-                        </p>
-                      )}
-                    </ThreadableContent>
-                  </div>
-                )
-              })}
+            <div key={i}>
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold mb-2 text-gray-200 animate-in" style={{ '--delay': `${sectionBase}ms` }}>{section.heading}</h2>
+                {section.body?.map((item, j) => {
+                  const isImage = typeof item === 'object' && item?.type === 'image'
+                  return (
+                    <div key={j} className="animate-in" style={{ '--delay': `${sectionBase + 60 + j * 50}ms` }}>
+                      <ThreadableContent
+                        elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:section:${i}:body:${j}`}
+                        courseColor={course.color}
+                      >
+                        {isImage ? (
+                          <figure className="mb-4">
+                            <img
+                              src={item.src}
+                              alt={item.alt ?? ''}
+                              className="w-full rounded-xl border border-gray-800 img-fade"
+                              onLoad={(e) => e.currentTarget.classList.add('loaded')}
+                            />
+                            {item.caption && (
+                              <figcaption className="text-xs text-gray-500 mt-1.5 text-center">{item.caption}</figcaption>
+                            )}
+                          </figure>
+                        ) : (
+                          <p className="text-gray-400 leading-relaxed mb-3">
+                            {item}
+                          </p>
+                        )}
+                      </ThreadableContent>
+                    </div>
+                  )
+                })}
+              </div>
+              {shouldShowLiveChat && i === liveChatSectionIndex && (
+                <div className="mb-8 animate-in" style={{ '--delay': '160ms' }}>
+                  <LiveChat
+                    elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:livechat:0`}
+                    lessonTitle={lessonTitle}
+                    courseColor={course.color}
+                  />
+                </div>
+              )}
             </div>
           )
         })}
+
+        {shouldShowLiveChat && liveChatSectionIndex === -1 && (
+          <div className="mb-8 animate-in" style={{ '--delay': '160ms' }}>
+            <LiveChat
+              elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:livechat:0`}
+              lessonTitle={lessonTitle}
+              courseColor={course.color}
+            />
+          </div>
+        )}
 
         {page.type === 'quiz' && page.question && (() => {
           const quizBase = 80 + (page.sections?.length ?? 0) * 120

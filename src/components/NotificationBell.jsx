@@ -31,10 +31,10 @@ export default function NotificationBell() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="p-2 rounded-full hover:bg-white/10 transition-colors relative"
+        className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors relative text-white bg-gray-900/70 border border-gray-700 hover:bg-gray-800 leading-none shrink-0"
         aria-label="Notifications"
       >
-        <i className="fa-solid fa-bell text-xl" />
+        <i className="fa-solid fa-bell text-xl leading-none" />
         {unread > 0 && (
           <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">
             {unread > 99 ? '99+' : unread}

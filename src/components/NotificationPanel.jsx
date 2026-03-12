@@ -42,7 +42,7 @@ export default function NotificationPanel({ open, onClose }) {
   return (
     <div className="absolute top-full right-0 mt-2 w-80 rounded-xl bg-gray-900 border border-gray-800 shadow-2xl z-50 flex flex-col animate-panel" style={{ maxHeight: '28rem', transformOrigin: 'top right' }}>
       <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between shrink-0 animate-fade" style={{ '--delay': '0ms' }}>
-        <h3 className="text-sm font-semibold">Notifications</h3>
+        <h3 className="text-sm font-semibold text-gray-100">Notifications</h3>
         {hasAny && (
           <button
             type="button"

@@ -1,4 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300..1000&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-weight-normal: 300;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 800;
+}
+
+body {
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 0.0125em;
+}
 
 ::view-transition {
   background-color: #030712;

@@ -18,10 +18,10 @@ export default function GlobalNav() {
       <NotificationBell />
       <button
         type="button"
-        className="p-2 rounded-full hover:bg-white/10 transition-colors"
+        className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors text-white bg-gray-900/70 border border-gray-700 hover:bg-gray-800 leading-none shrink-0"
         aria-label="Messages"
       >
-        <i className="fa-solid fa-envelope text-xl" />
+        <i className="fa-solid fa-envelope text-xl text-white leading-none" />
       </button>
       <div
         className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-semibold shrink-0"
