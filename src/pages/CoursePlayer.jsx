@@ -175,7 +175,7 @@ export default function CoursePlayer() {
                 elementKey={`${courseId}:${step.lessonId}:${step.pageIndex}:video:0`}
                 courseColor={course.color}
               >
-                <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black">
+                <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-black border border-gray-800">
                   <iframe
                     src={page.video.url}
                     title={page.video.title}
